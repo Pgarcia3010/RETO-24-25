@@ -1,0 +1,4 @@
+Primero git pull
+git add .
+git commit -m "Mensaje"
+git push
