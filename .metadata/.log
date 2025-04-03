@@ -73,3 +73,8 @@ java.lang.Exception: The project description file (.project) for 'RepeGame' is m
 	at org.eclipse.ui.internal.navigator.resources.actions.ResourceMgmtActionProvider$1$1.runInWorkspace(ResourceMgmtActionProvider.java:232)
 	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 2 2 2025-04-03 13:01:05.864
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2025-04-03 13:01:05.864
+!MESSAGE The project description file (.project) for 'RepeGame' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
