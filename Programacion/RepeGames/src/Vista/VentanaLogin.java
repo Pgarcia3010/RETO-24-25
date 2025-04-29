@@ -1,4 +1,4 @@
-package Login;
+package Vista;
 
 import java.awt.EventQueue;
 import javax.swing.*;
@@ -40,7 +40,7 @@ public class VentanaLogin {
         layeredPane.setLayout(null);
 
         // Fondo GIF en capa inferior
-        ImageIcon gifIcon = new ImageIcon("C:\\Users\\1AW3-22\\eclipse-workspace\\RepeGames\\src\\logo_fondo_movimiento_window_size.gif");
+        ImageIcon gifIcon = new ImageIcon(".\\src\\Imagenes\\Login.gif");
         JLabel backgroundLabel = new JLabel(gifIcon);
         backgroundLabel.setBounds(0, 0, 687, 443);
         layeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER); // capa base

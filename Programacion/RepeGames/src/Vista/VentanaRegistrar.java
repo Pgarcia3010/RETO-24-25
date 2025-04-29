@@ -1,4 +1,4 @@
-package Login;
+package Vista;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -43,7 +43,7 @@ public class VentanaRegistrar {
 
         // --- Agregar fondo de imagen con el logo y estrellas ---
         // Asegúrate de que la ruta sea correcta (relativa o absoluta)
-        ImageIcon fondo = new ImageIcon("C:\\Users\\1AW3-22\\eclipse-workspace\\RepeGames\\src\\Fondo.png");
+        ImageIcon fondo = new ImageIcon(".\\src\\Imagenes\\Fondo.png");
 
         // Crear JLabel con la imagen y colocarlo ocupando toda la ventana
         JLabel fondoLabel = new JLabel(fondo);
