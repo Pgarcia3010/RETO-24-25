@@ -12,7 +12,6 @@ public class Conector {
 			Class.forName("com.mysql.jdbc.Driver");
 			this.conexion = DriverManager.getConnection("jdbc:mysql://" + Config.HOST+ "/"+Config.BBDD,Config.USERNAME,Config.PASSWORD);
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}

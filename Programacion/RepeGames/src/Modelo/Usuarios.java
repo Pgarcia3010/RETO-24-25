@@ -4,18 +4,18 @@ public class Usuarios {
 	
 	private String nickname;
 	private String contrasenya;
-	private int id_cliente;
-	private int id_empleado;
+	private int idCliente;
+	private int idEmpleado;
 	
-	public Usuarios(String nickname, String contrasenya, int id_cliente, int id_empleado) {
+	public Usuarios(String nickname, String contrasenya, int idCliente, int idEmpleado) {
 		this.nickname = nickname;
 		this.contrasenya = contrasenya;
-		this.id_cliente = id_cliente;
-		this.id_empleado = id_empleado;
+		this.idCliente = idCliente;
+		this.idEmpleado = idEmpleado;
 	}
 
 	public Usuarios() {
-		}
+	}
 
 	public String getNickname() {
 		return nickname;
@@ -33,26 +33,26 @@ public class Usuarios {
 		this.contrasenya = contrasenya;
 	}
 
-	public int getId_cliente() {
-		return id_cliente;
+	public int getIdCliente() {
+		return idCliente;
 	}
 
-	public void setId_cliente(int id_cliente) {
-		this.id_cliente = id_cliente;
+	public void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
 	}
 
-	public int getId_empleado() {
-		return id_empleado;
+	public int getIdEmpleado() {
+		return idEmpleado;
 	}
 
-	public void setId_empleado(int id_empleado) {
-		this.id_empleado = id_empleado;
+	public void setIdEmpleado(int idEmpleado) {
+		this.idEmpleado = idEmpleado;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuarios [nickname=" + nickname + ", contrasenya=" + contrasenya + ", id_cliente=" + id_cliente
-				+ ", id_empleado=" + id_empleado + "]";
+		return "Usuarios [nickname=" + nickname + ", contrasenya=" + contrasenya + ", idCliente=" + idCliente
+				+ ", idEmpleado=" + idEmpleado + "]";
 	}
 	
 	
