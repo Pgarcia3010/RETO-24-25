@@ -43,7 +43,7 @@ public class VentanaRegistrar {
 
         // --- Agregar fondo de imagen con el logo y estrellas ---
         // Asegúrate de que la ruta sea correcta (relativa o absoluta)
-        ImageIcon fondo = new ImageIcon(".\\src\\Imagenes\\Fondo.png");
+        ImageIcon fondo = new ImageIcon(getClass().getResource("/Imagenes/pacman.gif"));
 
         // Crear JLabel con la imagen y colocarlo ocupando toda la ventana
         JLabel fondoLabel = new JLabel(fondo);
