@@ -40,7 +40,7 @@ public class VentanaLogin {
         layeredPane.setLayout(null);
 
         // Fondo GIF en capa inferior
-        ImageIcon gifIcon = new ImageIcon(getClass().getResource("/Imagenes/Login.gif"));
+        ImageIcon gifIcon = new ImageIcon(getClass().getResource("/Imagenes/pacman.gif"));
         JLabel backgroundLabel = new JLabel(gifIcon);
         backgroundLabel.setBounds(0, 0, 687, 443);
         layeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER); // capa base
