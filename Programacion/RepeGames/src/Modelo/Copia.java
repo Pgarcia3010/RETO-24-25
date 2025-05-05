@@ -52,8 +52,7 @@ public class Copia {
 
 	@Override
 	public String toString() {
-		return "Copia [idCopia=" + idCopia + ", nombre=" + nombre + ", fecha=" + fecha + ", ubicacion=" + ubicacion
-				+ "]";
+		return "Copia: \nidCopia: "+idCopia+"\nnombre: "+nombre+"\nfecha: "+fecha+"\nubicacion: "+ubicacion;
 	}
 
 }

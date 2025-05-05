@@ -51,8 +51,7 @@ public class Producto {
 
 	@Override
 	public String toString() {
-		return "Producto [idProducto=" + idProducto + ", nombreProducto=" + nombreProducto + ", precio=" + precio
-				+ ", stock=" + stock + "]";
+		return "Producto:\nidProducto: " +idProducto+"\nnombreProducto: "+nombreProducto+"\nprecio: "+precio+"\nstock: "+stock;
 	}
 
 }

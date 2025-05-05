@@ -43,7 +43,7 @@ public class Avisos {
 
 	@Override
 	public String toString() {
-		return "Avisos [idProducto=" + idProducto + ", nombreProducto=" + nombreProducto + ", stock=" + stock + "]";
+		return "Aviso:\nidProducto: " +idProducto+"\nnombreProducto: " +nombreProducto+"\nstock: " +stock;
 	}
 
 }

@@ -1,12 +1,12 @@
 package Modelo;
 
 public class Usuarios {
-	
+
 	private String nickname;
 	private String contrasenya;
 	private int idCliente;
 	private int idEmpleado;
-	
+
 	public Usuarios(String nickname, String contrasenya, int idCliente, int idEmpleado) {
 		this.nickname = nickname;
 		this.contrasenya = contrasenya;
@@ -51,10 +51,8 @@ public class Usuarios {
 
 	@Override
 	public String toString() {
-		return "Usuarios [nickname=" + nickname + ", contrasenya=" + contrasenya + ", idCliente=" + idCliente
-				+ ", idEmpleado=" + idEmpleado + "]";
+		return "Usuarios:\nnickname: " + nickname + "\ncontraseña: " + contrasenya + "\nidCliente: " + idCliente
+				+ "\nidEmpleado: " + idEmpleado;
 	}
-	
-	
 
 }

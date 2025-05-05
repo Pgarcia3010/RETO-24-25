@@ -53,8 +53,7 @@ public class cabeceraPedido {
 
 	@Override
 	public String toString() {
-		return "cabeceraPedido [numPedido=" + numPedido + ", idCliente=" + idCliente + ", precioTotal=" + precioTotal
-				+ ", fechaPedido=" + fechaPedido + "]";
+		return "cabeceraPedido:\nnumPedido: " +numPedido+"\nidCliente: " +idCliente+"\nprecioTotal: " +precioTotal+"\nfechaPedido: "+fechaPedido;
 	}
 
 }

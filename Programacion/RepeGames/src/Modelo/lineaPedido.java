@@ -50,8 +50,8 @@ public class lineaPedido {
 
 	@Override
 	public String toString() {
-		return "lineaPedido [numPedido=" + numPedido + ", numLinea=" + numLinea + ", idProducto=" + idProducto
-				+ ", cantidadProducto=" + cantidadProducto + "]";
+		return "lineaPedido:\nnumPedido: " + numPedido + "\nnumLinea: " + numLinea + "\nidProducto: " + idProducto
+				+ "\ncantidadProducto" + cantidadProducto;
 	}
 
 }
