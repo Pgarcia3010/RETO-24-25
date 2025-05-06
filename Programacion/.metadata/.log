@@ -5451,3 +5451,454 @@ public class appPrincipal {
 		at org.eclipse.jdt.internal.ui.util.SelectionUtil.logException(SelectionUtil.java:150)
 		at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getJavaElementsAt(AbstractJavaEditorTextHover.java:124)
 		... 10 more
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2025-05-05 12:22:44.462
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2025-05-05 12:22:44.462
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.462
+!MESSAGE "WindowBuilder SWT Designer Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.462
+!MESSAGE "WindowBuilder SWT Designer SWT_AWT Support" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.462
+!MESSAGE "WindowBuilder Core Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.462
+!MESSAGE "WindowBuilder Swing Designer" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.462
+!MESSAGE "WindowBuilder SWT Designer" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.462
+!MESSAGE "WindowBuilder Java Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.462
+!MESSAGE "WindowBuilder Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.462
+!MESSAGE "WindowBuilder GroupLayout Support" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.462
+!MESSAGE "WindowBuilder Core UI" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.462
+!MESSAGE "WindowBuilder Swing Designer Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.462
+!MESSAGE "WindowBuilder SWT Designer Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2025-05-05 12:22:44.462
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE Software being installed: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core.feature.feature.group 1.20.0.202504200826)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE Software currently installed: DTP SQL Schema Object Editor Feature 1.15.0.202311071249 (org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature.feature.group 1.15.0.202311071249)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.462
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE GEF Classic Draw2d 3.19.0.202502171940 (org.eclipse.draw2d 3.19.0.202502171940)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE GEF Classic Draw2d 3.19.0.202502242203 (org.eclipse.draw2d 3.19.0.202502242203)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE GEF Classic Draw2d 3.18.0.202411181923 (org.eclipse.draw2d 3.18.0.202411181923)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE GEF Classic Draw2d 3.20.0.202504180907 (org.eclipse.draw2d 3.20.0.202504180907)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.462
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE From: DTP SQL Schema Object Editor Feature 1.15.0.202311071249 (org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature.feature.group 1.15.0.202311071249)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d.feature.group 3.4.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.462
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE From: GEF Classic Draw2d 3.22.0.202411181923 (org.eclipse.draw2d.feature.group 3.22.0.202411181923)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d [3.18.0.202411181923,3.18.0.202411181923]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.462
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE From: GEF Classic Draw2d 3.23.0.202502242203 (org.eclipse.draw2d.feature.group 3.23.0.202502242203)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d [3.19.0.202502242203,3.19.0.202502242203]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.462
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE From: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core 1.20.0.202504200826)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE To: osgi.bundle; org.eclipse.draw2d 3.20.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.462
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE From: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core.feature.feature.group 1.20.0.202504200826)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.462
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.wb.core [1.20.0.202504200826,1.20.0.202504200826]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2025-05-05 12:22:44.474
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2025-05-05 12:22:44.474
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.474
+!MESSAGE "WindowBuilder SWT Designer Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.474
+!MESSAGE "WindowBuilder SWT Designer SWT_AWT Support" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.474
+!MESSAGE "WindowBuilder Core Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.474
+!MESSAGE "WindowBuilder Swing Designer" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.474
+!MESSAGE "WindowBuilder SWT Designer" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.474
+!MESSAGE "WindowBuilder Java Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.474
+!MESSAGE "WindowBuilder Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.474
+!MESSAGE "WindowBuilder GroupLayout Support" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.474
+!MESSAGE "WindowBuilder Core UI" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.474
+!MESSAGE "WindowBuilder Swing Designer Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.474
+!MESSAGE "WindowBuilder SWT Designer Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2025-05-05 12:22:44.474
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE Software being installed: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core.feature.feature.group 1.20.0.202504200826)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE Software currently installed: DTP SQL Schema Object Editor Feature 1.15.0.202311071249 (org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature.feature.group 1.15.0.202311071249)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.474
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE GEF Classic Draw2d 3.19.0.202502171940 (org.eclipse.draw2d 3.19.0.202502171940)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE GEF Classic Draw2d 3.19.0.202502242203 (org.eclipse.draw2d 3.19.0.202502242203)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE GEF Classic Draw2d 3.18.0.202411181923 (org.eclipse.draw2d 3.18.0.202411181923)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE GEF Classic Draw2d 3.20.0.202504180907 (org.eclipse.draw2d 3.20.0.202504180907)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.474
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE From: DTP SQL Schema Object Editor Feature 1.15.0.202311071249 (org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature.feature.group 1.15.0.202311071249)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d.feature.group 3.4.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.474
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE From: GEF Classic Draw2d 3.22.0.202411181923 (org.eclipse.draw2d.feature.group 3.22.0.202411181923)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d [3.18.0.202411181923,3.18.0.202411181923]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.474
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE From: GEF Classic Draw2d 3.23.0.202502242203 (org.eclipse.draw2d.feature.group 3.23.0.202502242203)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d [3.19.0.202502242203,3.19.0.202502242203]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.474
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE From: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core 1.20.0.202504200826)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE To: osgi.bundle; org.eclipse.draw2d 3.20.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.474
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE From: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core.feature.feature.group 1.20.0.202504200826)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.474
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.wb.core [1.20.0.202504200826,1.20.0.202504200826]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2025-05-05 12:22:44.495
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2025-05-05 12:22:44.496
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.496
+!MESSAGE "WindowBuilder SWT Designer Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.496
+!MESSAGE "WindowBuilder SWT Designer SWT_AWT Support" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.496
+!MESSAGE "WindowBuilder Core Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.496
+!MESSAGE "WindowBuilder Swing Designer" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.496
+!MESSAGE "WindowBuilder SWT Designer" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.496
+!MESSAGE "WindowBuilder Java Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.496
+!MESSAGE "WindowBuilder Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.496
+!MESSAGE "WindowBuilder GroupLayout Support" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.496
+!MESSAGE "WindowBuilder Core UI" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.496
+!MESSAGE "WindowBuilder Swing Designer Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.496
+!MESSAGE "WindowBuilder SWT Designer Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2025-05-05 12:22:44.496
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE Software being installed: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core.feature.feature.group 1.20.0.202504200826)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE Software currently installed: DTP SQL Schema Object Editor Feature 1.15.0.202311071249 (org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature.feature.group 1.15.0.202311071249)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.496
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE GEF Classic Draw2d 3.19.0.202502171940 (org.eclipse.draw2d 3.19.0.202502171940)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE GEF Classic Draw2d 3.19.0.202502242203 (org.eclipse.draw2d 3.19.0.202502242203)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE GEF Classic Draw2d 3.18.0.202411181923 (org.eclipse.draw2d 3.18.0.202411181923)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE GEF Classic Draw2d 3.20.0.202504180907 (org.eclipse.draw2d 3.20.0.202504180907)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.496
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE From: DTP SQL Schema Object Editor Feature 1.15.0.202311071249 (org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature.feature.group 1.15.0.202311071249)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d.feature.group 3.4.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.496
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE From: GEF Classic Draw2d 3.22.0.202411181923 (org.eclipse.draw2d.feature.group 3.22.0.202411181923)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d [3.18.0.202411181923,3.18.0.202411181923]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.496
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE From: GEF Classic Draw2d 3.23.0.202502242203 (org.eclipse.draw2d.feature.group 3.23.0.202502242203)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d [3.19.0.202502242203,3.19.0.202502242203]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.496
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE From: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core 1.20.0.202504200826)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE To: osgi.bundle; org.eclipse.draw2d 3.20.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.496
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE From: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core.feature.feature.group 1.20.0.202504200826)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.496
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.wb.core [1.20.0.202504200826,1.20.0.202504200826]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2025-05-05 12:22:44.497
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2025-05-05 12:22:44.497
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.497
+!MESSAGE "WindowBuilder SWT Designer Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.497
+!MESSAGE "WindowBuilder SWT Designer SWT_AWT Support" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.497
+!MESSAGE "WindowBuilder Core Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.497
+!MESSAGE "WindowBuilder Swing Designer" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.497
+!MESSAGE "WindowBuilder SWT Designer" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.497
+!MESSAGE "WindowBuilder Java Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.497
+!MESSAGE "WindowBuilder Core" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.497
+!MESSAGE "WindowBuilder GroupLayout Support" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.497
+!MESSAGE "WindowBuilder Core UI" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.497
+!MESSAGE "WindowBuilder Swing Designer Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2025-05-05 12:22:44.497
+!MESSAGE "WindowBuilder SWT Designer Documentation" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2025-05-05 12:22:44.497
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE Software being installed: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core.feature.feature.group 1.20.0.202504200826)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE Software currently installed: DTP SQL Schema Object Editor Feature 1.15.0.202311071249 (org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature.feature.group 1.15.0.202311071249)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.497
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE GEF Classic Draw2d 3.19.0.202502171940 (org.eclipse.draw2d 3.19.0.202502171940)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE GEF Classic Draw2d 3.19.0.202502242203 (org.eclipse.draw2d 3.19.0.202502242203)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE GEF Classic Draw2d 3.18.0.202411181923 (org.eclipse.draw2d 3.18.0.202411181923)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE GEF Classic Draw2d 3.20.0.202504180907 (org.eclipse.draw2d 3.20.0.202504180907)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.497
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE From: DTP SQL Schema Object Editor Feature 1.15.0.202311071249 (org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature.feature.group 1.15.0.202311071249)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d.feature.group 3.4.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.497
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE From: GEF Classic Draw2d 3.22.0.202411181923 (org.eclipse.draw2d.feature.group 3.22.0.202411181923)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d [3.18.0.202411181923,3.18.0.202411181923]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.497
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE From: GEF Classic Draw2d 3.23.0.202502242203 (org.eclipse.draw2d.feature.group 3.23.0.202502242203)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.draw2d [3.19.0.202502242203,3.19.0.202502242203]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.497
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE From: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core 1.20.0.202504200826)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE To: osgi.bundle; org.eclipse.draw2d 3.20.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2025-05-05 12:22:44.497
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE From: WindowBuilder Core 1.20.0.202504200826 (org.eclipse.wb.core.feature.feature.group 1.20.0.202504200826)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2025-05-05 12:22:44.497
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.wb.core [1.20.0.202504200826,1.20.0.202504200826]
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2025-05-05 12:23:51.056
+!MESSAGE Connection to https://eclipse.mirror.garr.it/releases/2025-03/202503121000/plugins/org.eclipse.gef_3.21.0.202502242203.jar failed on PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Retry attempt 0 started
+!STACK 0
+javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:130)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:383)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:326)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1318)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.onConsumeCertificate(CertificateMessage.java:1195)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.consume(CertificateMessage.java:1138)
+	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:393)
+	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:476)
+	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:447)
+	at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172)
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1506)
+	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+	at org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory.executeHandshake(SSLConnectionSocketFactory.java:345)
+	at org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:313)
+	at org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:251)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:189)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:450)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:162)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:172)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:142)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:152)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:116)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:388)
+	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:271)
+	at java.base/sun.security.validator.Validator.validate(Validator.java:256)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:230)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:132)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1302)
+	... 34 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:383)
+	... 39 more
+!SESSION 2025-05-05 12:24:19.961 -----------------------------------------------
+eclipse.buildId=4.34.0.20241128-0756
+java.version=21.0.5
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-05-05 12:24:24.318
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-05-05 12:24:26.924
+!MESSAGE Logback config file: C:\Users\1AW3-7\Desktop\RETO 24-25\RETO-24-25\Programacion\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.0.20241001-1350.xml
+
+!ENTRY org.eclipse.ui 4 4 2025-05-05 12:24:27.676
+!MESSAGE Invalid workspace location to be set for Edge browser.
+!STACK 0
+java.net.URISyntaxException: Illegal character in path at index 34: file:/C:/Users/1AW3-7/Desktop/RETO 24-25/RETO-24-25/Programacion/.metadata/.plugins/org.eclipse.swt
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.parseHierarchical(URI.java:3248)
+	at java.base/java.net.URI$Parser.parse(URI.java:3196)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URL.toURI(URL.java:1220)
+	at org.eclipse.ui.internal.Workbench.setEdgeDataDirectory(Workbench.java:530)
+	at org.eclipse.ui.internal.Workbench.<init>(Workbench.java:461)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:598)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:570)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:178)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1454)
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-05-05 12:24:34.670
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\1AW3-7'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2025-05-06 08:49:49.864 -----------------------------------------------
+eclipse.buildId=4.34.0.20241128-0756
+java.version=21.0.5
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-05-06 08:49:54.287
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.core.resources 2 10035 2025-05-06 08:50:04.513
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-05-06 08:50:05.031
+!MESSAGE Logback config file: C:\Users\1AW3-7\Desktop\RETO 24-25\RETO-24-25\Programacion\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.0.20241001-1350.xml
+
+!ENTRY org.eclipse.ui 4 4 2025-05-06 08:50:05.679
+!MESSAGE Invalid workspace location to be set for Edge browser.
+!STACK 0
+java.net.URISyntaxException: Illegal character in path at index 34: file:/C:/Users/1AW3-7/Desktop/RETO 24-25/RETO-24-25/Programacion/.metadata/.plugins/org.eclipse.swt
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.parseHierarchical(URI.java:3248)
+	at java.base/java.net.URI$Parser.parse(URI.java:3196)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URL.toURI(URL.java:1220)
+	at org.eclipse.ui.internal.Workbench.setEdgeDataDirectory(Workbench.java:530)
+	at org.eclipse.ui.internal.Workbench.<init>(Workbench.java:461)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:598)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:570)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:178)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1454)
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-05-06 08:50:11.662
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\1AW3-7'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
