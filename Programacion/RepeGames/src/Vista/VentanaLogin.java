@@ -10,8 +10,11 @@ import java.awt.event.ActionEvent;
 public class VentanaLogin {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField usuario;
+	private JTextField contraseina;
+	public JButton btnIniciar;
+	public JLabel lblContrasena;
+	public JLabel lblUsuario;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
@@ -53,29 +56,29 @@ public class VentanaLogin {
 		lblTitle.setBounds(266, 51, 123, 31);
 		layeredPane.add(lblTitle, JLayeredPane.PALETTE_LAYER);
 
-		JLabel lblUsuario = new JLabel("Usuario");
+		lblUsuario = new JLabel("Usuario");
 		lblUsuario.setBackground(new Color(255, 255, 0));
 		lblUsuario.setForeground(new Color(250, 189, 5));
 		lblUsuario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		lblUsuario.setBounds(221, 132, 88, 13);
 		layeredPane.add(lblUsuario, JLayeredPane.PALETTE_LAYER);
 
-		textField = new JTextField();
-		textField.setBounds(222, 149, 185, 31);
-		layeredPane.add(textField, JLayeredPane.PALETTE_LAYER);
+		usuario = new JTextField();
+		usuario.setBounds(222, 149, 185, 31);
+		layeredPane.add(usuario, JLayeredPane.PALETTE_LAYER);
 
-		JLabel lblContrasena = new JLabel("Contraseña");
+		lblContrasena = new JLabel("Contraseña");
 		lblContrasena.setBackground(new Color(255, 255, 0));
 		lblContrasena.setForeground(new Color(250, 189, 5));
 		lblContrasena.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		lblContrasena.setBounds(221, 213, 88, 13);
 		layeredPane.add(lblContrasena, JLayeredPane.PALETTE_LAYER);
 
-		textField_1 = new JTextField();
-		textField_1.setBounds(222, 226, 185, 31);
-		layeredPane.add(textField_1, JLayeredPane.PALETTE_LAYER);
+		contraseina = new JTextField();
+		contraseina.setBounds(222, 226, 185, 31);
+		layeredPane.add(contraseina, JLayeredPane.PALETTE_LAYER);
 
-		JButton btnIniciar = new JButton("Iniciar");
+		btnIniciar = new JButton("Iniciar");
 		btnIniciar.setForeground(new Color(0, 0, 0));
 		btnIniciar.setBackground(new Color(250, 189, 5));
 		btnIniciar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
