@@ -1,5 +1,9 @@
 package Modelo;
 
+/**
+ * @author Paul Garcia
+ * @version 1.0
+ */
 public class lineaPedido {
 	private int numPedido;
 	private int numLinea;

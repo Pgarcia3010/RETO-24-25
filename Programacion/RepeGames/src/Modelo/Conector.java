@@ -3,6 +3,10 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/**
+ * @author Paul Garcia
+ * @version 1.0
+ */
 public class Conector {
 	
 	protected Connection conexion;

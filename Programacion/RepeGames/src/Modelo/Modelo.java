@@ -6,6 +6,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/**
+ * @author Paul Garcia
+ * @version 1.4
+ */
 public class Modelo extends Conector {
 
 	/**

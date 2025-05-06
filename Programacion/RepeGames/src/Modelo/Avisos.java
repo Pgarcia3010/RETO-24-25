@@ -2,6 +2,7 @@ package Modelo;
 
 /**
  * @author Paul Garcia
+ * @version 1.0
  */
 public class Avisos {
 	private String idProducto;

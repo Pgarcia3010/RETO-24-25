@@ -2,6 +2,10 @@ package Modelo;
 
 import java.sql.Date;
 
+/**
+ * @author Paul Garcia
+ * @version 1.0
+ */
 public class cabeceraPedido {
 
 	private int numPedido;
