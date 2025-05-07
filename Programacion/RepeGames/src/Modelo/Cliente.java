@@ -1,6 +1,7 @@
 package Modelo;
 
 /**
+ * Se crea un objeto Cliente.
  * 
  * @author Paul Garcia
  * @version 1.0
@@ -20,12 +21,15 @@ public class Cliente {
 	 * El constructor registra los parametros de la base de datos en la tabla de
 	 * Cliente.
 	 * 
-	 * @param idCliente
-	 * @param nombre
-	 * @param direccion
-	 * @param telefono
-	 * @param nickname
-	 * @param contrasenya
+	 * @param idCliente   La idCliente es un int que indica la id del cliente.
+	 * @param nombre      El nombre es un String que indica el nombre del cliente.
+	 * @param direccion   La direccion es un String que indica la direccion del
+	 *                    cliente.
+	 * @param telefono    El telefono es un int que indica el telefono del cliente.
+	 * @param nickname    El nickname es un String que indica el nickname del
+	 *                    cliente.
+	 * @param contrasenya La contraseña es un String que indica la contraseña del
+	 *                    cliente.
 	 */
 	public Cliente(int idCliente, String nombre, String direccion, int telefono, String nickname, String contrasenya) {
 		this.idCliente = idCliente;
@@ -45,7 +49,7 @@ public class Cliente {
 	/**
 	 * recibe el idCliente
 	 * 
-	 * @return idCliente
+	 * @return idCliente La idCliente es un int que indica la id del cliente.
 	 */
 	public int getIdCliente() {
 		return idCliente;
@@ -54,7 +58,7 @@ public class Cliente {
 	/**
 	 * modifica el idCliente
 	 * 
-	 * @param idCliente
+	 * @param idCliente La idCliente es un int que indica la id del cliente.
 	 */
 	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
@@ -63,7 +67,7 @@ public class Cliente {
 	/**
 	 * recibe el nombre del cliente
 	 * 
-	 * @return nombre
+	 * @return nombre El nombre es un String que indica el nombre del cliente.
 	 */
 	public String getNombre() {
 		return nombre;
@@ -72,7 +76,7 @@ public class Cliente {
 	/**
 	 * modifica el nombre del cliente
 	 * 
-	 * @param nombre
+	 * @param nombre El nombre es un String que indica el nombre del cliente.
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -81,7 +85,7 @@ public class Cliente {
 	/**
 	 * recibe la direccion del cliente
 	 * 
-	 * @return direccion
+	 * @return direccion La direccion es un String que indica la direccion del cliente.
 	 */
 	public String getDireccion() {
 		return direccion;
@@ -90,7 +94,7 @@ public class Cliente {
 	/**
 	 * modifica la direccion del cliente
 	 * 
-	 * @param direccion
+	 * @param direccion La direccion es un String que indica la direccion del cliente.
 	 */
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
@@ -99,7 +103,7 @@ public class Cliente {
 	/**
 	 * recibe el telefono del cliente
 	 * 
-	 * @return telefono
+	 * @return telefono El telefono es un int que indica el telefono del cliente.
 	 */
 	public int getTelefono() {
 		return telefono;
@@ -108,7 +112,7 @@ public class Cliente {
 	/**
 	 * modifica el telefono del cliente
 	 * 
-	 * @param telefono
+	 * @param telefono El telefono es un int que indica el telefono del cliente.
 	 */
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
@@ -117,7 +121,7 @@ public class Cliente {
 	/**
 	 * recibe el nombre de usuario del cliente
 	 * 
-	 * @return nickname
+	 * @return nickname El nickname es un String que indica el nickname del cliente.
 	 */
 	public String getNickname() {
 		return nickname;
@@ -126,7 +130,7 @@ public class Cliente {
 	/**
 	 * modifica el nombre de usuario del cliente
 	 * 
-	 * @param nickname
+	 * @param nickname El nickname es un String que indica el nickname del cliente.
 	 */
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
@@ -135,7 +139,7 @@ public class Cliente {
 	/**
 	 * recibe la contraseña del cliente
 	 * 
-	 * @return contrasenya
+	 * @return contrasenya La contraseña es un String que indica la contraseña del cliente.
 	 */
 	public String getContrasenya() {
 		return contrasenya;
@@ -144,7 +148,7 @@ public class Cliente {
 	/**
 	 * modifica la contraseña del cliente
 	 * 
-	 * @param contrasenya
+	 * @param contrasenya La contraseña es un String que indica la contraseña del cliente.
 	 */
 	public void setContrasenya(String contrasenya) {
 		this.contrasenya = contrasenya;
@@ -152,7 +156,7 @@ public class Cliente {
 
 	/**
 	 * @return El toString genera el contenido del objeto en una linea de texto
-	 *         hecha a mano
+	 *         creada a mano
 	 */
 	public String toString() {
 		return "Cliente:\nidCliente: " + idCliente + "\nnombre: " + nombre + "\ndireccion: " + direccion
