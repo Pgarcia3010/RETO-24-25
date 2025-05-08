@@ -11,6 +11,7 @@ public abstract class Usuarios {
 	private String nickname;
 	private String contrasenya;
 	private String id;
+
 	/**
 	 * El constructor registra los parametros de la base de datos en la tabla de
 	 * Usuarios.
@@ -19,8 +20,7 @@ public abstract class Usuarios {
 	 *                    cliente.
 	 * @param contrasenya La contraseña es un String que indica la contraseña del
 	 *                    cliente.
-	 * @param idCliente   La idCliente es un int que indica la id del cliente.
-	 * @param idEmpleado  La idEmpleado es un int que indica la id del empleado.
+	 * @param id          La id es un String que indica la id del usuario.
 	 */
 	public Usuarios(String nickname, String contrasenya, String id) {
 		this.nickname = nickname;
@@ -73,18 +73,18 @@ public abstract class Usuarios {
 	}
 
 	/**
-	 * recibe idCliente
+	 * recibe id
 	 * 
-	 * @return idCliente La idCliente es un int que indica la id del cliente.
+	 * @return id La id es un String que indica la id del usuario.
 	 */
 	public String getId() {
 		return id;
 	}
 
 	/**
-	 * modifica idCliente
+	 * modifica id
 	 * 
-	 * @param idCliente La idCliente es un int que indica la id del cliente.
+	 * @param id La id es un String que indica la id del usuario.
 	 */
 	public void setId(String id) {
 		this.id = id;
