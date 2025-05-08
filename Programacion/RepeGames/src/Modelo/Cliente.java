@@ -156,7 +156,7 @@ public class Cliente {
 
 	/**
 	 * @return El toString genera el contenido del objeto en una linea de texto
-	 *         creada a mano
+	 *         creada a mano.
 	 */
 	public String toString() {
 		return "Cliente:\nidCliente: " + idCliente + "\nnombre: " + nombre + "\ndireccion: " + direccion
