@@ -1,0 +1,31 @@
+	class Persona {
+	    String nombre;
+	    Persona(String nombre) { this.nombre = nombre; }
+	}
+
+	class Producto {
+	    String nombre;
+	    Producto(String nombre) { this.nombre = nombre; }
+	}
+
+	public class Main {
+	    public static void main(String[] args) {
+	        ArrayList<Object> lista = new ArrayList<>();
+
+	        Persona p = new Persona("Juan");
+	        Producto prod = new Producto("Laptop");
+
+	        lista.add(p);
+	        lista.add(prod);
+
+	        for (Object obj : lista) {
+	            if (obj instanceof Persona) {
+	                Persona persona = (Persona) obj;
+	                System.out.println("Persona: " + persona.nombre);
+	            } else if (obj instanceof Producto) {
+	                Producto producto = (Producto) obj;
+	                System.out.println("Producto: " + producto.nombre);
+	            }
+	        }
+	    }
+	}

@@ -6,12 +6,11 @@ package Modelo;
  * @author Paul Garcia
  * @version 1.0
  */
-public class Usuarios {
+public abstract class Usuarios {
 
 	private String nickname;
 	private String contrasenya;
-	private int idCliente;
-	private int idEmpleado;
+	private String id;
 
 	/**
 	 * El constructor registra los parametros de la base de datos en la tabla de
@@ -24,11 +23,10 @@ public class Usuarios {
 	 * @param idCliente   La idCliente es un int que indica la id del cliente.
 	 * @param idEmpleado  La idEmpleado es un int que indica la id del empleado.
 	 */
-	public Usuarios(String nickname, String contrasenya, int idCliente, int idEmpleado) {
+	public Usuarios(String nickname, String contrasenya, String id) {
 		this.nickname = nickname;
 		this.contrasenya = contrasenya;
-		this.idCliente = idCliente;
-		this.idEmpleado = idEmpleado;
+		this.id = id;
 	}
 
 	/**
@@ -80,8 +78,8 @@ public class Usuarios {
 	 * 
 	 * @return idCliente La idCliente es un int que indica la id del cliente.
 	 */
-	public int getIdCliente() {
-		return idCliente;
+	public String getId() {
+		return id;
 	}
 
 	/**
@@ -89,26 +87,8 @@ public class Usuarios {
 	 * 
 	 * @param idCliente La idCliente es un int que indica la id del cliente.
 	 */
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
-	}
-
-	/**
-	 * recibe idEmpleado
-	 * 
-	 * @return idEmpleado La idEmpleado es un int que indica la id del empleado.
-	 */
-	public int getIdEmpleado() {
-		return idEmpleado;
-	}
-
-	/**
-	 * modifica idEmpleado
-	 * 
-	 * @param idEmpleado La idEmpleado es un int que indica la id del empleado.
-	 */
-	public void setIdEmpleado(int idEmpleado) {
-		this.idEmpleado = idEmpleado;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	/**
@@ -117,8 +97,7 @@ public class Usuarios {
 	 * 
 	 */
 	public String toString() {
-		return "Usuarios:\nnickname: " + nickname + "\ncontraseña: " + contrasenya + "\nidCliente: " + idCliente
-				+ "\nidEmpleado: " + idEmpleado;
+		return "Usuarios:\nnickname: " + nickname + "\ncontraseña: " + contrasenya + "\nid: " + id;
 	}
 
 }

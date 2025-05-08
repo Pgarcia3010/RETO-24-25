@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-04-2025 a las 13:04:46
+-- Tiempo de generación: 08-05-2025 a las 09:43:17
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `avisos` (
-  `idProducto` int(11) DEFAULT NULL,
-  `nombreProducto` varchar(255) DEFAULT NULL,
-  `stock` int(11) DEFAULT NULL
+  `idProducto` varchar(255) NOT NULL,
+  `nombreProducto` varchar(255) NOT NULL,
+  `stock` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -41,8 +41,8 @@ CREATE TABLE `avisos` (
 
 CREATE TABLE `cabecerapedido` (
   `numPedido` int(11) NOT NULL,
-  `idCliente` int(11) DEFAULT NULL,
-  `precioTotal` double DEFAULT NULL,
+  `idCliente` int(11) NOT NULL,
+  `precioTotal` double NOT NULL,
   `fechaPedido` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -53,10 +53,11 @@ CREATE TABLE `cabecerapedido` (
 --
 
 CREATE TABLE `cliente` (
-  `idCliente` int(11) NOT NULL,
-  `nombre` varchar(255) DEFAULT NULL,
-  `direccion` varchar(255) DEFAULT NULL,
-  `telefono` int(11) DEFAULT NULL,
+  `id` varchar(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `dni` varchar(9) NOT NULL,
+  `direccion` varchar(255) NOT NULL,
+  `telefono` int(9) NOT NULL,
   `nickname` varchar(50) NOT NULL,
   `contrasenya` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -65,8 +66,8 @@ CREATE TABLE `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`idCliente`, `nombre`, `direccion`, `telefono`, `nickname`, `contrasenya`) VALUES
-(1, 'Pepe', 'Madrid', 666000666, 'Pbotella', 'botella');
+INSERT INTO `cliente` (`id`, `nombre`, `dni`, `direccion`, `telefono`, `nickname`, `contrasenya`) VALUES
+('1', 'Pepe', '12345678F', 'Madrid', 666000666, 'Pbotella', 'botella');
 
 -- --------------------------------------------------------
 
@@ -127,66 +128,21 @@ INSERT INTO `producto` (`idProducto`, `nombreProducto`, `precio`, `stock`) VALUE
 --
 
 CREATE TABLE `usuarios` (
-  `nickname` varchar(255) DEFAULT NULL,
-  `contrasenya` varchar(255) DEFAULT NULL,
-  `idCliente` int(11) DEFAULT NULL,
-  `idEmpleado` int(11) DEFAULT NULL
+  `id` varchar(255) NOT NULL,
+  `nickname` varchar(255) NOT NULL,
+  `contrasenya` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`nickname`, `contrasenya`, `idCliente`, `idEmpleado`) VALUES
-('PGarcia', '12345', NULL, 1),
-('ISalazar', '5678', NULL, 2),
-('Gperez', '2468', NULL, 3),
-('Jbasterrechea', '1357', NULL, 4),
-('Pbotella', 'botella', 1, NULL);
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `cabecerapedido`
---
-ALTER TABLE `cabecerapedido`
-  ADD PRIMARY KEY (`numPedido`);
-
---
--- Indices de la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`idCliente`);
-
---
--- Indices de la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD PRIMARY KEY (`idProducto`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD UNIQUE KEY `idCliente` (`idCliente`,`idEmpleado`);
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `usuarios` (`idCliente`);
-
---
--- Filtros para la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`);
+INSERT INTO `usuarios` (`id`, `nickname`, `contrasenya`) VALUES
+('E1', 'PGarcia', '12345'),
+('E2', 'ISalazar', '5678'),
+('E3', 'Gperez', '2468'),
+('E4', 'Jbasterrechea', '1357'),
+('1', 'Pbotella', 'botella');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
