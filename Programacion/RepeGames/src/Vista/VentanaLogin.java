@@ -49,7 +49,7 @@ public class VentanaLogin {
 		layeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER); // capa base
 
 		// Componentes en capa superior
-		JLabel lblTitle = new JLabel("Login");
+		JLabel lblTitle = new JLabel("LOGIN");
 		lblTitle.setForeground(new Color(128, 0, 255));
 		lblTitle.setBackground(new Color(128, 0, 255));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
