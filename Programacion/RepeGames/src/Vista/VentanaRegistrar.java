@@ -24,9 +24,6 @@ public class VentanaRegistrar {
 	private JTextField Rtelefono;
 	private JTextField textField;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
 			try {
@@ -38,42 +35,28 @@ public class VentanaRegistrar {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public VentanaRegistrar() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 570, 550);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-		// Crear JLayeredPane para manejar capas
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 570, 550);
 		frame.setContentPane(layeredPane);
 		layeredPane.setLayout(null);
 
-		// Fondo GIF en capa inferior
-		ImageIcon gifIcon = new ImageIcon(getClass().getResource("/Imagenes/pacman.gif"));
-		JLabel backgroundLabel = new JLabel(gifIcon);
-		backgroundLabel.setBounds(0, 0, 570, 550); // Tamaño inicial de tu frame
-		layeredPane.add(backgroundLabel, Integer.valueOf(0)); // Fondo en capa más baja
+		// Fondo GIF redimensionado
+		ImageIcon originalIcon = new ImageIcon(getClass().getResource("/Imagenes/pacman.gif"));
+		Image image = originalIcon.getImage().getScaledInstance(570, 550, Image.SCALE_DEFAULT);
+		ImageIcon resizedIcon = new ImageIcon(image);
+		JLabel backgroundLabel = new JLabel(resizedIcon);
+		backgroundLabel.setBounds(0, 0, 570, 550);
+		layeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER);
 
-		// Ajustar tamaño del fondo automáticamente al cambiar el tamaño del frame
-		frame.addComponentListener(new java.awt.event.ComponentAdapter() {
-		    public void componentResized(java.awt.event.ComponentEvent evt) {
-		        backgroundLabel.setBounds(0, 0, frame.getWidth(), frame.getHeight());
-		    }
-		});
-
-
-		// Componentes en capa superior
 		JLabel lblTitle = new JLabel("LOGIN");
 		lblTitle.setForeground(new Color(128, 0, 255));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
@@ -133,7 +116,7 @@ public class VentanaRegistrar {
 
 		JButton BtnVolver = new JButton("Volver");
 		BtnVolver.setBackground(new Color(128, 0, 255));
-		BtnVolver.setForeground(new Color(255, 255, 255));
+		BtnVolver.setForeground(Color.WHITE);
 		BtnVolver.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		BtnVolver.setBounds(157, 395, 93, 29);
 		BtnVolver.addActionListener(new ActionListener() {
@@ -145,7 +128,7 @@ public class VentanaRegistrar {
 
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.setBackground(new Color(128, 0, 255));
-		btnCrear.setForeground(new Color(255, 255, 255));
+		btnCrear.setForeground(Color.WHITE);
 		btnCrear.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		btnCrear.setBounds(294, 395, 99, 29);
 		layeredPane.add(btnCrear, JLayeredPane.PALETTE_LAYER);
@@ -155,3 +138,4 @@ public class VentanaRegistrar {
 		frame.setVisible(true);
 	}
 }
+
