@@ -33,7 +33,7 @@ public class VentanaLogin {
 
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 660, 443);
+		frame.setBounds(100, 100, 645, 443);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		// Crear JLayeredPane para manejar capas
@@ -50,15 +50,15 @@ public class VentanaLogin {
 
 		// Componentes en capa superior
 		JLabel lblTitle = new JLabel("Login");
-		lblTitle.setForeground(new Color(250, 189, 5));
-		lblTitle.setBackground(new Color(255, 128, 64));
+		lblTitle.setForeground(new Color(128, 0, 255));
+		lblTitle.setBackground(new Color(128, 0, 255));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
 		lblTitle.setBounds(266, 51, 123, 31);
 		layeredPane.add(lblTitle, JLayeredPane.PALETTE_LAYER);
 
 		lblUsuario = new JLabel("Usuario");
-		lblUsuario.setBackground(new Color(255, 255, 0));
-		lblUsuario.setForeground(new Color(250, 189, 5));
+		lblUsuario.setBackground(new Color(128, 0, 255));
+		lblUsuario.setForeground(new Color(128, 0, 255));
 		lblUsuario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		lblUsuario.setBounds(221, 132, 88, 13);
 		layeredPane.add(lblUsuario, JLayeredPane.PALETTE_LAYER);
@@ -68,8 +68,8 @@ public class VentanaLogin {
 		layeredPane.add(usuario, JLayeredPane.PALETTE_LAYER);
 
 		lblContrasena = new JLabel("Contraseña");
-		lblContrasena.setBackground(new Color(255, 255, 0));
-		lblContrasena.setForeground(new Color(250, 189, 5));
+		lblContrasena.setBackground(new Color(128, 0, 255));
+		lblContrasena.setForeground(new Color(128, 0, 255));
 		lblContrasena.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		lblContrasena.setBounds(221, 213, 88, 13);
 		layeredPane.add(lblContrasena, JLayeredPane.PALETTE_LAYER);
@@ -79,8 +79,8 @@ public class VentanaLogin {
 		layeredPane.add(contraseina, JLayeredPane.PALETTE_LAYER);
 
 		btnIniciar = new JButton("Iniciar");
-		btnIniciar.setForeground(new Color(0, 0, 0));
-		btnIniciar.setBackground(new Color(250, 189, 5));
+		btnIniciar.setForeground(new Color(255, 255, 255));
+		btnIniciar.setBackground(new Color(128, 0, 255));
 		btnIniciar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		btnIniciar.setBounds(222, 281, 91, 29);
 		layeredPane.add(btnIniciar, JLayeredPane.PALETTE_LAYER);
@@ -93,8 +93,8 @@ public class VentanaLogin {
 			}
 		});
 
-		btnCrear.setForeground(new Color(0, 0, 0));
-		btnCrear.setBackground(new Color(250, 189, 5));
+		btnCrear.setForeground(new Color(255, 255, 255));
+		btnCrear.setBackground(new Color(128, 0, 255));
 		btnCrear.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		btnCrear.setBounds(323, 281, 97, 29);
 		layeredPane.add(btnCrear, JLayeredPane.PALETTE_LAYER);

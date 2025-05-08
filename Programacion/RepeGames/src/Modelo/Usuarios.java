@@ -4,7 +4,7 @@ public class Usuarios {
 
 	private String nickname;
 	private String contrasenya;
-	private int idCliente;
+	private Integer idCliente;
 	private int idEmpleado;
 
 	public Usuarios(String nickname, String contrasenya, int idCliente, int idEmpleado) {
