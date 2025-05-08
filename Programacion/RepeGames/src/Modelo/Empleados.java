@@ -1,9 +1,10 @@
 package Modelo;
 
 public class Empleados extends Usuarios{
+	
+	//mete sueldo
 
 	public Empleados() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 

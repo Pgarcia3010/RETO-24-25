@@ -11,35 +11,22 @@ import java.util.ArrayList;
  * @version 1.4
  */
 public class Modelo extends Conector {
-
-//	public ArrayList<Usuarios> recibirUsuarios() {
-//		ArrayList<Usuarios> usuarios = new ArrayList<Usuarios>();
-//
-//		try {
-//			Statement st = this.conexion.createStatement();
-//			ResultSet rs = st.executeQuery("SELECT * FROM usuarios");
-//			while (rs.next()) {
-//				Usuarios usuario = new Usuarios();
-//				usuario.setNickname(rs.getString("nickname"));
-//				usuario.setContrasenya(rs.getString("contrasenya"));
-//				usuario.setIdCliente(rs.getInt("idCliente"));
-//				usuario.setIdEmpleado(rs.getInt("idEmpleado"));
-//				usuarios.add(usuario);
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			System.err.println("Error en select usuarios");
-//		}
-//
-//		return usuarios;
-//	}
 	
 	public ArrayList<Empleados> recibirEmpleados(){
 		ArrayList<Empleados> empleados = new ArrayList<Empleados>();
 		try {
 			Statement st = this.conexion.createStatement();
+			ResultSet rs = st.executeQuery("SELECT * FROM usuarios WHERE id LIKE 'E%';");
+			while(rs.next()) {
+				Empleados empleado = new Empleados();
+				empleado.setId(rs.getString("id"));
+				empleado.setNickname(rs.getString("nickname"));
+				empleado.setContrasenya(rs.getString("contrasenya"));
+				empleados.add(empleado);
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("Error en selec empleados");
 		}
 		return empleados;
 	}
@@ -48,10 +35,10 @@ public class Modelo extends Conector {
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 		try {
 			Statement st = this.conexion.createStatement();
-			ResultSet rs = st.executeQuery("SELECT * FROM cliente");
+			ResultSet rs = st.executeQuery("SELECT * FROM cliente;");
 			while (rs.next()) {
 				Cliente cliente = new Cliente();
-				cliente.setIdCliente(rs.getInt("idCliente"));
+				cliente.setId(rs.getString("idCliente"));
 				cliente.setNombre(rs.getString("nombre"));
 				cliente.setDireccion(rs.getString("direccion"));
 				cliente.setTelefono(rs.getInt("telefono"));
@@ -72,7 +59,7 @@ public class Modelo extends Conector {
 
 		try {
 			Statement st = this.conexion.createStatement();
-			ResultSet rs = st.executeQuery("SELECT * FROM producto");
+			ResultSet rs = st.executeQuery("SELECT * FROM producto;");
 			while (rs.next()) {
 				Producto producto = new Producto();
 				producto.setIdProducto(rs.getString("idProducto"));
@@ -93,7 +80,7 @@ public class Modelo extends Conector {
 		ArrayList<cabeceraPedido> cabeceras = new ArrayList<cabeceraPedido>();
 		try {
 			Statement st = this.conexion.createStatement();
-			ResultSet rs = st.executeQuery("SELECT * FROM cabeceraPedido");
+			ResultSet rs = st.executeQuery("SELECT * FROM cabeceraPedido;");
 			while (rs.next()) {
 				cabeceraPedido cabecera = new cabeceraPedido();
 				cabecera.setNumPedido(rs.getInt("numPedido"));
@@ -114,7 +101,7 @@ public class Modelo extends Conector {
 		ArrayList<lineaPedido> lineas = new ArrayList<lineaPedido>();
 		try {
 			Statement st = this.conexion.createStatement();
-			ResultSet rs = st.executeQuery("SELECT * FROM lineaPedido");
+			ResultSet rs = st.executeQuery("SELECT * FROM lineaPedido;");
 			while (rs.next()) {
 				lineaPedido linea = new lineaPedido();
 				linea.setNumPedido(rs.getInt("numPedido"));
@@ -135,7 +122,7 @@ public class Modelo extends Conector {
 		ArrayList<Avisos> avisos = new ArrayList<Avisos>();
 		try {
 			Statement st = this.conexion.createStatement();
-			ResultSet rs = st.executeQuery("SELECT * FROM avisos");
+			ResultSet rs = st.executeQuery("SELECT * FROM avisos;");
 			while (rs.next()) {
 				Avisos aviso = new Avisos();
 				aviso.setIdProducto(rs.getString("idProducto"));
@@ -156,7 +143,7 @@ public class Modelo extends Conector {
 		ArrayList<Copia> copias = new ArrayList<Copia>();
 		try {
 			Statement st = this.conexion.createStatement();
-			ResultSet rs = st.executeQuery("SELECT * FROM copia");
+			ResultSet rs = st.executeQuery("SELECT * FROM copia;");
 			while (rs.next()) {
 				Copia copia = new Copia();
 				copia.setIdCopia(rs.getInt("idCopia"));
@@ -181,8 +168,8 @@ public class Modelo extends Conector {
 			 * continuacion
 			 */
 			PreparedStatement ps = this.conexion.prepareStatement(
-					"INSERT INTO cliente (idCliente,nombre,direccion,telefono,nickname,contrasenya) VALUES (?,?,?,?,?,?);");
-			ps.setInt(1, clienteNuevo.getIdCliente());
+					"INSERT INTO cliente (id,nombre,direccion,telefono,nickname,contrasenya) VALUES (?,?,?,?,?,?);");
+			ps.setString(1, clienteNuevo.getId());
 			ps.setString(2, clienteNuevo.getNombre());
 			ps.setString(3, clienteNuevo.getDireccion());
 			ps.setInt(4, clienteNuevo.getTelefono());

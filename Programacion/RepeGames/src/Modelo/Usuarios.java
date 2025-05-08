@@ -4,15 +4,13 @@ package Modelo;
  * Sea crea un objeto Usuario.
  * 
  * @author Paul Garcia
- * @version 1.0
+ * @version 1.2
  */
 public abstract class Usuarios {
 
 	private String nickname;
 	private String contrasenya;
 	private String id;
-	private Integer idCliente;
-	private int idEmpleado;
 	/**
 	 * El constructor registra los parametros de la base de datos en la tabla de
 	 * Usuarios.
