@@ -123,8 +123,7 @@ public class Modelo extends Conector {
 
 		return copias;
 	}
-	
-	
+
 //------------------------------------------------------------------------------------------------------
 
 	public void insertCliente(Cliente clienteNuevo) {
@@ -148,7 +147,6 @@ public class Modelo extends Conector {
 			System.err.println("Error en insertCliente");
 		}
 	}
-	
 
 //	class Persona {
 //	    String nombre;
