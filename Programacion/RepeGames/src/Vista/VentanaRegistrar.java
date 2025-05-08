@@ -14,8 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
 
-import com.jgoodies.forms.factories.DefaultComponentFactory;
-
 public class VentanaRegistrar {
 
 	private JFrame frame;
