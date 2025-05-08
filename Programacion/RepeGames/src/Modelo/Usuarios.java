@@ -10,13 +10,9 @@ public abstract class Usuarios {
 
 	private String nickname;
 	private String contrasenya;
-<<<<<<< HEAD
 	private String id;
-=======
 	private Integer idCliente;
 	private int idEmpleado;
->>>>>>> 82a69a15c959b4886945f728b47e8ee49c76bf66
-
 	/**
 	 * El constructor registra los parametros de la base de datos en la tabla de
 	 * Usuarios.
