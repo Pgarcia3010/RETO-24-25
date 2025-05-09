@@ -11,13 +11,17 @@ import java.util.ArrayList;
  * @version 1.4
  */
 public class Modelo extends Conector {
-	
-	public ArrayList<Empleados> recibirEmpleados(){
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
+	public ArrayList<Empleados> recibirEmpleados() {
 		ArrayList<Empleados> empleados = new ArrayList<Empleados>();
 		try {
 			Statement st = this.conexion.createStatement();
 			ResultSet rs = st.executeQuery("SELECT * FROM usuarios WHERE id LIKE 'E%';");
-			while(rs.next()) {
+			while (rs.next()) {
 				Empleados empleado = new Empleados();
 				empleado.setId(rs.getString("id"));
 				empleado.setNickname(rs.getString("nickname"));
@@ -31,6 +35,10 @@ public class Modelo extends Conector {
 		return empleados;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<Cliente> recibirClientes() {
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 		try {
@@ -54,6 +62,10 @@ public class Modelo extends Conector {
 		return clientes;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<Producto> recibirProducto() {
 		ArrayList<Producto> productos = new ArrayList<Producto>();
 
@@ -76,6 +88,10 @@ public class Modelo extends Conector {
 		return productos;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<cabeceraPedido> recibirCabeceras() {
 		ArrayList<cabeceraPedido> cabeceras = new ArrayList<cabeceraPedido>();
 		try {
@@ -84,7 +100,7 @@ public class Modelo extends Conector {
 			while (rs.next()) {
 				cabeceraPedido cabecera = new cabeceraPedido();
 				cabecera.setNumPedido(rs.getInt("numPedido"));
-				cabecera.setIdCliente(rs.getInt("idCliente"));
+				cabecera.setId(rs.getString("id"));
 				cabecera.setPrecioTotal(rs.getDouble("precioTotal"));
 				cabecera.setFechaPedido(rs.getDate("fechaPedido"));
 				cabeceras.add(cabecera);
@@ -97,6 +113,10 @@ public class Modelo extends Conector {
 		return cabeceras;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<lineaPedido> recibirLinea() {
 		ArrayList<lineaPedido> lineas = new ArrayList<lineaPedido>();
 		try {
@@ -118,6 +138,10 @@ public class Modelo extends Conector {
 		return lineas;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<Avisos> recibirAvisos() {
 		ArrayList<Avisos> avisos = new ArrayList<Avisos>();
 		try {
@@ -139,6 +163,10 @@ public class Modelo extends Conector {
 		return avisos;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<Copia> recibirCopia() {
 		ArrayList<Copia> copias = new ArrayList<Copia>();
 		try {
@@ -160,7 +188,10 @@ public class Modelo extends Conector {
 	}
 
 //------------------------------------------------------------------------------------------------------
-
+	/**
+	 * 
+	 * @param clienteNuevo
+	 */
 	public void insertCliente(Cliente clienteNuevo) {
 		try {
 			/**
@@ -183,6 +214,10 @@ public class Modelo extends Conector {
 		}
 	}
 
+	/**
+	 * 
+	 * @param productoNuevo
+	 */
 	public void insertProducto(Producto productoNuevo) {
 		try {
 			PreparedStatement ps = this.conexion.prepareStatement(
@@ -199,6 +234,10 @@ public class Modelo extends Conector {
 		}
 	}
 
+	/**
+	 * 
+	 * @param avisoNuevo
+	 */
 	public void insertAviso(Avisos avisoNuevo) {
 		try {
 			PreparedStatement ps = this.conexion
@@ -212,7 +251,68 @@ public class Modelo extends Conector {
 			System.err.println("Error en insertAviso");
 		}
 	}
-	
-	
 
+	public void insertUsuario(Usuarios usuarioNuevo) {
+		try {
+			PreparedStatement ps = this.conexion
+					.prepareStatement("INSERT INTO usuarios(id,nickname,constrasenya) VALUES (?,?,?);");
+			ps.setString(1, usuarioNuevo.getId());
+			ps.setString(2, usuarioNuevo.getNickname());
+			ps.setString(2, usuarioNuevo.getContrasenya());
+			ps.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Error en insertUsuario");
+		}
+	}
+
+	public void insertCopia(Copia copiaNueva) {
+		try {
+			PreparedStatement ps = this.conexion
+					.prepareStatement("INSERT INTO copia(idCopia,nombre,fecha,ubicacion) VALUES (?,?,?,?);");
+			ps.setInt(1, copiaNueva.getIdCopia());
+			ps.setString(2, copiaNueva.getNombre());
+			ps.setDate(3, copiaNueva.getFecha());
+			ps.setString(4, copiaNueva.getUbicacion());
+			ps.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Error en insertCopia");
+		}
+	}
+
+	public void insertCabecera(cabeceraPedido cabeceraNueva) {
+		try {
+			PreparedStatement ps = this.conexion.prepareStatement(
+					"INSERT INTO cabeceraPedido(numPedido,id,precioTotal,fechaPedido) VALUES (?,?,?,?);");
+			ps.setInt(1, cabeceraNueva.getNumPedido());
+			ps.setString(2, cabeceraNueva.getId());
+			ps.setDouble(3, cabeceraNueva.getPrecioTotal());
+			ps.setDate(4, cabeceraNueva.getFechaPedido());
+			ps.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Error en insertCabecera");
+		}
+	}
+
+	public void insertLinea(lineaPedido lineaNueva) {
+		try {
+			PreparedStatement ps = this.conexion.prepareStatement(
+					"INSERT INTO lineaPedido(numPedido,numLinea,idProducto,cantidadProducto) VALUES (?,?,?,?);");
+			ps.setInt(1, lineaNueva.getNumPedido());
+			ps.setInt(2, lineaNueva.getNumLinea());
+			ps.setString(3, lineaNueva.getIdProducto());
+			ps.setInt(4, lineaNueva.getCantidadProducto());
+			ps.execute();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Error en insertLinea");
+		}
+	}
+
+//-------------------------------------------------------------------------------------------------------------------------------
+
+	
 }

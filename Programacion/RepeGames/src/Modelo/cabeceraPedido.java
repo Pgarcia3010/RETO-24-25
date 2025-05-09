@@ -11,7 +11,7 @@ import java.sql.Date;
 public class cabeceraPedido {
 
 	private int numPedido;
-	private int idCliente;
+	private String id;
 	private double precioTotal;
 	private Date fechaPedido;
 
@@ -26,9 +26,9 @@ public class cabeceraPedido {
 	 * @param fechaPedido La fechaPedido es un date que indica la fecha de cuando se
 	 *                    realizo el pedido.
 	 */
-	public cabeceraPedido(int numPedido, int idCliente, double precioTotal, Date fechaPedido) {
+	public cabeceraPedido(int numPedido, String id, double precioTotal, Date fechaPedido) {
 		this.numPedido = numPedido;
-		this.idCliente = idCliente;
+		this.id = id;
 		this.precioTotal = precioTotal;
 		this.fechaPedido = fechaPedido;
 	}
@@ -62,8 +62,8 @@ public class cabeceraPedido {
 	 * 
 	 * @return idCliente La idCliente es un int que indica la id del cliente. 
 	 */
-	public int getIdCliente() {
-		return idCliente;
+	public String getId() {
+		return id;
 	}
 
 	/**
@@ -71,8 +71,8 @@ public class cabeceraPedido {
 	 * 
 	 * @param idCliente La idCliente es un int que indica la id del cliente. 
 	 */
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class cabeceraPedido {
 	 *         creada a mano
 	 */
 	public String toString() {
-		return "cabeceraPedido:\nnumPedido: " + numPedido + "\nidCliente: " + idCliente + "\nprecioTotal: "
+		return "cabeceraPedido:\nnumPedido: " + numPedido + "\nid: " + id + "\nprecioTotal: "
 				+ precioTotal + "\nfechaPedido: " + fechaPedido;
 	}
 
