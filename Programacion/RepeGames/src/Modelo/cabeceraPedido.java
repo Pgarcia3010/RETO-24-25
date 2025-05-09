@@ -20,7 +20,7 @@ public class cabeceraPedido {
 	 * cabeceraPedido
 	 * 
 	 * @param numPedido   El numPedido es un int que indica el numero de pedido.
-	 * @param idCliente   La idCliente es un int que indica la id del cliente.
+	 * @param id   La idCliente es un int que indica la id del cliente.
 	 * @param precioTotal El precioTotal es un double que indica el precio total del
 	 *                    pedido.
 	 * @param fechaPedido La fechaPedido es un date que indica la fecha de cuando se
@@ -58,18 +58,18 @@ public class cabeceraPedido {
 	}
 
 	/**
-	 * recibe idCliente
+	 * recibe id
 	 * 
-	 * @return idCliente La idCliente es un int que indica la id del cliente. 
+	 * @return id La idCliente es un int que indica la id del cliente. 
 	 */
 	public String getId() {
 		return id;
 	}
 
 	/**
-	 * modifica idCliente
+	 * modifica id
 	 * 
-	 * @param idCliente La idCliente es un int que indica la id del cliente. 
+	 * @param id La idCliente es un int que indica la id del cliente. 
 	 */
 	public void setId(String id) {
 		this.id = id;

@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
+ * Se especifican y realizan las operaciones CRUD mediante SQL
+ * 
  * @author Paul Garcia
  * @version 1.4
  */
@@ -14,7 +16,7 @@ public class Modelo extends Conector {
 	/**
 	 * 
 	 * 
-	 * @return
+	 * @return empleados
 	 */
 	public ArrayList<Empleados> recibirEmpleados() {
 		ArrayList<Empleados> empleados = new ArrayList<Empleados>();
