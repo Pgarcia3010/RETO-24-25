@@ -1,5 +1,6 @@
 package Modelo;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,9 +15,10 @@ import java.util.ArrayList;
  */
 public class Modelo extends Conector {
 	/**
+	 * Se recogen todos los datos de la tabla usuarios donde el id comience por "E"
 	 * 
-	 * 
-	 * @return empleados
+	 * @return empleados Arraylist de tipo empleados, crucial para el funcionamiento
+	 *         del programa
 	 */
 	public ArrayList<Empleados> recibirEmpleados() {
 		ArrayList<Empleados> empleados = new ArrayList<Empleados>();
@@ -38,8 +40,10 @@ public class Modelo extends Conector {
 	}
 
 	/**
+	 * Se recogen todos los datos de la tabla cliente
 	 * 
-	 * @return
+	 * @return clientes Arraylist de tipo clientes, crucial para el funcionamiento
+	 *         del programa
 	 */
 	public ArrayList<Cliente> recibirClientes() {
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -65,8 +69,10 @@ public class Modelo extends Conector {
 	}
 
 	/**
+	 * Se recogen todos los datos de la tabla producto
 	 * 
-	 * @return
+	 * @return productos Arraylist de tipo producto, crucial para el funcionamiento
+	 *         del programa
 	 */
 	public ArrayList<Producto> recibirProducto() {
 		ArrayList<Producto> productos = new ArrayList<Producto>();
@@ -91,8 +97,10 @@ public class Modelo extends Conector {
 	}
 
 	/**
+	 * Se recogen todos los datos de la tabla cabeceraPedido
 	 * 
-	 * @return
+	 * @return cabeceras Arraylist de tipo cabecera, crucial para el funcionamiento
+	 *         del programa
 	 */
 	public ArrayList<cabeceraPedido> recibirCabeceras() {
 		ArrayList<cabeceraPedido> cabeceras = new ArrayList<cabeceraPedido>();
@@ -116,8 +124,10 @@ public class Modelo extends Conector {
 	}
 
 	/**
+	 * Se recogen todos los datos de la tabla lineaPedido
 	 * 
-	 * @return
+	 * @return lineas Arraylist de tipo cabecera, crucial para el funcionamiento del
+	 *         programa
 	 */
 	public ArrayList<lineaPedido> recibirLinea() {
 		ArrayList<lineaPedido> lineas = new ArrayList<lineaPedido>();
@@ -141,8 +151,10 @@ public class Modelo extends Conector {
 	}
 
 	/**
+	 * Se recogen todos los datos de la tabla avisos
 	 * 
-	 * @return
+	 * @return avisos Arraylist de tipo aviso, crucial para el funcionamiento del
+	 *         programa
 	 */
 	public ArrayList<Avisos> recibirAvisos() {
 		ArrayList<Avisos> avisos = new ArrayList<Avisos>();
@@ -166,8 +178,10 @@ public class Modelo extends Conector {
 	}
 
 	/**
+	 * Se recogen todos los datos de la tabla copia
 	 * 
-	 * @return
+	 * @return copias Arraylist de tipo copias, crucial para el funcionamiento del
+	 *         programa
 	 */
 	public ArrayList<Copia> recibirCopia() {
 		ArrayList<Copia> copias = new ArrayList<Copia>();
@@ -191,15 +205,17 @@ public class Modelo extends Conector {
 
 //------------------------------------------------------------------------------------------------------
 	/**
+	 * Se añaden nuevos clientes.
 	 * 
-	 * @param clienteNuevo
+	 * @param clienteNuevo Objeto de tipo cliente para guardar los datos que seran
+	 *                     introducidos en la base de datos.
 	 */
 	public void insertCliente(Cliente clienteNuevo) {
 		try {
-			/**
-			 * clienteNuevo se crea en el controlador, como un metodo, lo hare a
-			 * continuacion
-			 */
+//			
+//			  clienteNuevo se crea en el controlador, como un metodo, lo hare a
+//			  continuacion
+//			 
 			PreparedStatement ps = this.conexion.prepareStatement(
 					"INSERT INTO cliente (id,nombre,direccion,telefono,nickname,contrasenya) VALUES (?,?,?,?,?,?);");
 			ps.setString(1, clienteNuevo.getId());
@@ -217,8 +233,10 @@ public class Modelo extends Conector {
 	}
 
 	/**
+	 * Se añaden nuevos productos
 	 * 
-	 * @param productoNuevo
+	 * @param productoNuevo Objeto de tipo producto para guardar los datos que seran
+	 *                      introducidos en la base de datos.
 	 */
 	public void insertProducto(Producto productoNuevo) {
 		try {
@@ -237,8 +255,10 @@ public class Modelo extends Conector {
 	}
 
 	/**
+	 * Se añaden nuevos avisos
 	 * 
-	 * @param avisoNuevo
+	 * @param avisoNuevo Objeto de tipo aviso para guardar los datos que seran
+	 *                   introducidos en la base de datos.
 	 */
 	public void insertAviso(Avisos avisoNuevo) {
 		try {
@@ -254,6 +274,12 @@ public class Modelo extends Conector {
 		}
 	}
 
+	/**
+	 * Se añaden nuevos usuarios
+	 * 
+	 * @param usuarioNuevo Objeto de tipo usuario para guardar los datos que seran
+	 *                     introducidos en la base de datos.
+	 */
 	public void insertUsuario(Usuarios usuarioNuevo) {
 		try {
 			PreparedStatement ps = this.conexion
@@ -268,6 +294,12 @@ public class Modelo extends Conector {
 		}
 	}
 
+	/**
+	 * Se añaden nuevas copias.
+	 * 
+	 * @param copiaNueva Objeto de tipo copia para guardar los datos que seran
+	 *                   introducidos en la base de datos.
+	 */
 	public void insertCopia(Copia copiaNueva) {
 		try {
 			PreparedStatement ps = this.conexion
@@ -283,6 +315,12 @@ public class Modelo extends Conector {
 		}
 	}
 
+	/**
+	 * Se añaden nuevas cabeceras de pedido
+	 * 
+	 * @param cabeceraNueva Objeto de tipo cabecera para guardar los datos que seran
+	 *                      introducidos en la base de datos.
+	 */
 	public void insertCabecera(cabeceraPedido cabeceraNueva) {
 		try {
 			PreparedStatement ps = this.conexion.prepareStatement(
@@ -298,6 +336,12 @@ public class Modelo extends Conector {
 		}
 	}
 
+	/**
+	 * Se añaden nuevas lineas de pedido
+	 * 
+	 * @param lineaNueva Objeto de tipo linea para guardar los datos que seran
+	 *                   introducidos en la base de datos.
+	 */
 	public void insertLinea(lineaPedido lineaNueva) {
 		try {
 			PreparedStatement ps = this.conexion.prepareStatement(
@@ -316,5 +360,4 @@ public class Modelo extends Conector {
 
 //-------------------------------------------------------------------------------------------------------------------------------
 
-	
 }

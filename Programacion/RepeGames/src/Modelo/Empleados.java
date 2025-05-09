@@ -1,7 +1,7 @@
 package Modelo;
 
 /**
- * se crean objetos Empleado.
+ * Se crean objetos Empleado.
  */
 public class Empleados extends Usuarios {
 
