@@ -2,10 +2,8 @@ package Controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import Modelo.Modelo;
-import Modelo.Usuarios;
 import Vista.VentanaLogin;
 import Vista.VentanaRegistrar;
 

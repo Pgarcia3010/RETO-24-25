@@ -12,7 +12,9 @@ import java.sql.DriverManager;
 public class Conector {
 
 	protected Connection conexion;
-
+	/**
+	 * Se genera y se conecta con la base de datos mediante las especificaciones añadidas
+	 */
 	public Conector() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
