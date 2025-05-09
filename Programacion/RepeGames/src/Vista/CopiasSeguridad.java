@@ -49,19 +49,19 @@ public class CopiasSeguridad {
 		frame.setBounds(100, 100, 790, 498);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JLabel lblNewJgoodiesTitle = DefaultComponentFactory.getInstance().createTitle("Copias de seguridad");
 		lblNewJgoodiesTitle.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		lblNewJgoodiesTitle.setBounds(265, 22, 221, 35);
 		frame.getContentPane().add(lblNewJgoodiesTitle);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBounds(40, 250, 697, 187);
 		frame.getContentPane().add(panel);
-		
+
 		table = new JTable();
 		panel.add(table);
-		
+
 		JButton btnRealizarcopias = new JButton("Realizar copia de seguridad\r\n");
 		btnRealizarcopias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -70,10 +70,20 @@ public class CopiasSeguridad {
 		btnRealizarcopias.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		btnRealizarcopias.setBounds(233, 98, 264, 29);
 		frame.getContentPane().add(btnRealizarcopias);
-		
+
 		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 		btnVolver.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		btnVolver.setBounds(321, 151, 85, 40);
 		frame.getContentPane().add(btnVolver);
+	}
+
+	public void MostrarVentana() {
+
+		frame.setVisible(true);
 	}
 }
