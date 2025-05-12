@@ -59,12 +59,24 @@ public class MenuEmpleados {
 		frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JButton Btnproductos = new JButton("Producto");
+		Btnproductos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TablaAdministrarProductos ver = new TablaAdministrarProductos();
+				ver.MostrarVentana();
+			}
+		});
 		Btnproductos.setForeground(new Color(128, 0, 255));
 		Btnproductos.setBackground(new Color(0, 0, 0));
 		Btnproductos.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		frame.getContentPane().add(Btnproductos);
 		
 		Btnpedidos = new JButton("Pedidos");
+		Btnpedidos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AdministrarPedidos ver = new AdministrarPedidos();
+				ver.MostrarVentana();
+			}
+		});
 		Btnpedidos.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		Btnpedidos.setBackground(new Color(0, 0, 0));
 		Btnpedidos.setForeground(new Color(128, 0, 255));
@@ -72,6 +84,13 @@ public class MenuEmpleados {
 		frame.getContentPane().add(Btnpedidos);
 		
 		BtncopiasSegu = new JButton("Copias de seguridad");
+		BtncopiasSegu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CopiasSeguridad ver = new CopiasSeguridad();
+				ver.MostrarVentana();
+				
+			}
+		});
 		BtncopiasSegu.setForeground(new Color(128, 0, 255));
 		BtncopiasSegu.setBackground(new Color(0, 0, 0));
 		BtncopiasSegu.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
