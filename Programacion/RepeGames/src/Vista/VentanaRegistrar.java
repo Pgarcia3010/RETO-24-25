@@ -58,14 +58,14 @@ public class VentanaRegistrar {
 		backgroundLabel.setBounds(0, 0, 570, 550);
 		layeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER);
 
-		JLabel lblTitle = new JLabel("LOGIN");
-		lblTitle.setForeground(new Color(128, 0, 255));
+		JLabel lblTitle = new JLabel("REGISTRO");
+		lblTitle.setForeground(new Color(255, 255, 53));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
-		lblTitle.setBounds(220, 40, 123, 31);
+		lblTitle.setBounds(206, 40, 165, 31);
 		layeredPane.add(lblTitle, JLayeredPane.PALETTE_LAYER);
 
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setForeground(new Color(128, 0, 255));
+		lblNombre.setForeground(new Color(255, 255, 128));
 		lblNombre.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		lblNombre.setBounds(198, 110, 88, 13);
 		layeredPane.add(lblNombre, JLayeredPane.PALETTE_LAYER);
@@ -75,7 +75,7 @@ public class VentanaRegistrar {
 		layeredPane.add(Rnombre, JLayeredPane.PALETTE_LAYER);
 
 		JLabel lblUsuario = DefaultComponentFactory.getInstance().createLabel("Usuario");
-		lblUsuario.setForeground(new Color(128, 0, 255));
+		lblUsuario.setForeground(new Color(255, 255, 128));
 		lblUsuario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		lblUsuario.setBounds(198, 160, 88, 13);
 		layeredPane.add(lblUsuario, JLayeredPane.PALETTE_LAYER);
@@ -85,7 +85,7 @@ public class VentanaRegistrar {
 		layeredPane.add(Rusuario, JLayeredPane.PALETTE_LAYER);
 
 		JLabel lblContrasenia = DefaultComponentFactory.getInstance().createLabel("Contraseña");
-		lblContrasenia.setForeground(new Color(128, 0, 255));
+		lblContrasenia.setForeground(new Color(255, 255, 128));
 		lblContrasenia.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		lblContrasenia.setBounds(198, 210, 88, 13);
 		layeredPane.add(lblContrasenia, JLayeredPane.PALETTE_LAYER);
@@ -95,7 +95,7 @@ public class VentanaRegistrar {
 		layeredPane.add(Rcontraseina, JLayeredPane.PALETTE_LAYER);
 
 		JLabel lblTelefono = DefaultComponentFactory.getInstance().createLabel("Telefono");
-		lblTelefono.setForeground(new Color(128, 0, 255));
+		lblTelefono.setForeground(new Color(255, 255, 128));
 		lblTelefono.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		lblTelefono.setBounds(198, 260, 88, 13);
 		layeredPane.add(lblTelefono, JLayeredPane.PALETTE_LAYER);
@@ -106,7 +106,7 @@ public class VentanaRegistrar {
 		layeredPane.add(Rtelefono, JLayeredPane.PALETTE_LAYER);
 
 		JLabel lblDireccion = DefaultComponentFactory.getInstance().createLabel("Direccion");
-		lblDireccion.setForeground(new Color(128, 0, 255));
+		lblDireccion.setForeground(new Color(255, 255, 128));
 		lblDireccion.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		lblDireccion.setBounds(198, 310, 88, 13);
 		layeredPane.add(lblDireccion, JLayeredPane.PALETTE_LAYER);
@@ -116,8 +116,8 @@ public class VentanaRegistrar {
 		layeredPane.add(textField, JLayeredPane.PALETTE_LAYER);
 
 		JButton BtnVolver = new JButton("Volver");
-		BtnVolver.setBackground(new Color(128, 0, 255));
-		BtnVolver.setForeground(Color.WHITE);
+		BtnVolver.setBackground(new Color(255, 255, 53));
+		BtnVolver.setForeground(Color.BLACK);
 		BtnVolver.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		BtnVolver.setBounds(157, 395, 93, 29);
 		BtnVolver.addActionListener(new ActionListener() {
@@ -128,8 +128,8 @@ public class VentanaRegistrar {
 		layeredPane.add(BtnVolver, JLayeredPane.PALETTE_LAYER);
 
 		JButton btnCrear = new JButton("Crear");
-		btnCrear.setBackground(new Color(128, 0, 255));
-		btnCrear.setForeground(Color.WHITE);
+		btnCrear.setBackground(new Color(255, 255, 53));
+		btnCrear.setForeground(Color.BLACK);
 		btnCrear.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		btnCrear.setBounds(294, 395, 99, 29);
 		layeredPane.add(btnCrear, JLayeredPane.PALETTE_LAYER);

@@ -1,6 +1,5 @@
 package Modelo;
 
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
  * Se especifican y realizan las operaciones CRUD mediante SQL
  * 
  * @author Paul Garcia
- * @version 1.4
+ * @version 1.6
  */
 public class Modelo extends Conector {
 	/**
@@ -52,7 +51,7 @@ public class Modelo extends Conector {
 			ResultSet rs = st.executeQuery("SELECT * FROM cliente;");
 			while (rs.next()) {
 				Cliente cliente = new Cliente();
-				cliente.setId(rs.getString("idCliente"));
+				cliente.setId(rs.getString("id"));
 				cliente.setNombre(rs.getString("nombre"));
 				cliente.setDireccion(rs.getString("direccion"));
 				cliente.setTelefono(rs.getInt("telefono"));
@@ -286,7 +285,7 @@ public class Modelo extends Conector {
 					.prepareStatement("INSERT INTO usuarios(id,nickname,constrasenya) VALUES (?,?,?);");
 			ps.setString(1, usuarioNuevo.getId());
 			ps.setString(2, usuarioNuevo.getNickname());
-			ps.setString(2, usuarioNuevo.getContrasenya());
+			ps.setString(3, usuarioNuevo.getContrasenya());
 			ps.execute();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -359,5 +358,114 @@ public class Modelo extends Conector {
 	}
 
 //-------------------------------------------------------------------------------------------------------------------------------
-
+/**
+ * Se modifica el contenido de producto
+ * 
+ * @param productoCambiado objeto de tipo producto que sera el nuevo objeto introducido en la base de datos
+ * @param productoViejo objeto de tipo producto que es el que sera reemplazado
+ */
+	public void updateProductos(Producto productoCambiado, Producto productoViejo) {
+		try {
+			PreparedStatement ps = this.conexion.prepareStatement(
+					"UPDATE producto SET idProducto = ?, nombreProducto = ?, precio = ?, stock =? WHERE idProducto = ?;");
+			ps.setString(1, productoCambiado.getIdProducto());
+			ps.setString(2, productoCambiado.getNombreProducto());
+			ps.setDouble(3, productoCambiado.getPrecio());
+			ps.setInt(4, productoCambiado.getStock());
+			ps.setString(5, productoViejo.getIdProducto());
+			ps.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Error en updateProductos");
+		}
+	}
+/**
+ * Se modifica el contenido de cabeceraPedido
+ * 
+ * @param cabeceraCambiada objeto de tipo cabecera que sera el nuevo objeto introducido en la base de datos
+ * @param cabeceraVieja objeto de tipo cabecera que es el que sera reemplazado
+ */
+	public void updateCabecera(cabeceraPedido cabeceraCambiada, cabeceraPedido cabeceraVieja) {
+		try {
+			PreparedStatement ps = this.conexion.prepareStatement(
+					"UPDATE cabecerapedido SET numPedido = ?, id = ?, precioTotal = ?, fechaPedido =? WHERE id = ? AND numPedido = ?;");
+			ps.setInt(1, cabeceraCambiada.getNumPedido());
+			ps.setString(2, cabeceraCambiada.getId());
+			ps.setDouble(3, cabeceraCambiada.getPrecioTotal());
+			ps.setDate(4, cabeceraCambiada.getFechaPedido());
+			ps.setString(5, cabeceraVieja.getId());
+			ps.setInt(6, cabeceraVieja.getNumPedido());
+			ps.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Error en updateCabecera");
+		}
+	}
+/**
+ * Se modifica el contenido de lineaPedido
+ * 
+ * @param lineaCambiada objeto de tipo linea que sera el nuevo objeto introducido en la base de datos
+ * @param lineaVieja objeto de tipo linea que es el que sera reemplazado
+ */
+	public void updateLinea(lineaPedido lineaCambiada, lineaPedido lineaVieja) {
+		try {
+			PreparedStatement ps = this.conexion.prepareStatement(
+					"UPDATE lineapedido SET numPedido = ?, numLinea = ?, idProducto = ?, cantidadProducto =? WHERE numPedido = ? AND numLinea = ?;");
+			ps.setInt(1, lineaCambiada.getNumPedido());
+			ps.setInt(2, lineaCambiada.getNumLinea());
+			ps.setString(3, lineaCambiada.getIdProducto());
+			ps.setInt(4, lineaCambiada.getCantidadProducto());
+			ps.setInt(5, lineaVieja.getNumPedido());
+			ps.setInt(6, lineaVieja.getNumLinea());
+			ps.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Error en updateLinea");
+		}
+	}
+	
+//----------------------------------------------------------------------------------------------------------------------------
+	/**
+	 * Se eliminara contenido de producto
+	 * 
+	 * @param productoBorrado objeto de tipo producto que sera eliminado
+	 */
+	public void eliminarProducto(Producto productoBorrado) {
+		try {
+			PreparedStatement ps = this.conexion.prepareStatement("DELETE FROM producto WHERE idProducto = ?;");
+			ps.setString(1, productoBorrado.getIdProducto());
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Error en eliminarProducto");
+		}
+		
+	}
+	/**
+	 * Se eliminara contenido de lineaPedido
+	 * 
+	 * @param lineaBorrada objeto de tipo linea que sera eliminado
+	 */
+	public void eliminarLinea(lineaPedido lineaBorrada) {
+		try {
+			PreparedStatement ps = this.conexion.prepareStatement("DELETE FROM lineaPedido WHERE numLinea = ?;");
+			ps.setInt(1, lineaBorrada.getNumLinea());
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Error en eliminarLinea");
+		}
+	}
+	/**
+	 * Se eliminara contenido de cabeceraPedido
+	 * 
+	 * @param cabeceraBorrada objeto de tipo cabecera que sera eliminado
+	 */
+	public void eliminarCabecera(cabeceraPedido cabeceraBorrada) {
+		try {
+			PreparedStatement ps = this.conexion.prepareStatement("DELETE FROM cabeceraPedido WHERE numPedido = ?;");
+			ps.setInt(1, cabeceraBorrada.getNumPedido());
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Error en eliminarCabecera");
+		}
+	}
 }
