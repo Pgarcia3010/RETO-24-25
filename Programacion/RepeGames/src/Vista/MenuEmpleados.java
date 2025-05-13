@@ -13,6 +13,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
+
+import Controlador.Controlador;
+
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import java.awt.Font;
@@ -24,6 +27,7 @@ public class MenuEmpleados {
 	public JButton BtncopiasSegu;
 	public JButton Btnpedidos;
 	public JButton Btnproductos;
+	private Controlador controlador;
 	
 
 	/**
@@ -107,5 +111,18 @@ public class MenuEmpleados {
 		Btnvolver.setBackground(new Color(0, 0, 0));
 		frame.getContentPane().add(Btnvolver);
 	}
+	
+	public void mostrarVentana(){
+		frame.setVisible(true);
+	}
 
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+	public void setControlador(Controlador controlador) {
+		this.controlador = controlador;
+	}
+
+	
 }

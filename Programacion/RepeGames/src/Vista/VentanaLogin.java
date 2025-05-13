@@ -2,6 +2,9 @@ package Vista;
 
 import java.awt.EventQueue;
 import javax.swing.*;
+
+import Controlador.Controlador;
+
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -12,9 +15,11 @@ public class VentanaLogin {
 	private JFrame frame;
 	private JTextField usuario;
 	private JTextField contraseina;
-	public JButton btnIniciar;
-	public JLabel lblContrasena;
-	public JLabel lblUsuario;
+	private JButton btnIniciar;
+	private JLabel lblContrasena;
+	private JLabel lblUsuario;
+	
+	private Controlador controlador;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
@@ -51,13 +56,11 @@ public class VentanaLogin {
 		// Componentes en capa superior
 		JLabel lblTitle = new JLabel("LOGIN");
 		lblTitle.setForeground(new Color(255, 255, 53));
-//		lblTitle.setBackground(new Color(128, 0, 255));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
 		lblTitle.setBounds(266, 51, 123, 31);
 		layeredPane.add(lblTitle, JLayeredPane.PALETTE_LAYER);
 
 		lblUsuario = new JLabel("Usuario");
-//		lblUsuario.setBackground(new Color(128, 0, 255));
 		lblUsuario.setForeground(new Color(255, 255, 128));
 		lblUsuario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		lblUsuario.setBounds(221, 132, 88, 13);
@@ -68,7 +71,6 @@ public class VentanaLogin {
 		layeredPane.add(usuario, JLayeredPane.PALETTE_LAYER);
 
 		lblContrasena = new JLabel("Contraseña");
-//		lblContrasena.setBackground(new Color(128, 0, 255));
 		lblContrasena.setForeground(new Color(255, 255, 128));
 		lblContrasena.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		lblContrasena.setBounds(221, 213, 88, 13);
@@ -79,7 +81,12 @@ public class VentanaLogin {
 		layeredPane.add(contraseina, JLayeredPane.PALETTE_LAYER);
 
 		btnIniciar = new JButton("Iniciar");
-//		btnIniciar.setForeground(new Color(255, 255, 255));
+		btnIniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.comprobarLogin(usuario.getText(), contraseina.getText());
+				
+			}
+		});
 		btnIniciar.setBackground(new Color(255, 255, 53));
 		btnIniciar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		btnIniciar.setBounds(222, 281, 91, 29);
@@ -93,10 +100,24 @@ public class VentanaLogin {
 			}
 		});
 
-//		btnCrear.setForeground(new Color(255, 255, 255));
 		btnCrear.setBackground(new Color(255, 255, 53));
 		btnCrear.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		btnCrear.setBounds(323, 281, 97, 29);
 		layeredPane.add(btnCrear, JLayeredPane.PALETTE_LAYER);
 	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+	public void setControlador(Controlador controlador) {
+		this.controlador = controlador;
+	}
+	
+	public void mostrarVentana() {
+		frame.setVisible(true);
+	}
+
+
+	
 }

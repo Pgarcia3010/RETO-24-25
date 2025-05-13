@@ -8,6 +8,9 @@ import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+import Controlador.Controlador;
+
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -19,6 +22,7 @@ public class TablaPedidos {
 
 	private JFrame frame;
 	private JTable table;
+	private Controlador controlador;
 
 	/**
 	 * Launch the application.
@@ -102,4 +106,16 @@ public class TablaPedidos {
 		btnFinalizar.setBounds(609, 435, 158, 30);
 		frame.getContentPane().add(btnFinalizar);
 	}
+	public void mostrarVentana() {
+		frame.setVisible(true);
+	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+	public void setControlador(Controlador controlador) {
+		this.controlador = controlador;
+	}
+	
 }

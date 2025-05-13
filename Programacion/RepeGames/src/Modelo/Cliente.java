@@ -106,6 +106,6 @@ public class Cliente extends Usuarios {
 	 */
 	public String toString() {
 		return "Cliente \nid: " + getId() + "\nnombre: " + nombre + "\ndireccion: " + direccion + "\ntelefono: "
-				+ telefono + "\nnickname" + getNickname() + "\ncontraseña: " + getContrasenya();
+				+ telefono + "\nnickname:" + getNickname() + "\ncontraseña: " + getContrasenya();
 	}
 }
