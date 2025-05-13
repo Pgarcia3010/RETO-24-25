@@ -8,6 +8,9 @@ import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+import Controlador.Controlador;
+
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -15,11 +18,13 @@ import javax.swing.JTable;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TablaPedidos {
+public class TablaCliente {
 
 	private JFrame frame;
-	private JTable table;
+	public JTable tablaClientes;
+	public Controlador controlador;
 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -27,7 +32,7 @@ public class TablaPedidos {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TablaPedidos window = new TablaPedidos();
+					TablaCliente window = new TablaCliente();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +44,7 @@ public class TablaPedidos {
 	/**
 	 * Create the application.
 	 */
-	public TablaPedidos() {
+	public TablaCliente() {
 		initialize();
 	}
 
@@ -56,8 +61,8 @@ public class TablaPedidos {
 		scrollPane.setBounds(24, 36, 564, 250);
 		frame.getContentPane().add(scrollPane);
 		
-		table = new JTable();
-		scrollPane.setViewportView(table);
+		tablaClientes = new JTable();
+		scrollPane.setViewportView(tablaClientes);
 		
 		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Creacion de pedido:\r\n");
 		lblNewJgoodiesLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
@@ -101,5 +106,26 @@ public class TablaPedidos {
 		btnFinalizar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		btnFinalizar.setBounds(609, 435, 158, 30);
 		frame.getContentPane().add(btnFinalizar);
+		
+		agregarTabla();
+	
+	
+		 
 	}
+	public void agregarTabla () {
+		
+		controlador.cargarTablaProductos();
+		
+		
+		
+	}
+	
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+	public void setControlador(Controlador controlador) {
+		this.controlador = controlador;
+	}
+
 }
