@@ -25,17 +25,6 @@ public class VentanaRegistrar {
 	private JTextField Rtelefono;
 	private JTextField textField;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			try {
-				VentanaRegistrar window = new VentanaRegistrar();
-				window.frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-	}
-
 	public VentanaRegistrar() {
 		initialize();
 	}
@@ -139,4 +128,3 @@ public class VentanaRegistrar {
 		frame.setVisible(true);
 	}
 }
-

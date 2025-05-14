@@ -11,6 +11,7 @@ import Modelo.Empleados;
 import Modelo.Modelo;
 import Modelo.Producto;
 import Vista.MenuEmpleados;
+import Vista.TablaAdministrarProductos;
 import Vista.TablaPedidos;
 import Vista.VentanaLogin;
 import Vista.VentanaRegistrar;
@@ -22,6 +23,7 @@ public class Controlador {
 	private VentanaLogin Login;
 	private MenuEmpleados menuEmp;
 	private TablaPedidos menuCli;
+	private TablaAdministrarProductos tablaProdu;
 
 	public void recibirClientes() {
 		ArrayList<Cliente> clientes = this.modelo.recibirClientes();
@@ -56,13 +58,14 @@ public class Controlador {
 				} else {
 					System.out.println("menuCliente no inicializado");
 				}
-				return; // salir al encontrar 
+				return; // salir al encontrar
 			}
 		}
 
 		// Buscar en empleados
 		for (int i = 0; i < empleList.size(); i++) {
-			if (empleList.get(i).getNickname().equals(usuario) && empleList.get(i).getContrasenya().equals(contraseina)) {
+			if (empleList.get(i).getNickname().equals(usuario)
+					&& empleList.get(i).getContrasenya().equals(contraseina)) {
 				existe = true;
 				System.out.println("Usuario existe");
 				System.out.println("Usuario es Empleado");
@@ -82,21 +85,29 @@ public class Controlador {
 		}
 	}
 
-	public void llenarTablaproductos() throws SQLException  {
+	public void llenarTablaproductos() throws SQLException {
 
 		ArrayList<Producto> produList = modelo.recibirProducto();
 		menuCli.setLlenartabla(produList);
-		 
-
 
 	}
 
-	public VentanaLogin getLogin() {
-		return Login;
+	public void tablaEmpleadoproduc() throws SQLException {
+
+		ArrayList<Producto> produList = modelo.recibirProducto();
+		tablaProdu.setTabla(produList);
+
 	}
 
-	public void setLogin(VentanaLogin login) {
+	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
+			TablaPedidos menuCli, TablaAdministrarProductos tablaProdu) {
+
+		this.modelo = modelo;
+		Registrar = registrar;
 		Login = login;
+		this.menuEmp = menuEmp;
+		this.menuCli = menuCli;
+		this.tablaProdu = tablaProdu;
 	}
 
 	public Modelo getModelo() {
@@ -115,14 +126,36 @@ public class Controlador {
 		Registrar = registrar;
 	}
 
-	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
-			TablaPedidos menuCli) {
+	public VentanaLogin getLogin() {
+		return Login;
+	}
 
-		this.modelo = modelo;
-		Registrar = registrar;
+	public void setLogin(VentanaLogin login) {
 		Login = login;
+	}
+
+	public MenuEmpleados getMenuEmp() {
+		return menuEmp;
+	}
+
+	public void setMenuEmp(MenuEmpleados menuEmp) {
 		this.menuEmp = menuEmp;
+	}
+
+	public TablaPedidos getMenuCli() {
+		return menuCli;
+	}
+
+	public void setMenuCli(TablaPedidos menuCli) {
 		this.menuCli = menuCli;
+	}
+
+	public TablaAdministrarProductos getTablaProdu() {
+		return tablaProdu;
+	}
+
+	public void setTablaProdu(TablaAdministrarProductos tablaProdu) {
+		this.tablaProdu = tablaProdu;
 	}
 
 }

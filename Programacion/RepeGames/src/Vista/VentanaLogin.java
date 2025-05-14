@@ -65,24 +65,26 @@ public class VentanaLogin {
 		layeredPane.add(lblTitle, JLayeredPane.PALETTE_LAYER);
 
 		lblUsuario = new JLabel("Usuario");
-		lblUsuario.setBackground(new Color(128, 0, 255));
-		lblUsuario.setForeground(new Color(128, 0, 255));
+		lblUsuario.setBackground(new Color(255, 255, 128));
+		lblUsuario.setForeground(new Color(255, 255, 21));
 		lblUsuario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		lblUsuario.setBounds(221, 132, 88, 13);
 		layeredPane.add(lblUsuario, JLayeredPane.PALETTE_LAYER);
 
 		usuario = new JTextField();
+		usuario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		usuario.setBounds(222, 149, 185, 31);
 		layeredPane.add(usuario, JLayeredPane.PALETTE_LAYER);
 
 		lblContrasena = new JLabel("Contraseña");
-		lblContrasena.setBackground(new Color(128, 0, 255));
-		lblContrasena.setForeground(new Color(128, 0, 255));
+		lblContrasena.setBackground(new Color(255, 255, 128));
+		lblContrasena.setForeground(new Color(255, 255, 21));
 		lblContrasena.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		lblContrasena.setBounds(221, 213, 88, 13);
 		layeredPane.add(lblContrasena, JLayeredPane.PALETTE_LAYER);
 
 		contraseina = new JTextField();
+		contraseina.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		contraseina.setBounds(222, 226, 185, 31);
 		layeredPane.add(contraseina, JLayeredPane.PALETTE_LAYER);
 
