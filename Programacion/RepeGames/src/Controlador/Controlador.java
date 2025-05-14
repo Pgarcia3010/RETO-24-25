@@ -1,7 +1,10 @@
 package Controlador;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import javax.swing.JTextField;
 
 import Modelo.Cliente;
 import Modelo.Empleados;
@@ -53,15 +56,13 @@ public class Controlador {
 				} else {
 					System.out.println("menuCliente no inicializado");
 				}
-				return; // salir al encontrar
+				return; // salir al encontrar 
 			}
 		}
 
 		// Buscar en empleados
 		for (int i = 0; i < empleList.size(); i++) {
-			if (empleList.get(i).getNickname().equals(usuario)
-					&& empleList.get(i).getContrasenya().equals(contraseina)) {
-
+			if (empleList.get(i).getNickname().equals(usuario) && empleList.get(i).getContrasenya().equals(contraseina)) {
 				existe = true;
 				System.out.println("Usuario existe");
 				System.out.println("Usuario es Empleado");
@@ -81,10 +82,12 @@ public class Controlador {
 		}
 	}
 
-	public void llenarTablaproductos() throws SQLException {
+	public void llenarTablaproductos() throws SQLException  {
 
 		ArrayList<Producto> produList = modelo.recibirProducto();
 		menuCli.setLlenartabla(produList);
+		 
+
 
 	}
 

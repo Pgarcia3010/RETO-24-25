@@ -102,8 +102,7 @@ public class MenuEmpleados {
 		Btnvolver.setBackground(new Color(0, 0, 0));
 		frame.getContentPane().add(Btnvolver);
 	}
-	
-	public void mostrarVentana(){
+	public void mostrarVentana() {
 		frame.setVisible(true);
 	}
 
