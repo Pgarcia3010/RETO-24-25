@@ -22,7 +22,6 @@ import Modelo.Producto;
 import javax.swing.table.DefaultTableModel;
 
 public class TablaPedidos {
-
 	private JFrame frame;
 	private JTable tablaClien;
 	private Controlador controlador;

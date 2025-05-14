@@ -285,7 +285,7 @@ public class Modelo extends Conector {
 					.prepareStatement("INSERT INTO usuarios(id,nickname,constrasenya) VALUES (?,?,?);");
 			ps.setString(1, usuarioNuevo.getId());
 			ps.setString(2, usuarioNuevo.getNickname());
-			ps.setString(2, usuarioNuevo.getContrasenya());
+			ps.setString(3, usuarioNuevo.getContrasenya());
 			ps.execute();
 		} catch (Exception e) {
 			// TODO: handle exception

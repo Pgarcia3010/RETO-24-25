@@ -16,7 +16,6 @@ import javax.swing.JTextField;
 import Controlador.Controlador;
 
 public class VentanaLogin {
-
 	private JFrame frame;
 	private JTextField usuario;
 	private JTextField contraseina;

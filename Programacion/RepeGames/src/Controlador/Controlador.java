@@ -63,7 +63,6 @@ public class Controlador {
 		// Buscar en empleados
 		for (int i = 0; i < empleList.size(); i++) {
 			if (empleList.get(i).getNickname().equals(usuario) && empleList.get(i).getContrasenya().equals(contraseina)) {
-
 				existe = true;
 				System.out.println("Usuario existe");
 				System.out.println("Usuario es Empleado");
