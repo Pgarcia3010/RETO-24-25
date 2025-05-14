@@ -6,8 +6,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/1AW3-7/Desktop/RETO 24-25/RETO-24-25/Programacion/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47-bin.jar"/>
-	<classpathentry kind="lib" path="C:/Users/1AW3-7/Desktop/RETO 24-25/RETO-24-25/Programacion/com.jgoodies.common_1.8.1.v20240327-0800.jar"/>
-	<classpathentry kind="lib" path="C:/Users/1AW3-7/Desktop/RETO 24-25/RETO-24-25/Programacion/com.jgoodies.forms_1.9.0.v20240327-0800.jar"/>
+	<classpathentry kind="lib" path="C:/Users/1AW3-4/eclipse-workspace/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
