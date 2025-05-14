@@ -51,7 +51,7 @@ public class Modelo extends Conector {
 			ResultSet rs = st.executeQuery("SELECT * FROM cliente;");
 			while (rs.next()) {
 				Cliente cliente = new Cliente();
-				cliente.setId(rs.getString("idCliente"));
+				cliente.setId(rs.getString("id"));
 				cliente.setNombre(rs.getString("nombre"));
 				cliente.setDireccion(rs.getString("direccion"));
 				cliente.setTelefono(rs.getInt("telefono"));

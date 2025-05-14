@@ -1,11 +1,19 @@
 package Vista;
 
-import java.awt.EventQueue;
-import javax.swing.*;
-import java.awt.Font;
 import java.awt.Color;
-import java.awt.event.ActionListener;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JTextField;
+
+import Controlador.Controlador;
 
 public class VentanaLogin {
 
@@ -15,6 +23,7 @@ public class VentanaLogin {
 	public JButton btnIniciar;
 	public JLabel lblContrasena;
 	public JLabel lblUsuario;
+	private Controlador controlador;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
@@ -79,6 +88,11 @@ public class VentanaLogin {
 		layeredPane.add(contraseina, JLayeredPane.PALETTE_LAYER);
 
 		btnIniciar = new JButton("Iniciar");
+		btnIniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.comprobarLogin(usuario.getText(), contraseina.getText());
+			}
+		});
 		btnIniciar.setForeground(new Color(255, 255, 255));
 		btnIniciar.setBackground(new Color(128, 0, 255));
 		btnIniciar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
@@ -98,5 +112,20 @@ public class VentanaLogin {
 		btnCrear.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		btnCrear.setBounds(323, 281, 97, 29);
 		layeredPane.add(btnCrear, JLayeredPane.PALETTE_LAYER);
+	}
+
+	 
+
+	public void setControlador(Controlador controlador) {
+		this.controlador = controlador;
+	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+	
+	
+	public void mostrarVentana () {
+		frame.setVisible(true);
 	}
 }
