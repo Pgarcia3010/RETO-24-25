@@ -59,9 +59,9 @@ public class VentanaRegistrar {
 		layeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER);
 
 		JLabel lblTitle = new JLabel("REGISTRO");
-		lblTitle.setForeground(new Color(255, 255, 53));
+		lblTitle.setForeground(new Color(128, 0, 255));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
-		lblTitle.setBounds(206, 40, 165, 31);
+		lblTitle.setBounds(220, 40, 173, 31);
 		layeredPane.add(lblTitle, JLayeredPane.PALETTE_LAYER);
 
 		JLabel lblNombre = new JLabel("Nombre");
