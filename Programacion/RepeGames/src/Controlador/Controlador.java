@@ -1,8 +1,8 @@
 package Controlador;
 
-import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Modelo.Cliente;
@@ -14,15 +14,14 @@ import Vista.TablaPedidos;
 import Vista.VentanaLogin;
 import Vista.VentanaRegistrar;
 
-public class Controlador  implements ActionListener 
-{
+public class Controlador implements ActionListener {
 
 	private Modelo modelo;
 	private VentanaRegistrar Registrar;
 	private VentanaLogin Login;
 	private MenuEmpleados menuEmp;
 	private TablaPedidos menuCli;
-	
+
 	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
 			TablaPedidos menuCli) {
 
@@ -31,11 +30,13 @@ public class Controlador  implements ActionListener
 		this.Login = login;
 		this.menuEmp = menuEmp;
 		this.menuCli = menuCli;
-		this.Login.btnIniciar.addActionListener(this);	
 		this.Registrar.btnCrear2.addActionListener(this);
-		}
+		this.Login.btnIniciar.addActionListener(this);
+		this.Login.btnCrear.addActionListener(this);
+	}
+
 	public Controlador() {
-		
+
 	}
 
 	public void recibirClientes() {
@@ -107,14 +108,15 @@ public class Controlador  implements ActionListener
 
 	public void nuevoCliente(String nombre, String telefono, String direccion, String usuario, String contrasenia) {
 		Cliente clienteNuevo = new Cliente();
-
+//		int randomNum = (int)(Math.random() * 101); 
+//		clienteNuevo.setId();
 		clienteNuevo.setNombre(nombre);
 		clienteNuevo.setTelefono(telefono);
 		clienteNuevo.setDireccion(direccion);
 		clienteNuevo.setNickname(usuario);
 		clienteNuevo.setContrasenya(contrasenia);
 		System.out.println(clienteNuevo.toString());
-		/*this.modelo.insertCliente(clienteNuevo);*/
+		this.modelo.insertCliente(clienteNuevo);
 	}
 
 	public VentanaLogin getLogin() {
@@ -149,31 +151,13 @@ public class Controlador  implements ActionListener
 		if (e.getSource().equals(Registrar.btnCrear2)) {
 			System.out.println("paso boton crear");
 			nuevoCliente(Registrar.Rnombre.getText(), Registrar.Rtelefono.getText(), Registrar.Rdireccion.getText(),
-						Registrar.Rusuario.getText(), Registrar.Rcontraseina.getText());
-				// COntrolador y static al otro lado
+					Registrar.Rusuario.getText(), Registrar.Rcontraseina.getText());
+			// COntrolador y static al otro lado
 		}
-
+		if (e.getSource().equals(Login.btnCrear)) {
+//				ver.MostrarVentana();
+			Registrar.MostrarVentana();
 		}
-
 	}
 
-//		this.Registrar.btnCrear.addActionListener(this);
-//		this.Registrar.btnCrear.setActionCommand("Crear");
-
-//	public void actionPerformed(ActionEvent e) {
-//		String id_boton = e.getActionCommand();
-//		if("Crear".equals(id_boton)) {
-//			String nombre = 
-//            String telefono = vista.getTelefono();
-//            String direccion = vista.getDireccion();
-//            String usuario = vista.getUsuario();
-//            String contrasena = vista.getContraseina();
-//            Rnombre.getText(), Rtelefono.getText(), Rdireccion.getText(),
-//			Rusuario.getText(), Rcontraseina.getText());
-//		}
-
-//		System.out.println(id_boton);
-
-//		System.out.println("paso");
-//		String id_boton = e.getActionCommand();
-//		System.out.println(id_boton);
+}

@@ -3,8 +3,6 @@ package Vista;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,8 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
 
-import Controlador.Controlador;
-
 public class VentanaLogin {
 	private JFrame frame;
 	public JTextField usuario;
@@ -22,7 +18,8 @@ public class VentanaLogin {
 	public JButton btnIniciar;
 	public JLabel lblContrasena;
 	public JLabel lblUsuario;
-	//private Controlador controlador;
+	public JButton btnCrear;
+	// private Controlador controlador;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
@@ -40,12 +37,11 @@ public class VentanaLogin {
 	}
 
 	private void initialize() {
-		//System.out.println("Controlador: " + controlador);
+		// System.out.println("Controlador: " + controlador);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 645, 443);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 //		System.out.println("Controlador: " + controlador);
-
 
 		// Crear JLayeredPane para manejar capas
 		JLayeredPane layeredPane = new JLayeredPane();
@@ -90,24 +86,14 @@ public class VentanaLogin {
 		layeredPane.add(contraseina, JLayeredPane.PALETTE_LAYER);
 
 		btnIniciar = new JButton("Iniciar");
-		/*btnIniciar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador.comprobarLogin(usuario.getText(), contraseina.getText());
-			}
-		});*/
+	
 		btnIniciar.setForeground(new Color(255, 255, 255));
 		btnIniciar.setBackground(new Color(128, 0, 255));
 		btnIniciar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		btnIniciar.setBounds(222, 281, 91, 29);
 		layeredPane.add(btnIniciar, JLayeredPane.PALETTE_LAYER);
 
-		JButton btnCrear = new JButton("Crear");
-		btnCrear.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				VentanaRegistrar ver = new VentanaRegistrar();
-				ver.MostrarVentana();
-			}
-		});
+		btnCrear = new JButton("Crear");
 
 		btnCrear.setForeground(new Color(255, 255, 255));
 		btnCrear.setBackground(new Color(128, 0, 255));
@@ -116,18 +102,7 @@ public class VentanaLogin {
 		layeredPane.add(btnCrear, JLayeredPane.PALETTE_LAYER);
 	}
 
-	 
-
-	/*public void setControlador(Controlador controlador) {
-		this.controlador = controlador;
-	}
-
-	public Controlador getControlador() {
-		return controlador;
-	}*/
-	
-	
-	public void mostrarVentana () {
+	public void mostrarVentana() {
 		frame.setVisible(true);
 	}
 }
