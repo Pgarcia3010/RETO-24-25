@@ -6,10 +6,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Modelo.Cliente;
+import Modelo.Copia;
 import Modelo.Empleados;
 import Modelo.Modelo;
 import Modelo.Producto;
+import Modelo.Usuarios;
+import Modelo.lineaPedido;
+import Vista.AdministrarPedidos;
+import Vista.CopiasSeguridad;
 import Vista.MenuEmpleados;
+import Vista.PedidosEmleados;
+import Vista.TablaAdministrarProductos;
 import Vista.TablaPedidos;
 import Vista.VentanaLogin;
 import Vista.VentanaRegistrar;
@@ -21,6 +28,10 @@ public class Controlador implements ActionListener {
 	private VentanaLogin Login;
 	private MenuEmpleados menuEmp;
 	private TablaPedidos menuCli;
+	private TablaAdministrarProductos tablaProdu;
+	private AdministrarPedidos pedidosAdmin;
+	private CopiasSeguridad copiasdeseguri;
+	private PedidosEmleados pedidosempleados;
 
 	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
 			TablaPedidos menuCli) {
@@ -106,6 +117,11 @@ public class Controlador implements ActionListener {
 
 	}
 
+	public void tablaEmpleadoproduc() throws SQLException {
+
+		ArrayList<Producto> produList = modelo.recibirProducto();
+		tablaProdu.setTabla(produList);
+
 	public void nuevoCliente(String nombre, String telefono, String direccion, String usuario, String contrasenia) {
 		Cliente clienteNuevo = new Cliente();
 //		int randomNum = (int)(Math.random() * 101); 
@@ -119,12 +135,40 @@ public class Controlador implements ActionListener {
 		this.modelo.insertCliente(clienteNuevo);
 	}
 
-	public VentanaLogin getLogin() {
-		return Login;
+	public void tablapediAdmin() throws SQLException {
+
+		ArrayList<Producto> produList = modelo.recibirProducto();
+		pedidosAdmin.SetTablaE1(produList);
+
 	}
 
-	public void setLogin(VentanaLogin login) {
+	public void usuariosCopiasTabla() throws SQLException {
+
+		ArrayList<Copia> usuarioList = modelo.recibirCopia();
+		copiasdeseguri.tablaCS(usuarioList);
+
+	}
+
+	public void pedidosCargar() throws SQLException{
+
+		ArrayList<lineaPedido> linealist = modelo.recibirLinea();
+		pedidosempleados.tablaPedidos(linealist);
+
+	}
+
+	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
+			TablaPedidos menuCli, TablaAdministrarProductos tablaProdu, AdministrarPedidos pedidosAdmin,
+			CopiasSeguridad copiasdeseguri, PedidosEmleados pedidosempleados) {
+
+		this.modelo = modelo;
+		Registrar = registrar;
 		Login = login;
+		this.menuEmp = menuEmp;
+		this.menuCli = menuCli;
+		this.tablaProdu = tablaProdu;
+		this.pedidosAdmin = pedidosAdmin;
+		this.copiasdeseguri = copiasdeseguri;
+		this.pedidosempleados = pedidosempleados;
 	}
 
 	public Modelo getModelo() {
@@ -158,6 +202,61 @@ public class Controlador implements ActionListener {
 //				ver.MostrarVentana();
 			Registrar.MostrarVentana();
 		}
+
+	public VentanaLogin getLogin() {
+		return Login;
+	}
+
+	public void setLogin(VentanaLogin login) {
+		Login = login;
+	}
+
+	public MenuEmpleados getMenuEmp() {
+		return menuEmp;
+	}
+
+	public void setMenuEmp(MenuEmpleados menuEmp) {
+		this.menuEmp = menuEmp;
+	}
+
+	public TablaPedidos getMenuCli() {
+		return menuCli;
+	}
+
+	public void setMenuCli(TablaPedidos menuCli) {
+		this.menuCli = menuCli;
+	}
+
+	public TablaAdministrarProductos getTablaProdu() {
+		return tablaProdu;
+	}
+
+	public void setTablaProdu(TablaAdministrarProductos tablaProdu) {
+		this.tablaProdu = tablaProdu;
+	}
+
+	public AdministrarPedidos getPedidosAdmin() {
+		return pedidosAdmin;
+	}
+
+	public void setPedidosAdmin(AdministrarPedidos pedidosAdmin) {
+		this.pedidosAdmin = pedidosAdmin;
+	}
+
+	public CopiasSeguridad getCopiasdeseguri() {
+		return copiasdeseguri;
+	}
+
+	public void setCopiasdeseguri(CopiasSeguridad copiasdeseguri) {
+		this.copiasdeseguri = copiasdeseguri;
+	}
+
+	public PedidosEmleados getPedidosempleados() {
+		return pedidosempleados;
+	}
+
+	public void setPedidosempleados(PedidosEmleados pedidosempleados) {
+		this.pedidosempleados = pedidosempleados;
 	}
 
 }

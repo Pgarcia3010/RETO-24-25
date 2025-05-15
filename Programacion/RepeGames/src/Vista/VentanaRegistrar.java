@@ -28,17 +28,6 @@ public class VentanaRegistrar {
 	public JButton btnCrear2;
 //	public Controlador controlador;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			try {
-				VentanaRegistrar window = new VentanaRegistrar();
-				window.frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-	}
-
 	public VentanaRegistrar() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 570, 550);
@@ -145,5 +134,4 @@ public class VentanaRegistrar {
 	public void MostrarVentana() {
 		frame.setVisible(true);
 	}
-
 }
