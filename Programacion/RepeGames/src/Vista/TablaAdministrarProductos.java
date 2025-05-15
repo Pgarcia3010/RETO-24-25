@@ -1,6 +1,10 @@
 package Vista;
 
 import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +23,8 @@ import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
 import Modelo.Producto;
+
+import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class TablaAdministrarProductos {
 

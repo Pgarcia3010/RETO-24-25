@@ -1,10 +1,9 @@
 package Controlador;
 
-import java.io.IOException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import javax.swing.JTextField;
 
 import Modelo.Cliente;
 import Modelo.Copia;
@@ -22,7 +21,7 @@ import Vista.TablaPedidos;
 import Vista.VentanaLogin;
 import Vista.VentanaRegistrar;
 
-public class Controlador {
+public class Controlador implements ActionListener {
 
 	private Modelo modelo;
 	private VentanaRegistrar Registrar;
@@ -33,6 +32,23 @@ public class Controlador {
 	private AdministrarPedidos pedidosAdmin;
 	private CopiasSeguridad copiasdeseguri;
 	private PedidosEmleados pedidosempleados;
+
+	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
+			TablaPedidos menuCli) {
+
+		this.modelo = modelo;
+		this.Registrar = registrar;
+		this.Login = login;
+		this.menuEmp = menuEmp;
+		this.menuCli = menuCli;
+		this.Registrar.btnCrear2.addActionListener(this);
+		this.Login.btnIniciar.addActionListener(this);
+		this.Login.btnCrear.addActionListener(this);
+	}
+
+	public Controlador() {
+
+	}
 
 	public void recibirClientes() {
 		ArrayList<Cliente> clientes = this.modelo.recibirClientes();
@@ -106,6 +122,17 @@ public class Controlador {
 		ArrayList<Producto> produList = modelo.recibirProducto();
 		tablaProdu.setTabla(produList);
 
+	public void nuevoCliente(String nombre, String telefono, String direccion, String usuario, String contrasenia) {
+		Cliente clienteNuevo = new Cliente();
+//		int randomNum = (int)(Math.random() * 101); 
+//		clienteNuevo.setId();
+		clienteNuevo.setNombre(nombre);
+		clienteNuevo.setTelefono(telefono);
+		clienteNuevo.setDireccion(direccion);
+		clienteNuevo.setNickname(usuario);
+		clienteNuevo.setContrasenya(contrasenia);
+		System.out.println(clienteNuevo.toString());
+		this.modelo.insertCliente(clienteNuevo);
 	}
 
 	public void tablapediAdmin() throws SQLException {
@@ -159,6 +186,22 @@ public class Controlador {
 	public void setRegistrar(VentanaRegistrar registrar) {
 		Registrar = registrar;
 	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(Login.btnIniciar)) {
+			System.out.println("paso boton iniciar");
+			comprobarLogin(Login.usuario.getText(), Login.contraseina.getText());
+		}
+		if (e.getSource().equals(Registrar.btnCrear2)) {
+			System.out.println("paso boton crear");
+			nuevoCliente(Registrar.Rnombre.getText(), Registrar.Rtelefono.getText(), Registrar.Rdireccion.getText(),
+					Registrar.Rusuario.getText(), Registrar.Rcontraseina.getText());
+			// COntrolador y static al otro lado
+		}
+		if (e.getSource().equals(Login.btnCrear)) {
+//				ver.MostrarVentana();
+			Registrar.MostrarVentana();
+		}
 
 	public VentanaLogin getLogin() {
 		return Login;

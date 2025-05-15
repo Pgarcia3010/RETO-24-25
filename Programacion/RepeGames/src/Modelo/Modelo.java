@@ -54,7 +54,7 @@ public class Modelo extends Conector {
 				cliente.setId(rs.getString("id"));
 				cliente.setNombre(rs.getString("nombre"));
 				cliente.setDireccion(rs.getString("direccion"));
-				cliente.setTelefono(rs.getInt("telefono"));
+				cliente.setTelefono(rs.getString("telefono"));
 				cliente.setNickname(rs.getString("nickname"));
 				cliente.setContrasenya(rs.getString("contrasenya"));
 				clientes.add(cliente);
@@ -216,13 +216,12 @@ public class Modelo extends Conector {
 //			  continuacion
 //			 
 			PreparedStatement ps = this.conexion.prepareStatement(
-					"INSERT INTO cliente (id,nombre,direccion,telefono,nickname,contrasenya) VALUES (?,?,?,?,?,?);");
-			ps.setString(1, clienteNuevo.getId());
-			ps.setString(2, clienteNuevo.getNombre());
-			ps.setString(3, clienteNuevo.getDireccion());
-			ps.setInt(4, clienteNuevo.getTelefono());
-			ps.setString(5, clienteNuevo.getNickname());
-			ps.setString(6, clienteNuevo.getContrasenya());
+					"INSERT INTO cliente (nombre,direccion,telefono,nickname,contrasenya) VALUES (?,?,?,?,?);");
+			ps.setString(1, clienteNuevo.getNombre());
+			ps.setString(2, clienteNuevo.getDireccion());
+			ps.setString(3, clienteNuevo.getTelefono());
+			ps.setString(4, clienteNuevo.getNickname());
+			ps.setString(5, clienteNuevo.getContrasenya());
 
 			ps.execute();
 		} catch (SQLException e) {
