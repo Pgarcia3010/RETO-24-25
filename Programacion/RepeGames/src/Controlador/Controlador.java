@@ -10,7 +10,6 @@ import Modelo.Copia;
 import Modelo.Empleados;
 import Modelo.Modelo;
 import Modelo.Producto;
-import Modelo.Usuarios;
 import Modelo.lineaPedido;
 import Vista.AdministrarPedidos;
 import Vista.CopiasSeguridad;
@@ -33,23 +32,27 @@ public class Controlador implements ActionListener {
 	private CopiasSeguridad copiasdeseguri;
 	private PedidosEmleados pedidosempleados;
 
+	public Controlador() {
+
+	}
 	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
-			TablaPedidos menuCli) {
+			TablaPedidos menuCli, TablaAdministrarProductos tablaProdu, AdministrarPedidos pedidosAdmin,
+			CopiasSeguridad copiasdeseguri, PedidosEmleados pedidosempleados) {
 
 		this.modelo = modelo;
-		this.Registrar = registrar;
-		this.Login = login;
+		Registrar = registrar;
+		Login = login;
 		this.menuEmp = menuEmp;
 		this.menuCli = menuCli;
+		this.tablaProdu = tablaProdu;
+		this.pedidosAdmin = pedidosAdmin;
+		this.copiasdeseguri = copiasdeseguri;
+		this.pedidosempleados = pedidosempleados;
 		this.Registrar.btnCrear2.addActionListener(this);
 		this.Login.btnIniciar.addActionListener(this);
 		this.Login.btnCrear.addActionListener(this);
 	}
-
-	public Controlador() {
-
-	}
-
+	
 	public void recibirClientes() {
 		ArrayList<Cliente> clientes = this.modelo.recibirClientes();
 		for (int i = 0; i < clientes.size(); i++) {
@@ -121,6 +124,7 @@ public class Controlador implements ActionListener {
 
 		ArrayList<Producto> produList = modelo.recibirProducto();
 		tablaProdu.setTabla(produList);
+	}
 
 	public void nuevoCliente(String nombre, String telefono, String direccion, String usuario, String contrasenia) {
 		Cliente clienteNuevo = new Cliente();
@@ -133,6 +137,23 @@ public class Controlador implements ActionListener {
 		clienteNuevo.setContrasenya(contrasenia);
 		System.out.println(clienteNuevo.toString());
 		this.modelo.insertCliente(clienteNuevo);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(Login.btnIniciar)) {
+			System.out.println("paso boton iniciar");
+			comprobarLogin(Login.usuario.getText(), Login.contraseina.getText());
+		}
+		if (e.getSource().equals(Registrar.btnCrear2)) {
+			System.out.println("paso boton crear");
+			nuevoCliente(Registrar.Rnombre.getText(), Registrar.Rtelefono.getText(), Registrar.Rdireccion.getText(),
+					Registrar.Rusuario.getText(), Registrar.Rcontraseina.getText());
+			// COntrolador y static al otro lado
+		}
+		if (e.getSource().equals(Login.btnCrear)) {
+//				ver.MostrarVentana();
+			Registrar.MostrarVentana();
+		}
 	}
 
 	public void tablapediAdmin() throws SQLException {
@@ -149,26 +170,11 @@ public class Controlador implements ActionListener {
 
 	}
 
-	public void pedidosCargar() throws SQLException{
+	public void pedidosCargar() throws SQLException {
 
 		ArrayList<lineaPedido> linealist = modelo.recibirLinea();
 		pedidosempleados.tablaPedidos(linealist);
 
-	}
-
-	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
-			TablaPedidos menuCli, TablaAdministrarProductos tablaProdu, AdministrarPedidos pedidosAdmin,
-			CopiasSeguridad copiasdeseguri, PedidosEmleados pedidosempleados) {
-
-		this.modelo = modelo;
-		Registrar = registrar;
-		Login = login;
-		this.menuEmp = menuEmp;
-		this.menuCli = menuCli;
-		this.tablaProdu = tablaProdu;
-		this.pedidosAdmin = pedidosAdmin;
-		this.copiasdeseguri = copiasdeseguri;
-		this.pedidosempleados = pedidosempleados;
 	}
 
 	public Modelo getModelo() {
@@ -186,22 +192,6 @@ public class Controlador implements ActionListener {
 	public void setRegistrar(VentanaRegistrar registrar) {
 		Registrar = registrar;
 	}
-
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(Login.btnIniciar)) {
-			System.out.println("paso boton iniciar");
-			comprobarLogin(Login.usuario.getText(), Login.contraseina.getText());
-		}
-		if (e.getSource().equals(Registrar.btnCrear2)) {
-			System.out.println("paso boton crear");
-			nuevoCliente(Registrar.Rnombre.getText(), Registrar.Rtelefono.getText(), Registrar.Rdireccion.getText(),
-					Registrar.Rusuario.getText(), Registrar.Rcontraseina.getText());
-			// COntrolador y static al otro lado
-		}
-		if (e.getSource().equals(Login.btnCrear)) {
-//				ver.MostrarVentana();
-			Registrar.MostrarVentana();
-		}
 
 	public VentanaLogin getLogin() {
 		return Login;

@@ -25,26 +25,17 @@ public class appPrincipal {
 		PedidosEmleados pedidosempleados = new PedidosEmleados();
 
 		Controlador controlador = new Controlador(modelo, registrar, login, menuEmp, menuCli, tablaadministrarproductos,
-				pedidosAdmin, copiasdeseguri,pedidosempleados);
+				pedidosAdmin, copiasdeseguri, pedidosempleados);
 
-		VentanaLogin ventanaLogin = new VentanaLogin();
-		ventanaLogin.setControlador(controlador);
-
-	//	controlador.setModelo(modelo);
-	//	controlador.setLogin(ventanaLogin);
 		controlador.recibirClientes();
 		controlador.recibirEmpleados();
-	//	menuEmp.setControlador(controlador);
-	//	pedidosAdmin.setControlador(controlador);
-	//	copiasdeseguri.setControlador(controlador);
-	//	pedidosempleados.setControlador(controlador);
 		try {
 			controlador.llenarTablaproductos();
 
 		} catch (SQLException e) {
 			System.err.println("ERROR");
 		}
-		ventanaLogin.mostrarVentana();
+		login.mostrarVentana();
 
 	}
 }

@@ -1,7 +1,6 @@
 package Vista;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -13,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
+
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 //import Controlador.Controlador;
@@ -122,14 +122,6 @@ public class VentanaRegistrar {
 		btnCrear2.setBounds(294, 395, 99, 29);
 		layeredPane.add(btnCrear2, JLayeredPane.PALETTE_LAYER);
 	}
-
-	/*public Controlador getControlador() {
-		return controlador;
-	}
-
-	public void setControlador(Controlador controlador) {
-		this.controlador = controlador;
-	}*/
 
 	public void MostrarVentana() {
 		frame.setVisible(true);
