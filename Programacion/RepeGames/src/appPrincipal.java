@@ -5,6 +5,7 @@ import Modelo.Modelo;
 import Vista.AdministrarPedidos;
 import Vista.CopiasSeguridad;
 import Vista.MenuEmpleados;
+import Vista.PedidosEmleados;
 import Vista.TablaAdministrarProductos;
 import Vista.TablaPedidos;
 import Vista.VentanaLogin;
@@ -29,9 +30,10 @@ public class appPrincipal {
 		VentanaRegistrar registrar = new VentanaRegistrar();
 		AdministrarPedidos pedidosAdmin = new AdministrarPedidos();
 		CopiasSeguridad copiasdeseguri = new CopiasSeguridad();
+		PedidosEmleados pedidosempleados = new PedidosEmleados();
 
 		Controlador controlador = new Controlador(modelo, registrar, login, menuEmp, menuCli, tablaadministrarproductos,
-				pedidosAdmin, copiasdeseguri);
+				pedidosAdmin, copiasdeseguri,pedidosempleados);
 
 		VentanaLogin ventanaLogin = new VentanaLogin();
 		ventanaLogin.setControlador(controlador);
@@ -43,6 +45,7 @@ public class appPrincipal {
 		menuEmp.setControlador(controlador);
 		pedidosAdmin.setControlador(controlador);
 		copiasdeseguri.setControlador(controlador);
+		pedidosempleados.setControlador(controlador);
 		try {
 			controlador.llenarTablaproductos();
 

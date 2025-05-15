@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -135,6 +136,19 @@ public class AdministrarPedidos {
 		frame.getContentPane().add(titulo);
 
 		JButton btnseleccionar = new JButton("Selecionado");
+		btnseleccionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					 controlador.pedidosCargar();
+					controlador.getPedidosempleados().mostrarVentana();
+				} catch (SQLException e1) {
+					
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 		btnseleccionar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		btnseleccionar.setBounds(440, 361, 111, 83);
 		frame.getContentPane().add(btnseleccionar);

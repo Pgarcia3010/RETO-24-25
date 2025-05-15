@@ -92,8 +92,7 @@ public class VentanaLogin {
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaRegistrar ver = new VentanaRegistrar();
-				ver.MostrarVentana();
+				controlador.getRegistrar().MostrarVentana();
 			}
 		});
 

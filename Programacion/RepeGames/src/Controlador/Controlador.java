@@ -12,9 +12,11 @@ import Modelo.Empleados;
 import Modelo.Modelo;
 import Modelo.Producto;
 import Modelo.Usuarios;
+import Modelo.lineaPedido;
 import Vista.AdministrarPedidos;
 import Vista.CopiasSeguridad;
 import Vista.MenuEmpleados;
+import Vista.PedidosEmleados;
 import Vista.TablaAdministrarProductos;
 import Vista.TablaPedidos;
 import Vista.VentanaLogin;
@@ -30,6 +32,7 @@ public class Controlador {
 	private TablaAdministrarProductos tablaProdu;
 	private AdministrarPedidos pedidosAdmin;
 	private CopiasSeguridad copiasdeseguri;
+	private PedidosEmleados pedidosempleados;
 
 	public void recibirClientes() {
 		ArrayList<Cliente> clientes = this.modelo.recibirClientes();
@@ -119,9 +122,16 @@ public class Controlador {
 
 	}
 
+	public void pedidosCargar() throws SQLException{
+
+		ArrayList<lineaPedido> linealist = modelo.recibirLinea();
+		pedidosempleados.tablaPedidos(linealist);
+
+	}
+
 	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
 			TablaPedidos menuCli, TablaAdministrarProductos tablaProdu, AdministrarPedidos pedidosAdmin,
-			CopiasSeguridad copiasdeseguri) {
+			CopiasSeguridad copiasdeseguri, PedidosEmleados pedidosempleados) {
 
 		this.modelo = modelo;
 		Registrar = registrar;
@@ -131,6 +141,7 @@ public class Controlador {
 		this.tablaProdu = tablaProdu;
 		this.pedidosAdmin = pedidosAdmin;
 		this.copiasdeseguri = copiasdeseguri;
+		this.pedidosempleados = pedidosempleados;
 	}
 
 	public Modelo getModelo() {
@@ -195,6 +206,14 @@ public class Controlador {
 
 	public void setCopiasdeseguri(CopiasSeguridad copiasdeseguri) {
 		this.copiasdeseguri = copiasdeseguri;
+	}
+
+	public PedidosEmleados getPedidosempleados() {
+		return pedidosempleados;
+	}
+
+	public void setPedidosempleados(PedidosEmleados pedidosempleados) {
+		this.pedidosempleados = pedidosempleados;
 	}
 
 }

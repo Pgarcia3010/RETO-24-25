@@ -123,6 +123,12 @@ public class TablaAdministrarProductos {
 		frame.getContentPane().add(titulo);
 
 		JButton btnseleccionar = new JButton("Selecionado");
+		btnseleccionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AdministrarProductos ver = new AdministrarProductos();
+				ver.MostrarVentana();
+			}
+		});
 		btnseleccionar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		btnseleccionar.setBounds(440, 361, 111, 83);
 		frame.getContentPane().add(btnseleccionar);
