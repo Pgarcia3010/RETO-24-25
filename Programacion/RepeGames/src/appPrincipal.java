@@ -2,6 +2,8 @@ import java.sql.SQLException;
 
 import Controlador.Controlador;
 import Modelo.Modelo;
+import Vista.AdministrarPedidos;
+import Vista.CopiasSeguridad;
 import Vista.MenuEmpleados;
 import Vista.TablaAdministrarProductos;
 import Vista.TablaPedidos;
@@ -25,8 +27,11 @@ public class appPrincipal {
 		Modelo modelo = new Modelo();
 		TablaAdministrarProductos tablaadministrarproductos = new TablaAdministrarProductos();
 		VentanaRegistrar registrar = new VentanaRegistrar();
-		Controlador controlador = new Controlador(modelo, registrar, login, menuEmp, menuCli,
-				tablaadministrarproductos);
+		AdministrarPedidos pedidosAdmin = new AdministrarPedidos();
+		CopiasSeguridad copiasdeseguri = new CopiasSeguridad();
+
+		Controlador controlador = new Controlador(modelo, registrar, login, menuEmp, menuCli, tablaadministrarproductos,
+				pedidosAdmin, copiasdeseguri);
 
 		VentanaLogin ventanaLogin = new VentanaLogin();
 		ventanaLogin.setControlador(controlador);
@@ -36,6 +41,8 @@ public class appPrincipal {
 		controlador.recibirClientes();
 		controlador.recibirEmpleados();
 		menuEmp.setControlador(controlador);
+		pedidosAdmin.setControlador(controlador);
+		copiasdeseguri.setControlador(controlador);
 		try {
 			controlador.llenarTablaproductos();
 

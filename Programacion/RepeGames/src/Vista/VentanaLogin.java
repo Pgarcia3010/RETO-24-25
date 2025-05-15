@@ -24,17 +24,6 @@ public class VentanaLogin {
 	public JLabel lblUsuario;
 	private Controlador controlador;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			try {
-				VentanaLogin window = new VentanaLogin();
-				window.frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-	}
-
 	public VentanaLogin() {
 		initialize();
 	}
@@ -44,21 +33,21 @@ public class VentanaLogin {
 		frame.setBounds(100, 100, 645, 443);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-		// Crear JLayeredPane para manejar capas
+		// JLayeredPane para manejar capas
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 687, 443);
 		frame.setContentPane(layeredPane);
 		layeredPane.setLayout(null);
 
-		// Fondo GIF en capa inferior
+		//GIF en capa inferior
 		ImageIcon gifIcon = new ImageIcon(getClass().getResource("/Imagenes/pacman.gif"));
 		JLabel backgroundLabel = new JLabel(gifIcon);
-		backgroundLabel.setBounds(0, 0, 687, 443);
+		backgroundLabel.setBounds(0, 0, 645, 443);
 		layeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER); // capa base
 
 		// Componentes en capa superior
 		JLabel lblTitle = new JLabel("LOGIN");
-		lblTitle.setForeground(new Color(128, 0, 255));
+		lblTitle.setForeground(new Color(255, 255, 0));
 		lblTitle.setBackground(new Color(128, 0, 255));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
 		lblTitle.setBounds(266, 51, 123, 31);
@@ -94,8 +83,8 @@ public class VentanaLogin {
 				controlador.comprobarLogin(usuario.getText(), contraseina.getText());
 			}
 		});
-		btnIniciar.setForeground(new Color(255, 255, 255));
-		btnIniciar.setBackground(new Color(128, 0, 255));
+		btnIniciar.setForeground(new Color(0, 0, 0));
+		btnIniciar.setBackground(new Color(255, 255, 0));
 		btnIniciar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		btnIniciar.setBounds(222, 281, 91, 29);
 		layeredPane.add(btnIniciar, JLayeredPane.PALETTE_LAYER);
@@ -108,14 +97,12 @@ public class VentanaLogin {
 			}
 		});
 
-		btnCrear.setForeground(new Color(255, 255, 255));
-		btnCrear.setBackground(new Color(128, 0, 255));
+		btnCrear.setForeground(new Color(0, 0, 0));
+		btnCrear.setBackground(new Color(255, 255, 0));
 		btnCrear.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		btnCrear.setBounds(323, 281, 97, 29);
 		layeredPane.add(btnCrear, JLayeredPane.PALETTE_LAYER);
 	}
-
-	 
 
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
@@ -124,9 +111,8 @@ public class VentanaLogin {
 	public Controlador getControlador() {
 		return controlador;
 	}
-	
-	
-	public void mostrarVentana () {
+
+	public void mostrarVentana() {
 		frame.setVisible(true);
 	}
 }

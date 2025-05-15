@@ -30,25 +30,6 @@ public class MenuEmpleados {
 	public JButton Btnproductos;
 	private Controlador controlador;
 
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					MenuEmpleados window = new MenuEmpleados();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the application.
-	 */
 	public MenuEmpleados() {
 		initialize();
 	}
@@ -85,8 +66,15 @@ public class MenuEmpleados {
 		Btnpedidos = new JButton("Pedidos");
 		Btnpedidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdministrarPedidos ver = new AdministrarPedidos();
-				ver.MostrarVentana();
+
+				try {
+					controlador.tablapediAdmin();
+					controlador.getPedidosAdmin().MostrarVentana();
+				} catch (SQLException e1) {
+					System.out.println("ERROR");
+
+				}
+
 			}
 		});
 		Btnpedidos.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
@@ -98,8 +86,13 @@ public class MenuEmpleados {
 		BtncopiasSegu = new JButton("Copias de seguridad");
 		BtncopiasSegu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CopiasSeguridad ver = new CopiasSeguridad();
-				ver.MostrarVentana();
+				try {
+					controlador.usuariosCopiasTabla();
+					controlador.getCopiasdeseguri().MostrarVentana();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 			}
 		});

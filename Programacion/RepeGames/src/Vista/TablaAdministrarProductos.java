@@ -27,25 +27,6 @@ public class TablaAdministrarProductos {
 	private JTextField ResultadoId;
 	private Controlador controlador;
 
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					TablaAdministrarProductos window = new TablaAdministrarProductos();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the application.
-	 */
 	public TablaAdministrarProductos() {
 		initialize();
 	}
@@ -99,7 +80,7 @@ public class TablaAdministrarProductos {
 //				"IdProducto", "NombreProducto", "Precio", "Stock"
 //			}
 		));
-		 
+
 		scrollPane.setViewportView(tablaProducEmple);
 
 		JButton btnFiltro = new JButton("Filtro ID");
@@ -176,13 +157,11 @@ public class TablaAdministrarProductos {
 		}
 
 		tablaProducEmple.setModel(model);
-		
-		
-		
+
 		JTableHeader tituloTabla = tablaProducEmple.getTableHeader();
-		tituloTabla.setFont(new Font("Tahoma",Font.BOLD,14));
+		tituloTabla.setFont(new Font("Tahoma", Font.BOLD, 14));
 		tituloTabla.setBackground(Color.BLACK);
-		tituloTabla.setForeground(new Color(128,0,255));
+		tituloTabla.setForeground(new Color(128, 0, 255));
 
 	}
 

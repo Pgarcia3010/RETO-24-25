@@ -24,25 +24,6 @@ public class PedidosEmleados {
 	private JTextField textField_1;
 	private JTextField textField_2;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PedidosEmleados window = new PedidosEmleados();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
 	public PedidosEmleados() {
 		initialize();
 	}
@@ -124,32 +105,32 @@ public class PedidosEmleados {
 		});
 		btnEliminar.setBounds(640, 401, 101, 83);
 		frame.getContentPane().add(btnEliminar);
-		
+
 		textField = new JTextField();
 		textField.setBounds(330, 358, 158, 19);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
-		
+
 		textField_1 = new JTextField();
 		textField_1.setBounds(330, 394, 158, 19);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
-		
+
 		textField_2 = new JTextField();
 		textField_2.setBounds(330, 434, 158, 19);
 		frame.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
-		
+
 		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Nº Linea:");
 		lblNewJgoodiesLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		lblNewJgoodiesLabel.setBounds(330, 344, 88, 13);
 		frame.getContentPane().add(lblNewJgoodiesLabel);
-		
+
 		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("Id Producto:");
 		lblNewJgoodiesLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		lblNewJgoodiesLabel_1.setBounds(330, 383, 88, 13);
 		frame.getContentPane().add(lblNewJgoodiesLabel_1);
-		
+
 		JLabel lblNewJgoodiesLabel_2 = DefaultComponentFactory.getInstance().createLabel("Cantidad:");
 		lblNewJgoodiesLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		lblNewJgoodiesLabel_2.setBounds(330, 423, 88, 13);
