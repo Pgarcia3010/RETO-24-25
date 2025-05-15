@@ -17,12 +17,12 @@ import Controlador.Controlador;
 
 public class VentanaLogin {
 	private JFrame frame;
-	private JTextField usuario;
-	private JTextField contraseina;
+	public JTextField usuario;
+	public JTextField contraseina;
 	public JButton btnIniciar;
 	public JLabel lblContrasena;
 	public JLabel lblUsuario;
-	private Controlador controlador;
+	//private Controlador controlador;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
@@ -40,9 +40,12 @@ public class VentanaLogin {
 	}
 
 	private void initialize() {
+		//System.out.println("Controlador: " + controlador);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 645, 443);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//		System.out.println("Controlador: " + controlador);
+
 
 		// Crear JLayeredPane para manejar capas
 		JLayeredPane layeredPane = new JLayeredPane();
@@ -53,7 +56,7 @@ public class VentanaLogin {
 		// Fondo GIF en capa inferior
 		ImageIcon gifIcon = new ImageIcon(getClass().getResource("/Imagenes/pacman.gif"));
 		JLabel backgroundLabel = new JLabel(gifIcon);
-		backgroundLabel.setBounds(0, 0, 687, 443);
+		backgroundLabel.setBounds(0, 0, 645, 443);
 		layeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER); // capa base
 
 		// Componentes en capa superior
@@ -87,11 +90,11 @@ public class VentanaLogin {
 		layeredPane.add(contraseina, JLayeredPane.PALETTE_LAYER);
 
 		btnIniciar = new JButton("Iniciar");
-		btnIniciar.addActionListener(new ActionListener() {
+		/*btnIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlador.comprobarLogin(usuario.getText(), contraseina.getText());
 			}
-		});
+		});*/
 		btnIniciar.setForeground(new Color(255, 255, 255));
 		btnIniciar.setBackground(new Color(128, 0, 255));
 		btnIniciar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
@@ -115,13 +118,13 @@ public class VentanaLogin {
 
 	 
 
-	public void setControlador(Controlador controlador) {
+	/*public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}
 
 	public Controlador getControlador() {
 		return controlador;
-	}
+	}*/
 	
 	
 	public void mostrarVentana () {

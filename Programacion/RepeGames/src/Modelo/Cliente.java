@@ -15,7 +15,7 @@ public class Cliente extends Usuarios {
 
 	private String nombre;
 	private String direccion;
-	private int telefono;
+	private String telefono;
 
 	/**
 	 * El constructor registra los parametros de la base de datos en la tabla de
@@ -31,7 +31,7 @@ public class Cliente extends Usuarios {
 	 *                    cliente.
 	 * @param telefono    El telefono es un int que indica el telefono del cliente.
 	 */
-	public Cliente(String nickname, String contrasenya, String id, String nombre, String direccion, int telefono) {
+	public Cliente(String nickname, String contrasenya, String id, String nombre, String direccion, String telefono) {
 		super(nickname, contrasenya, id);
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -87,7 +87,7 @@ public class Cliente extends Usuarios {
 	 * 
 	 * @return telefono El telefono es un int que indica el telefono del cliente.
 	 */
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
@@ -96,7 +96,7 @@ public class Cliente extends Usuarios {
 	 * 
 	 * @param telefono El telefono es un int que indica el telefono del cliente.
 	 */
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
