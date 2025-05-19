@@ -128,8 +128,11 @@ public class Controlador implements ActionListener {
 
 	public void nuevoCliente(String nombre, String telefono, String direccion, String usuario, String contrasenia) {
 		Cliente clienteNuevo = new Cliente();
-//		int randomNum = (int)(Math.random() * 101); 
-//		clienteNuevo.setId();
+		int randomNum = (int)(Math.random() * 101); 
+		String id = String.valueOf(randomNum);
+//		for(int i = 0; i < x; i++) {
+//			
+//		}
 		clienteNuevo.setNombre(nombre);
 		clienteNuevo.setTelefono(telefono);
 		clienteNuevo.setDireccion(direccion);
