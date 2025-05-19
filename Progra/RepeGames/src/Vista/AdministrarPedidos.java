@@ -22,6 +22,7 @@ import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
 import Modelo.Producto;
+import Modelo.cabeceraPedido;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -141,7 +142,7 @@ public class AdministrarPedidos {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					 controlador.pedidosCargar();
+					 controlador.llenarCabecera();
 					controlador.getPedidosempleados().mostrarVentana();
 				} catch (SQLException e1) {
 					
@@ -161,11 +162,11 @@ public class AdministrarPedidos {
 				
 				String id = ResultadoId.getText();
 				
-				Producto produ = new Producto();
-				produ.setIdProducto(id);
+				cabeceraPedido cabe = new cabeceraPedido();
+				cabe.setId(id);
 				
 				try {
-					controlador.eliminarPedido(produ);
+					controlador.eliminarCabecera(cabe);
 					System.out.println("Eliminado con exito");
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
@@ -179,19 +180,19 @@ public class AdministrarPedidos {
 		frame.getContentPane().add(btnEliminar);
 	}
 
-	public void SetTablaE1(ArrayList<Producto> produList) {
+	public void SetTablaE1(ArrayList<cabeceraPedido> cabeList) {
 
 		DefaultTableModel model = new DefaultTableModel(new String[] {
 
-				"Id Producto", "Nombre Producto", "Precio", "Stock" }, 0);
+				"Numero Pedido", "Id", "Precio", "Fecha" }, 0);
 
-		for (int i = 0; i < produList.size(); i++) {
+		for (int i = 0; i < cabeList.size(); i++) {
 
-			Producto produ = produList.get(i);
+			cabeceraPedido cabe = cabeList.get(i);
 
 			model.addRow(new Object[] {
 
-					produ.getIdProducto(), produ.getNombreProducto(), produ.getPrecio(), produ.getStock()
+					cabe.getNumPedido(),cabe.getId(),cabe.getPrecioTotal(),cabe.getFechaPedido()
 
 			});
 

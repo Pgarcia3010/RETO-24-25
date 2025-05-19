@@ -1,6 +1,7 @@
 import java.sql.SQLException;
 
 import Controlador.Controlador;
+import Logs.CustomLogger;
 import Modelo.Modelo;
 import Vista.AdministrarPedidos;
 import Vista.Confirmacion;
@@ -14,6 +15,28 @@ import Vista.VentanaRegistrar;
 
 public class appPrincipal {
 	public static void main(String[] args) {
+		
+		//LOGS
+		
+		 try (CustomLogger logger = new CustomLogger()) {
+	            logger.logSession("Aplicación iniciada");
+
+	            // Ejemplo de operación
+	            System.out.println("Realizando una operación...");
+	            logger.logSession("Operación realizada con éxito");
+
+	            // Ejemplo de captura de excepción
+	            try {
+	                int resultado = 10 / 0;
+	            } catch (ArithmeticException e) {
+	                CustomLogger.logError("Error de división por cero", e);
+	            }
+
+	            logger.logSession("Aplicación finalizada");
+	        }
+		
+		
+		
 		// de aqui a la ventana y de alli al controlador
 		MenuEmpleados menuEmp = new MenuEmpleados();
 		TablaPedidos menuCli = new TablaPedidos();
@@ -25,6 +48,7 @@ public class appPrincipal {
 		CopiasSeguridad copiasdeseguri = new CopiasSeguridad();
 		PedidosEmleados pedidosempleados = new PedidosEmleados();
 		Confirmacion confirmacion = new Confirmacion();
+		CustomLogger CustomLogger = new CustomLogger();
 
 		Controlador controlador = new Controlador(modelo, registrar, login, menuEmp, menuCli, tablaadministrarproductos,
 				pedidosAdmin, copiasdeseguri, pedidosempleados, confirmacion);
@@ -52,6 +76,12 @@ public class appPrincipal {
 //	ventanaLogin.setVisible(true);
 
 		ventanaLogin.mostrarVentana();
+		
+		
+		
+		
+		  
+
 
 	}
 }
