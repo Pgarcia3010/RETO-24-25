@@ -216,14 +216,20 @@ public class Modelo extends Conector {
 //			  continuacion
 //			 
 			PreparedStatement ps = this.conexion.prepareStatement(
-					"INSERT INTO cliente (nombre,direccion,telefono,nickname,contrasenya) VALUES (?,?,?,?,?);");
-			ps.setString(1, clienteNuevo.getNombre());
-			ps.setString(2, clienteNuevo.getDireccion());
-			ps.setString(3, clienteNuevo.getTelefono());
-			ps.setString(4, clienteNuevo.getNickname());
-			ps.setString(5, clienteNuevo.getContrasenya());
-
+					"INSERT INTO cliente (id,nombre,direccion,telefono,nickname,contrasenya) VALUES (?,?,?,?,?,?);");
+			ps.setString(1, clienteNuevo.getId());
+			ps.setString(2, clienteNuevo.getNombre());
+			ps.setString(3, clienteNuevo.getDireccion());
+			ps.setString(4, clienteNuevo.getTelefono());
+			ps.setString(5, clienteNuevo.getNickname());
+			ps.setString(6, clienteNuevo.getContrasenya());
 			ps.execute();
+
+			PreparedStatement ps2 = this.conexion
+					.prepareStatement("INSERT INTO usuarios(id,nickname,constrasenya) VALUES (?,?,?);");
+			ps2.setString(1, clienteNuevo.getId());
+			ps2.setString(2, clienteNuevo.getNickname());
+			ps2.setString(3, clienteNuevo.getContrasenya());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.err.println("Error en insertCliente");
@@ -357,12 +363,14 @@ public class Modelo extends Conector {
 	}
 
 //-------------------------------------------------------------------------------------------------------------------------------
-/**
- * Se modifica el contenido de producto
- * 
- * @param productoCambiado objeto de tipo producto que sera el nuevo objeto introducido en la base de datos
- * @param productoViejo objeto de tipo producto que es el que sera reemplazado
- */
+	/**
+	 * Se modifica el contenido de producto
+	 * 
+	 * @param productoCambiado objeto de tipo producto que sera el nuevo objeto
+	 *                         introducido en la base de datos
+	 * @param productoViejo    objeto de tipo producto que es el que sera
+	 *                         reemplazado
+	 */
 	public void updateProductos(Producto productoCambiado, Producto productoViejo) {
 		try {
 			PreparedStatement ps = this.conexion.prepareStatement(
@@ -378,12 +386,15 @@ public class Modelo extends Conector {
 			System.err.println("Error en updateProductos");
 		}
 	}
-/**
- * Se modifica el contenido de cabeceraPedido
- * 
- * @param cabeceraCambiada objeto de tipo cabecera que sera el nuevo objeto introducido en la base de datos
- * @param cabeceraVieja objeto de tipo cabecera que es el que sera reemplazado
- */
+
+	/**
+	 * Se modifica el contenido de cabeceraPedido
+	 * 
+	 * @param cabeceraCambiada objeto de tipo cabecera que sera el nuevo objeto
+	 *                         introducido en la base de datos
+	 * @param cabeceraVieja    objeto de tipo cabecera que es el que sera
+	 *                         reemplazado
+	 */
 	public void updateCabecera(cabeceraPedido cabeceraCambiada, cabeceraPedido cabeceraVieja) {
 		try {
 			PreparedStatement ps = this.conexion.prepareStatement(
@@ -400,12 +411,14 @@ public class Modelo extends Conector {
 			System.err.println("Error en updateCabecera");
 		}
 	}
-/**
- * Se modifica el contenido de lineaPedido
- * 
- * @param lineaCambiada objeto de tipo linea que sera el nuevo objeto introducido en la base de datos
- * @param lineaVieja objeto de tipo linea que es el que sera reemplazado
- */
+
+	/**
+	 * Se modifica el contenido de lineaPedido
+	 * 
+	 * @param lineaCambiada objeto de tipo linea que sera el nuevo objeto
+	 *                      introducido en la base de datos
+	 * @param lineaVieja    objeto de tipo linea que es el que sera reemplazado
+	 */
 	public void updateLinea(lineaPedido lineaCambiada, lineaPedido lineaVieja) {
 		try {
 			PreparedStatement ps = this.conexion.prepareStatement(
@@ -422,7 +435,7 @@ public class Modelo extends Conector {
 			System.err.println("Error en updateLinea");
 		}
 	}
-	
+
 //----------------------------------------------------------------------------------------------------------------------------
 	/**
 	 * Se eliminara contenido de producto
@@ -437,8 +450,9 @@ public class Modelo extends Conector {
 			// TODO: handle exception
 			System.err.println("Error en eliminarProducto");
 		}
-		
+
 	}
+
 	/**
 	 * Se eliminara contenido de lineaPedido
 	 * 
@@ -453,6 +467,7 @@ public class Modelo extends Conector {
 			System.err.println("Error en eliminarLinea");
 		}
 	}
+
 	/**
 	 * Se eliminara contenido de cabeceraPedido
 	 * 

@@ -10,6 +10,7 @@ import Modelo.Copia;
 import Modelo.Empleados;
 import Modelo.Modelo;
 import Modelo.Producto;
+import Modelo.Usuarios;
 import Modelo.lineaPedido;
 import Vista.AdministrarPedidos;
 import Vista.CopiasSeguridad;
@@ -130,9 +131,7 @@ public class Controlador implements ActionListener {
 		Cliente clienteNuevo = new Cliente();
 		int randomNum = (int)(Math.random() * 101); 
 		String id = String.valueOf(randomNum);
-//		for(int i = 0; i < x; i++) {
-//			
-//		}
+		clienteNuevo.setId(id);
 		clienteNuevo.setNombre(nombre);
 		clienteNuevo.setTelefono(telefono);
 		clienteNuevo.setDireccion(direccion);
