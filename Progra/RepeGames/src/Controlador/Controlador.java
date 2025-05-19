@@ -1,17 +1,15 @@
 package Controlador;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.swing.JTextField;
-
+import Logs.CustomLogger;
 import Modelo.Cliente;
 import Modelo.Copia;
 import Modelo.Empleados;
 import Modelo.Modelo;
 import Modelo.Producto;
-import Modelo.Usuarios;
+import Modelo.cabeceraPedido;
 import Modelo.lineaPedido;
 import Vista.AdministrarPedidos;
 import Vista.Confirmacion;
@@ -51,49 +49,61 @@ public class Controlador {
 	}
 
 	public void comprobarLogin(String usuario, String contraseina) {
-		ArrayList<Cliente> clienteList = this.modelo.recibirClientes();
-		ArrayList<Empleados> empleList = this.modelo.recibirEmpleados();
-		boolean existe = false;
+	    ArrayList<Cliente> clienteList = this.modelo.recibirClientes();
+	    ArrayList<Empleados> empleList = this.modelo.recibirEmpleados();
+	    boolean existe = false;
 
-		// Buscar en clientes
-		for (int i = 0; i < clienteList.size(); i++) {
-			if (clienteList.get(i).getNickname().equals(usuario)
-					&& clienteList.get(i).getContrasenya().equals(contraseina)) {
+	    try (CustomLogger logger = new CustomLogger()) {
+	        // Buscar en clientes
+	        for (Cliente cliente : clienteList) {
+	            if (cliente.getNickname().equals(usuario) && cliente.getContrasenya().equals(contraseina)) {
+	                existe = true;
+	                System.out.println("Usuario existe");
+	                System.out.println("Usuario es Cliente");
+	                logger.logSession("Inicio de sesión exitoso - Cliente: " + usuario);
+	                if (menuCli != null) {
+	                    menuCli.mostrarVentana();
+	                } else {
+	                    System.out.println("menuCliente no inicializado");
+	                }
+	                return; // salir al encontrar
+	            }
+	        }
 
-				existe = true;
-				System.out.println("Usuario existe");
-				System.out.println("Usuario es Cliente");
+	        // Buscar en empleados
+	        for (Empleados empleado : empleList) {
+	            if (empleado.getNickname().equals(usuario) && empleado.getContrasenya().equals(contraseina)) {
+	                existe = true;
+	                System.out.println("Usuario existe");
+	                System.out.println("Usuario es Empleado");
+	                logger.logSession("Inicio de sesión exitoso - Empleado: " + usuario);
+	                if (menuEmp != null) {
+	                    menuEmp.mostrarVentana();
+	                } else {
+	                    System.out.println("menuEmpleado no inicializado");
+	                }
+	                return; // salir al encontrar
+	            }
+	        }
 
-				if (menuCli != null) {
-					menuCli.mostrarVentana();
-				} else {
-					System.out.println("menuCliente no inicializado");
-				}
-				return; // salir al encontrar
-			}
-		}
+	        // Si no se encontró el usuario
+	        if (!existe) {
+	            System.out.println("Usuario no existe");
+	            String mensajeError = "Intento de inicio de sesión fallido - Usuario: " + usuario;
+	            CustomLogger.logError(mensajeError, new Exception("Usuario o contraseña incorrectos"));
+	        }
 
-		// Buscar en empleados
-		for (int i = 0; i < empleList.size(); i++) {
-			if (empleList.get(i).getNickname().equals(usuario)
-					&& empleList.get(i).getContrasenya().equals(contraseina)) {
-				existe = true;
-				System.out.println("Usuario existe");
-				System.out.println("Usuario es Empleado");
+	    } catch (Exception e) {
+	        System.err.println("Error al inicializar el logger: " + e.getMessage());
+	    }
+	}
 
-				if (menuEmp != null) {
-					menuEmp.mostrarVentana();
-				} else {
-					System.out.println("menuEmpleado no inicializado");
-				}
-				return;
-			}
-		}
 
-		// Si no se encontro ni un usuario
-		if (!existe) {
-			System.out.println("Usuario no existe");
-		}
+	public void llenarCabecera() throws SQLException {
+
+		ArrayList<cabeceraPedido> cabeList = modelo.recibirCabeceras();
+		pedidosAdmin.SetTablaE1(cabeList);
+
 	}
 
 	public void llenarTablaproductos() throws SQLException {
@@ -110,12 +120,12 @@ public class Controlador {
 
 	}
 
-	public void tablapediAdmin() throws SQLException {
-
-		ArrayList<Producto> produList = modelo.recibirProducto();
-		pedidosAdmin.SetTablaE1(produList);
-
-	}
+//	public void tablapediAdmin() throws SQLException {
+//
+//		ArrayList<Producto> produList = modelo.recibirProducto();
+//		pedidosAdmin.SetTablaE1(produList);
+//
+//	}
 
 	public void usuariosCopiasTabla() throws SQLException {
 
@@ -154,26 +164,26 @@ public class Controlador {
 
 	}
 
-	public void eliminarPedido(Producto produ) throws SQLException {
+	public void eliminarCabecera(cabeceraPedido cabe) throws SQLException {
 
-		ArrayList<Producto> produList = modelo.recibirProducto();
+		ArrayList<cabeceraPedido> produList = modelo.recibirCabeceras();
 		boolean existe = false;
 
 		for (int i = 0; i < produList.size(); i++) {
-			if (produList.get(i).getIdProducto().equalsIgnoreCase(produ.getIdProducto())) {
+			if (produList.get(i).getId().equalsIgnoreCase(cabe.getId())) {
 				existe = true;
-				modelo.eliminarProducto(produ);
+				modelo.eliminarCabecera(cabe);
 
 			}
 
 		}
-		
-		if(!existe) {
+
+		if (!existe) {
 			System.out.println("Id no encontrado");
 		}
-		
-		ArrayList<Producto>actualiProduc = modelo.recibirProducto();
-		pedidosAdmin.SetTablaE1(actualiProduc);
+
+		ArrayList<cabeceraPedido> cabeActu = modelo.recibirCabeceras();
+		pedidosAdmin.SetTablaE1(cabeActu);
 
 	}
 

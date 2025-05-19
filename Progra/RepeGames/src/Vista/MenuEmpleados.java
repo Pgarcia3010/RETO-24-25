@@ -68,7 +68,7 @@ public class MenuEmpleados {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					controlador.tablapediAdmin();
+					controlador.llenarCabecera();
 					controlador.getPedidosAdmin().MostrarVentana();
 				} catch (SQLException e1) {
 					System.out.println("ERROR");

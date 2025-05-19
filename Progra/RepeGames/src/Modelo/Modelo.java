@@ -463,8 +463,9 @@ public class Modelo extends Conector {
 	 */
 	public void eliminarCabecera(cabeceraPedido cabeceraBorrada) {
 		try {
-			PreparedStatement ps = this.conexion.prepareStatement("DELETE FROM cabeceraPedido WHERE numPedido = ?;");
-			ps.setInt(1, cabeceraBorrada.getNumPedido());
+			PreparedStatement ps = this.conexion.prepareStatement("DELETE FROM cabeceraPedido WHERE id = ?;");
+			ps.setString(1, cabeceraBorrada.getId());
+			ps.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("Error en eliminarCabecera");
