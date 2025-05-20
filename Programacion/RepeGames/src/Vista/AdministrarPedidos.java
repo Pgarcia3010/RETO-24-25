@@ -19,7 +19,7 @@ import javax.swing.table.JTableHeader;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
-import Modelo.Producto;
+import Modelo.cabeceraPedido;
 
 /**
  * Se crea un objeto AdminstrasPedidos.
@@ -152,25 +152,40 @@ public class AdministrarPedidos {
 		btnEliminar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				String id = ResultadoId.getText();
+				
+				cabeceraPedido cab = new cabeceraPedido();
+				cab.setId(id);
+				
+				try {
+					controlador.eliminarPedido(cab);
+					System.out.println("Eliminado con exito");
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					System.out.println("Error al intentar eliminar un pedido");
+				}
+				
+				
 			}
 		});
 		btnEliminar.setBounds(590, 361, 101, 83);
 		frame.getContentPane().add(btnEliminar);
 	}
 
-	public void SetTablaE1(ArrayList<Producto> produList) {
+	public void SetTablaE1(ArrayList<cabeceraPedido> cabecera) {
 
 		DefaultTableModel model = new DefaultTableModel(new String[] {
 
-				"Id Producto", "Nombre Producto", "Precio", "Stock" }, 0);
+				"NumeroPedido", "Id", "PrecioTotal", "FechaPedido" }, 0);
 
-		for (int i = 0; i < produList.size(); i++) {
+		for (int i = 0; i < cabecera.size(); i++) {
 
-			Producto produ = produList.get(i);
+			cabeceraPedido cabec = cabecera.get(i);
 
 			model.addRow(new Object[] {
 
-					produ.getIdProducto(), produ.getNombreProducto(), produ.getPrecio(), produ.getStock()
+					cabec.getNumPedido(), cabec.getId(), cabec.getPrecioTotal(), cabec.getFechaPedido()
 
 			});
 

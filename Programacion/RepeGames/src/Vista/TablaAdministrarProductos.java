@@ -1,16 +1,13 @@
 package Vista;
 
 import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -21,17 +18,15 @@ import javax.swing.table.JTableHeader;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
-import Controlador.Controlador;
 import Modelo.Producto;
-
-import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class TablaAdministrarProductos {
 
-	private JFrame frame;
-	private JTable tablaProducEmple;
-	private JTextField ResultadoId;
-	private Controlador controlador;
+	public JFrame frame;
+	public JTable tablaProducEmple;
+	public JTextField ResultadoId;
+	public JComboBox filtroId;
+	public JComboBox filtroStock;
 
 	public TablaAdministrarProductos() {
 		initialize();
@@ -64,45 +59,21 @@ public class TablaAdministrarProductos {
 		tablaProducEmple.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		tablaProducEmple.setBackground(new Color(128, 0, 255));
 		tablaProducEmple.setModel(new DefaultTableModel(
-//			new Object[][] {
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//			},
-//			new String[] {
-//				"IdProducto", "NombreProducto", "Precio", "Stock"
-//			}
 		));
 
 		scrollPane.setViewportView(tablaProducEmple);
 
-		JButton btnFiltro = new JButton("Filtro ID");
-		btnFiltro.setBackground(new Color(240, 240, 240));
-		btnFiltro.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		btnFiltro.setBounds(266, 302, 101, 21);
-		frame.getContentPane().add(btnFiltro);
+		filtroId = new JComboBox();
+		filtroId.setBackground(new Color(240, 240, 240));
+		filtroId.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		filtroId.setBounds(266, 302, 101, 21);
+		frame.getContentPane().add(filtroId);
+		
 
-		JButton btnFiltro2 = new JButton("Filtro Stock");
-		btnFiltro2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		btnFiltro2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnFiltro2.setBounds(401, 302, 111, 21);
-		frame.getContentPane().add(btnFiltro2);
+		filtroStock = new JComboBox();
+		filtroStock.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		filtroStock.setBounds(401, 302, 111, 21);
+		frame.getContentPane().add(filtroStock);
 
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.setForeground(new Color(0, 0, 0));
@@ -181,14 +152,6 @@ public class TablaAdministrarProductos {
 
 		frame.setVisible(true);
 
-	}
-
-	public Controlador getControlador() {
-		return controlador;
-	}
-
-	public void setControlador(Controlador controlador) {
-		this.controlador = controlador;
 	}
 
 }

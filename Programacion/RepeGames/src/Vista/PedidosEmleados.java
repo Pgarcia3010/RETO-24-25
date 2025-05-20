@@ -1,36 +1,37 @@
 package Vista;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
 import Modelo.lineaPedido;
 
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-
 public class PedidosEmleados {
 
 	private JFrame frame;
 	private JTable tablaPedi;
-	private JTextField ResultadoId;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField ResultadoNumPedido;
+	private JTextField RnumeroLinea;
+	private JTextField RIdproducto;
+	private JTextField Rcantidad;
 	private Controlador controlador;
+	private Confirmacion confirmacion;
 
 	public PedidosEmleados() {
 		initialize();
@@ -56,7 +57,7 @@ public class PedidosEmleados {
 		scrollPane.setBounds(41, 52, 745, 229);
 		frame.getContentPane().add(scrollPane);
 
-		tablaPedi =  new JTable();
+		tablaPedi = new JTable();
 		tablaPedi.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		tablaPedi.setBackground(new Color(128, 0, 255));
 		tablaPedi.setForeground(new Color(255, 255, 0));
@@ -115,10 +116,10 @@ public class PedidosEmleados {
 		btnVolver.setBounds(10, 468, 85, 29);
 		frame.getContentPane().add(btnVolver);
 
-		ResultadoId = new JTextField();
-		ResultadoId.setBounds(330, 319, 158, 19);
-		frame.getContentPane().add(ResultadoId);
-		ResultadoId.setColumns(10);
+		ResultadoNumPedido = new JTextField();
+		ResultadoNumPedido.setBounds(330, 319, 158, 19);
+		frame.getContentPane().add(ResultadoNumPedido);
+		ResultadoNumPedido.setColumns(10);
 
 		JLabel titulo = DefaultComponentFactory.getInstance().createLabel("Nº Pedido:");
 		titulo.setForeground(new Color(128, 0, 255));
@@ -135,29 +136,59 @@ public class PedidosEmleados {
 		btnseleccionar.setBounds(640, 313, 101, 78);
 		frame.getContentPane().add(btnseleccionar);
 
-		JButton btnEliminar = new JButton("Eliminar");
+		JButton btnEliminar = new JButton("");
 		btnEliminar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		ImageIcon iconoEliminar = new ImageIcon(getClass().getResource("/Imagenes/basura.jpg"));
+
+		Image img = iconoEliminar.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		btnEliminar.setIcon(new ImageIcon(img));
+
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				int Nlineapedi = Integer.parseInt(RnumeroLinea.getText());
+
+				lineaPedido linea = new lineaPedido();
+				linea.setNumLinea(Nlineapedi);
+				
+				if(linea!=null) {
+					
+					confirmacion = new Confirmacion(controlador, Nlineapedi);
+					confirmacion.MostrarVentana();
+					
+				}else {
+					System.err.println("Campo vacio");
+				}
+
+//				try {
+//
+//					controlador.eliminarLineaPedido(linea);
+//
+//					System.out.println("Linea eliminada con exito");
+//				} catch (SQLException e1) {
+//
+//					System.out.println("Error al intentar eliminar");
+//				}
+//
 			}
 		});
 		btnEliminar.setBounds(640, 401, 101, 83);
 		frame.getContentPane().add(btnEliminar);
 
-		textField = new JTextField();
-		textField.setBounds(330, 358, 158, 19);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		RnumeroLinea = new JTextField();
+		RnumeroLinea.setBounds(330, 358, 158, 19);
+		frame.getContentPane().add(RnumeroLinea);
+		RnumeroLinea.setColumns(10);
 
-		textField_1 = new JTextField();
-		textField_1.setBounds(330, 394, 158, 19);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		RIdproducto = new JTextField();
+		RIdproducto.setBounds(330, 394, 158, 19);
+		frame.getContentPane().add(RIdproducto);
+		RIdproducto.setColumns(10);
 
-		textField_2 = new JTextField();
-		textField_2.setBounds(330, 434, 158, 19);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		Rcantidad = new JTextField();
+		Rcantidad.setBounds(330, 434, 158, 19);
+		frame.getContentPane().add(Rcantidad);
+		Rcantidad.setColumns(10);
 
 		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Nº Linea:");
 		lblNewJgoodiesLabel.setForeground(new Color(128, 0, 255));
@@ -168,13 +199,13 @@ public class PedidosEmleados {
 		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("Id Producto:");
 		lblNewJgoodiesLabel_1.setForeground(new Color(128, 0, 255));
 		lblNewJgoodiesLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		lblNewJgoodiesLabel_1.setBounds(330, 383, 88, 13);
+		lblNewJgoodiesLabel_1.setBounds(330, 377, 88, 19);
 		frame.getContentPane().add(lblNewJgoodiesLabel_1);
 
 		JLabel lblNewJgoodiesLabel_2 = DefaultComponentFactory.getInstance().createLabel("Cantidad:");
 		lblNewJgoodiesLabel_2.setForeground(new Color(128, 0, 255));
 		lblNewJgoodiesLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		lblNewJgoodiesLabel_2.setBounds(330, 423, 88, 13);
+		lblNewJgoodiesLabel_2.setBounds(330, 417, 88, 19);
 		frame.getContentPane().add(lblNewJgoodiesLabel_2);
 	}
 
@@ -185,30 +216,26 @@ public class PedidosEmleados {
 				"Numero Pedido", "Numero Linea", "Id Producto", "Cantidad"
 
 		}, 0);
-		
-		
-		for(int i=0; i<lineaList.size(); i++) {
-			
+
+		for (int i = 0; i < lineaList.size(); i++) {
+
 			lineaPedido linea = lineaList.get(i);
-			
+
 			model.addRow(new Object[] {
-					
-					linea.getNumPedido(),linea.getNumLinea(),linea.getIdProducto(),linea.getCantidadProducto()
-					
+
+					linea.getNumPedido(), linea.getNumLinea(), linea.getIdProducto(), linea.getCantidadProducto()
+
 			});
-			
-			
-			
+
 		}
-		
+
 		tablaPedi.setModel(model);
-		
-		
+
 		JTableHeader diseñoTabla = tablaPedi.getTableHeader();
-		diseñoTabla.setFont(new Font("Tahoma",Font.BOLD,16));
+		diseñoTabla.setFont(new Font("Tahoma", Font.BOLD, 16));
 		diseñoTabla.setBackground(Color.black);
-		diseñoTabla.setForeground(new Color(128,0,255));
-		
+		diseñoTabla.setForeground(new Color(128, 0, 255));
+
 	}
 
 	public void mostrarVentana() {
@@ -222,6 +249,5 @@ public class PedidosEmleados {
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}
-	
-	
+
 }

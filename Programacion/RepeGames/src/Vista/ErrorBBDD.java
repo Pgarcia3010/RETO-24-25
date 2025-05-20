@@ -1,11 +1,12 @@
 package Vista;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import java.awt.FlowLayout;
+
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class ErrorBBDD {

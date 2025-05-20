@@ -33,9 +33,7 @@ public class Empleados extends Usuarios {
 	 * mano
 	 */
 	public String toString() {
-		return "Empleados [getNickname()=" + getNickname() + ", getContrasenya()=" + getContrasenya() + ", getId()="
-				+ getId() + ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + "]";
+		return "Empleados:\nnickname: " + getNickname() + "\ncontraseña: " + getContrasenya() + "\nid: " + getId() +"\n";
 	}
 
 }

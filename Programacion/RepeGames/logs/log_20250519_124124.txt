@@ -1,0 +1,3 @@
+[2025-05-19 12:41:24] INFO: === Nueva sesión iniciada: 20250519_124124 ===
+[2025-05-19 12:41:24] INFO: Inicio de sesión exitoso - Cliente: Pbotella
+[2025-05-19 12:41:24] INFO: === Sesión finalizada ===
