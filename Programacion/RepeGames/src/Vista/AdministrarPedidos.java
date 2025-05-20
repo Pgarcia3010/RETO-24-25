@@ -1,25 +1,32 @@
 package Vista;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
+import Modelo.Producto;
 import Modelo.cabeceraPedido;
+
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.xml.transform.ErrorListener;
 
 /**
  * Se crea un objeto AdminstrasPedidos.
@@ -135,8 +142,9 @@ public class AdministrarPedidos {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					 controlador.pedidosCargar();
+					controlador.llenarLineaPedido();
 					controlador.getPedidosempleados().mostrarVentana();
+					
 				} catch (SQLException e1) {
 					
 					e1.printStackTrace();
@@ -155,15 +163,15 @@ public class AdministrarPedidos {
 				
 				String id = ResultadoId.getText();
 				
-				cabeceraPedido cab = new cabeceraPedido();
-				cab.setId(id);
+				cabeceraPedido cabe = new cabeceraPedido();
+				cabe.setId(id);
 				
 				try {
-					controlador.eliminarPedido(cab);
+					controlador.eliminarCabecera(cabe);
 					System.out.println("Eliminado con exito");
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
-					System.out.println("Error al intentar eliminar un pedido");
+					System.out.println("Error al intentar eliminar un producto");
 				}
 				
 				
@@ -173,19 +181,19 @@ public class AdministrarPedidos {
 		frame.getContentPane().add(btnEliminar);
 	}
 
-	public void SetTablaE1(ArrayList<cabeceraPedido> cabecera) {
+	public void SetTablaE1(ArrayList<cabeceraPedido> cabeList) {
 
 		DefaultTableModel model = new DefaultTableModel(new String[] {
 
-				"NumeroPedido", "Id", "PrecioTotal", "FechaPedido" }, 0);
+				"Numero Pedido", "Id", "Precio", "Fecha" }, 0);
 
-		for (int i = 0; i < cabecera.size(); i++) {
+		for (int i = 0; i < cabeList.size(); i++) {
 
-			cabeceraPedido cabec = cabecera.get(i);
+			cabeceraPedido cabe = cabeList.get(i);
 
 			model.addRow(new Object[] {
 
-					cabec.getNumPedido(), cabec.getId(), cabec.getPrecioTotal(), cabec.getFechaPedido()
+					cabe.getNumPedido(),cabe.getId(),cabe.getPrecioTotal(),cabe.getFechaPedido()
 
 			});
 

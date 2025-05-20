@@ -1,23 +1,29 @@
 package Vista;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.awt.EventQueue;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
+import java.awt.FlowLayout;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
 import Modelo.Copia;
+import Modelo.Usuarios;
+
+import java.awt.Font;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+
+import java.awt.Color;
+import javax.swing.JTree;
 
 public class CopiasSeguridad {
 

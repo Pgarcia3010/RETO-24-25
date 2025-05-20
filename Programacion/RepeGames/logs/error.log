@@ -16,3 +16,12 @@ java.lang.ArithmeticException: / by zero
 [2025-05-20 08:43:30] ERROR: Error de división por cero
 java.lang.ArithmeticException: / by zero
 	at appPrincipal.main(appPrincipal.java:30)
+[2025-05-20 09:30:19] ERROR: Error de división por cero
+java.lang.ArithmeticException: / by zero
+	at appPrincipal.main(appPrincipal.java:30)
+[2025-05-20 11:19:17] ERROR: Error de división por cero
+java.lang.ArithmeticException: / by zero
+	at appPrincipal.main(appPrincipal.java:30)
+[2025-05-20 11:21:27] ERROR: Error de división por cero
+java.lang.ArithmeticException: / by zero
+	at appPrincipal.main(appPrincipal.java:30)

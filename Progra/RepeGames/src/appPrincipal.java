@@ -26,11 +26,6 @@ public class appPrincipal {
 	            logger.logSession("Operación realizada con éxito");
 
 	            // Ejemplo de captura de excepción
-	            try {
-	                int resultado = 10 / 0;
-	            } catch (ArithmeticException e) {
-	                CustomLogger.logError("Error de división por cero", e);
-	            }
 
 	            logger.logSession("Aplicación finalizada");
 	        }

@@ -1,13 +1,26 @@
 package Vista;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.EventQueue;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import javax.swing.JTable;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import java.awt.FlowLayout;
+import javax.swing.SwingConstants;
+
+import Controlador.Controlador;
+
+import javax.swing.JPanel;
+import javax.swing.JToggleButton;
+import java.awt.Font;
+import java.awt.Color;
 
 public class MenuEmpleados {
 
@@ -15,6 +28,7 @@ public class MenuEmpleados {
 	public JButton BtncopiasSegu;
 	public JButton Btnpedidos;
 	public JButton Btnproductos;
+	private Controlador controlador;
 
 	public MenuEmpleados() {
 		initialize();
@@ -29,15 +43,40 @@ public class MenuEmpleados {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
 
-		Btnproductos = new JButton("Producto");
-		
+		JButton Btnproductos = new JButton("Producto");
+		Btnproductos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				try {
+					controlador.tablaEmpleadoproduc();
+					controlador.getTablaProdu().MostrarVentana();
+
+				} catch (SQLException e1) {
+
+					System.out.println("ERROR");
+				}
+
+			}
+		});
 		Btnproductos.setForeground(new Color(128, 0, 255));
 		Btnproductos.setBackground(new Color(0, 0, 0));
 		Btnproductos.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		frame.getContentPane().add(Btnproductos);
 
 		Btnpedidos = new JButton("Pedidos");
-		
+		Btnpedidos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				try {
+					controlador.llenarCabecera();
+					controlador.getPedidosAdmin().MostrarVentana();
+				} catch (SQLException e1) {
+					System.out.println("ERROR");
+
+				}
+
+			}
+		});
 		Btnpedidos.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		Btnpedidos.setBackground(new Color(0, 0, 0));
 		Btnpedidos.setForeground(new Color(128, 0, 255));
@@ -45,7 +84,18 @@ public class MenuEmpleados {
 		frame.getContentPane().add(Btnpedidos);
 
 		BtncopiasSegu = new JButton("Copias de seguridad");
-		
+		BtncopiasSegu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					controlador.usuariosCopiasTabla();
+					controlador.getCopiasdeseguri().MostrarVentana();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			}
+		});
 		BtncopiasSegu.setForeground(new Color(128, 0, 255));
 		BtncopiasSegu.setBackground(new Color(0, 0, 0));
 		BtncopiasSegu.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
@@ -66,5 +116,15 @@ public class MenuEmpleados {
 	public void mostrarVentana() {
 		frame.setVisible(true);
 	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+	public void setControlador(Controlador controlador) {
+		this.controlador = controlador;
+	}
+
 }
+
 

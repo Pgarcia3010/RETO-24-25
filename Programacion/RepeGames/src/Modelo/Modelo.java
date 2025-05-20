@@ -454,7 +454,7 @@ public class Modelo extends Conector {
 			ps.setDate(4, cabeceraCambiada.getFechaPedido());
 			ps.setString(5, cabeceraVieja.getId());
 			ps.setInt(6, cabeceraVieja.getNumPedido());
-			ps.execute();
+			ps.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("Error en updateCabecera");
@@ -495,6 +495,7 @@ public class Modelo extends Conector {
 		try {
 			PreparedStatement ps = this.conexion.prepareStatement("DELETE FROM producto WHERE idProducto = ?;");
 			ps.setString(1, productoBorrado.getIdProducto());
+			ps.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("Error en eliminarProducto");
@@ -511,6 +512,7 @@ public class Modelo extends Conector {
 		try {
 			PreparedStatement ps = this.conexion.prepareStatement("DELETE FROM lineaPedido WHERE numLinea = ?;");
 			ps.setInt(1, lineaBorrada.getNumLinea());
+			ps.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("Error en eliminarLinea");
@@ -524,8 +526,9 @@ public class Modelo extends Conector {
 	 */
 	public void eliminarCabecera(cabeceraPedido cabeceraBorrada) {
 		try {
-			PreparedStatement ps = this.conexion.prepareStatement("DELETE FROM cabeceraPedido WHERE numPedido = ?;");
-			ps.setInt(1, cabeceraBorrada.getNumPedido());
+			PreparedStatement ps = this.conexion.prepareStatement("DELETE FROM cabeceraPedido WHERE id = ?;");
+			ps.setString(1, cabeceraBorrada.getId());
+			ps.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("Error en eliminarCabecera");

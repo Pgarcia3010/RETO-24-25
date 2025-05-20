@@ -1,6 +1,7 @@
 package Vista;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -15,20 +16,24 @@ import javax.swing.JTextField;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
-//import Controlador.Controlador;
+import Controlador.Controlador;
+import Modelo.Cliente;
 
 public class VentanaRegistrar {
 
-	public JFrame frame;
-	public JTextField Rnombre;
-	public JTextField Rusuario;
-	public JTextField Rcontraseina;
-	public JTextField Rtelefono;
-	public JTextField Rdireccion;
-	public JButton btnCrear2;
-//	public Controlador controlador;
+	private JFrame frame;
+	private JTextField Rnombre;
+	private JTextField Rusuario;
+	private JTextField Rcontraseina;
+	private JTextField Rtelefono;
+	private JTextField Rdire;
+	private Controlador controlador;
 
 	public VentanaRegistrar() {
+		initialize();
+	}
+
+	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 570, 550);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -62,46 +67,46 @@ public class VentanaRegistrar {
 		Rnombre.setBounds(198, 125, 145, 27);
 		layeredPane.add(Rnombre, JLayeredPane.PALETTE_LAYER);
 
-		JLabel lblTelefono = DefaultComponentFactory.getInstance().createLabel("Telefono");
-		lblTelefono.setForeground(new Color(255, 255, 128));
-		lblTelefono.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		lblTelefono.setBounds(198, 162, 88, 13);
-		layeredPane.add(lblTelefono, JLayeredPane.PALETTE_LAYER);
-
-		Rtelefono = new JTextField();
-		Rtelefono.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		Rtelefono.setBounds(198, 177, 145, 27);
-		layeredPane.add(Rtelefono, JLayeredPane.PALETTE_LAYER);
-
-		JLabel lblDireccion = DefaultComponentFactory.getInstance().createLabel("Direccion");
-		lblDireccion.setForeground(new Color(255, 255, 128));
-		lblDireccion.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		lblDireccion.setBounds(198, 212, 88, 13);
-		layeredPane.add(lblDireccion, JLayeredPane.PALETTE_LAYER);
-
-		Rdireccion = new JTextField();
-		Rdireccion.setBounds(198, 227, 145, 27);
-		layeredPane.add(Rdireccion, JLayeredPane.PALETTE_LAYER);
-
 		JLabel lblUsuario = DefaultComponentFactory.getInstance().createLabel("Usuario");
 		lblUsuario.setForeground(new Color(255, 255, 128));
 		lblUsuario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		lblUsuario.setBounds(198, 264, 88, 13);
+		lblUsuario.setBounds(198, 160, 88, 13);
 		layeredPane.add(lblUsuario, JLayeredPane.PALETTE_LAYER);
 
 		Rusuario = new JTextField();
-		Rusuario.setBounds(198, 279, 145, 27);
+		Rusuario.setBounds(198, 175, 145, 27);
 		layeredPane.add(Rusuario, JLayeredPane.PALETTE_LAYER);
 
 		JLabel lblContrasenia = DefaultComponentFactory.getInstance().createLabel("Contraseña");
 		lblContrasenia.setForeground(new Color(255, 255, 128));
 		lblContrasenia.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		lblContrasenia.setBounds(198, 314, 88, 13);
+		lblContrasenia.setBounds(198, 210, 88, 13);
 		layeredPane.add(lblContrasenia, JLayeredPane.PALETTE_LAYER);
 
 		Rcontraseina = new JTextField();
-		Rcontraseina.setBounds(198, 329, 145, 27);
+		Rcontraseina.setBounds(198, 225, 145, 27);
 		layeredPane.add(Rcontraseina, JLayeredPane.PALETTE_LAYER);
+
+		JLabel lblTelefono = DefaultComponentFactory.getInstance().createLabel("Telefono");
+		lblTelefono.setForeground(new Color(255, 255, 128));
+		lblTelefono.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		lblTelefono.setBounds(198, 260, 88, 13);
+		layeredPane.add(lblTelefono, JLayeredPane.PALETTE_LAYER);
+
+		Rtelefono = new JTextField();
+		Rtelefono.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		Rtelefono.setBounds(198, 275, 145, 27);
+		layeredPane.add(Rtelefono, JLayeredPane.PALETTE_LAYER);
+
+		JLabel lblDireccion = DefaultComponentFactory.getInstance().createLabel("Direccion");
+		lblDireccion.setForeground(new Color(255, 255, 128));
+		lblDireccion.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		lblDireccion.setBounds(198, 310, 88, 13);
+		layeredPane.add(lblDireccion, JLayeredPane.PALETTE_LAYER);
+
+		Rdire = new JTextField();
+		Rdire.setBounds(198, 325, 145, 27);
+		layeredPane.add(Rdire, JLayeredPane.PALETTE_LAYER);
 
 		JButton BtnVolver = new JButton("Volver");
 		BtnVolver.setBackground(new Color(255, 255, 53));
@@ -115,15 +120,46 @@ public class VentanaRegistrar {
 		});
 		layeredPane.add(BtnVolver, JLayeredPane.PALETTE_LAYER);
 
-		btnCrear2 = new JButton("Crear");
-		btnCrear2.setBackground(new Color(255, 255, 53));
-		btnCrear2.setForeground(Color.BLACK);
-		btnCrear2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
-		btnCrear2.setBounds(294, 395, 99, 29);
-		layeredPane.add(btnCrear2, JLayeredPane.PALETTE_LAYER);
+		JButton btnCrear = new JButton("Crear");
+		btnCrear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String nombre = Rnombre.getText();
+				String usuario = Rusuario.getText();
+				String contra = Rcontraseina.getText();
+				String tele = Rtelefono.getText();
+				String dire = Rdire.getText();
+
+//				Cliente cliente = new Cliente();
+//				cliente.setNombre(nombre);
+//				cliente.setNickname(usuario);
+//				cliente.setContrasenya(contra);
+//				cliente.setTelefono(tele);
+//				cliente.setDireccion(dire);
+
+				controlador.nuevoCliente(nombre, tele, dire, usuario, contra);
+
+				frame.dispose();
+
+			}
+		});
+		btnCrear.setBackground(new Color(255, 255, 53));
+		btnCrear.setForeground(Color.BLACK);
+		btnCrear.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
+		btnCrear.setBounds(294, 395, 99, 29);
+		layeredPane.add(btnCrear, JLayeredPane.PALETTE_LAYER);
 	}
 
 	public void MostrarVentana() {
 		frame.setVisible(true);
 	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+	public void setControlador(Controlador controlador) {
+		this.controlador = controlador;
+	}
+
 }
