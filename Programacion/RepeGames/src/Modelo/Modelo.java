@@ -1,5 +1,8 @@
 package Modelo;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -211,10 +214,6 @@ public class Modelo extends Conector {
 	 */
 	public void insertCliente(Cliente clienteNuevo) {
 		try {
-//			
-//			  clienteNuevo se crea en el controlador, como un metodo, lo hare a
-//			  continuacion
-//			 
 			PreparedStatement ps = this.conexion.prepareStatement(
 					"INSERT INTO cliente (id,nombre,direccion,telefono,nickname,contrasenya) VALUES (?,?,?,?,?,?);");
 			ps.setString(1, clienteNuevo.getId());
@@ -224,14 +223,23 @@ public class Modelo extends Conector {
 			ps.setString(5, clienteNuevo.getNickname());
 			ps.setString(6, clienteNuevo.getContrasenya());
 			ps.execute();
-
-			PreparedStatement ps2 = this.conexion
-					.prepareStatement("INSERT INTO usuarios(id,nickname,constrasenya) VALUES (?,?,?);");
-			ps2.setString(1, clienteNuevo.getId());
-			ps2.setString(2, clienteNuevo.getNickname());
-			ps2.setString(3, clienteNuevo.getContrasenya());
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
+			File file = new File("./src/Ficheros/insert.txt");
+			FileWriter fw = new FileWriter(file,true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			bw.write("ID: " + clienteNuevo.getId()+",");
+			bw.write("Nombre: " + clienteNuevo.getNombre()+",");
+			bw.write("Direccion: " + clienteNuevo.getDireccion()+",");
+			bw.write("Telefono: " + clienteNuevo.getTelefono()+",");
+			bw.write("Nickname: " + clienteNuevo.getNickname()+",");
+			bw.write("Contraseña " + clienteNuevo.getContrasenya()+",");
+			bw.newLine();
+			
+			bw.close();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
 			System.err.println("Error en insertCliente");
 		}
 	}
@@ -252,6 +260,19 @@ public class Modelo extends Conector {
 			ps.setInt(4, productoNuevo.getStock());
 
 			ps.execute();
+			
+			File file = new File("./src/Ficheros/insert.txt");
+			FileWriter fw = new FileWriter(file,true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			bw.write("idProducto: " + productoNuevo.getIdProducto()+",");
+			bw.write("nombreProducto: " + productoNuevo.getNombreProducto()+",");
+			bw.write("Precio: " + productoNuevo.getPrecio()+",");
+			bw.write("Stock: " + productoNuevo.getStock()+",");
+			bw.newLine();
+			
+			bw.close();
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("Error en insertProducto");
@@ -272,29 +293,21 @@ public class Modelo extends Conector {
 			ps.setString(2, avisoNuevo.getNombreProducto());
 			ps.setInt(3, avisoNuevo.getStock());
 			ps.execute();
+			
+			File file = new File("./src/Ficheros/insert.txt");
+			FileWriter fw = new FileWriter(file,true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			bw.write("IdProducto: " + avisoNuevo.getIdProducto()+",");
+			bw.write("NombreProducto: " + avisoNuevo.getNombreProducto()+",");
+			bw.write("Stock: " + avisoNuevo.getStock()+",");
+			bw.newLine();
+			
+			bw.close();
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("Error en insertAviso");
-		}
-	}
-
-	/**
-	 * Se añaden nuevos usuarios
-	 * 
-	 * @param usuarioNuevo Objeto de tipo usuario para guardar los datos que seran
-	 *                     introducidos en la base de datos.
-	 */
-	public void insertUsuario(Usuarios usuarioNuevo) {
-		try {
-			PreparedStatement ps = this.conexion
-					.prepareStatement("INSERT INTO usuarios(id,nickname,constrasenya) VALUES (?,?,?);");
-			ps.setString(1, usuarioNuevo.getId());
-			ps.setString(2, usuarioNuevo.getNickname());
-			ps.setString(3, usuarioNuevo.getContrasenya());
-			ps.execute();
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.err.println("Error en insertUsuario");
 		}
 	}
 
@@ -313,6 +326,19 @@ public class Modelo extends Conector {
 			ps.setDate(3, copiaNueva.getFecha());
 			ps.setString(4, copiaNueva.getUbicacion());
 			ps.execute();
+			
+			File file = new File("./src/Ficheros/insert.txt");
+			FileWriter fw = new FileWriter(file,true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			bw.write("IdCopia: " + copiaNueva.getIdCopia()+",");
+			bw.write("NombreCopia: " + copiaNueva.getNombre()+",");
+			bw.write("FechaCopia: " + copiaNueva.getFecha()+",");
+			bw.write("UbicacionCopia: " + copiaNueva.getUbicacion()+",");
+			bw.newLine();
+			
+			bw.close();
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("Error en insertCopia");
@@ -334,6 +360,18 @@ public class Modelo extends Conector {
 			ps.setDouble(3, cabeceraNueva.getPrecioTotal());
 			ps.setDate(4, cabeceraNueva.getFechaPedido());
 			ps.execute();
+			
+			File file = new File("./src/Ficheros/insert.txt");
+			FileWriter fw = new FileWriter(file,true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			bw.write("NumeroPedido" + cabeceraNueva.getNumPedido()+",");
+			bw.write("IdCliente: " + cabeceraNueva.getId()+",");
+			bw.write("PrecioTotal: " + cabeceraNueva.getPrecioTotal()+",");
+			bw.write("FechaPedido: " + cabeceraNueva.getFechaPedido()+",");
+			bw.newLine();
+			
+			bw.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("Error en insertCabecera");
@@ -356,6 +394,17 @@ public class Modelo extends Conector {
 			ps.setInt(4, lineaNueva.getCantidadProducto());
 			ps.execute();
 
+			File file = new File("./src/Ficheros/insert.txt");
+			FileWriter fw = new FileWriter(file,true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			bw.write("NumeroPedido: " + lineaNueva.getNumPedido()+",");
+			bw.write("NumeroLinea: " + lineaNueva.getNumLinea()+",");
+			bw.write("IdProducto: " + lineaNueva.getIdProducto()+",");
+			bw.write("Cantidad: " + lineaNueva.getCantidadProducto()+",");
+			bw.newLine();
+			
+			bw.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("Error en insertLinea");
