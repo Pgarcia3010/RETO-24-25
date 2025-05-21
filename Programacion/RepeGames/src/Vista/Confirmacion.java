@@ -16,6 +16,7 @@ import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
 import Modelo.lineaPedido;
+import java.awt.GridLayout;
 
 public class Confirmacion {
 
@@ -36,12 +37,11 @@ public class Confirmacion {
 		frame.getContentPane().setForeground(new Color(0, 0, 0));
 		frame.setBounds(100, 100, 445, 318);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
 
 		JButton btnAfirmar = new JButton("");
 		btnAfirmar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		ImageIcon imaBtn = new ImageIcon(getClass().getResource("/Imagenes/img.png"));
-		Image img = imaBtn.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
+		Image img = imaBtn.getImage().getScaledInstance(185, 190, Image.SCALE_SMOOTH);
 		btnAfirmar.setIcon(new ImageIcon(img));
 
 		btnAfirmar.addActionListener(new ActionListener() {
@@ -60,13 +60,21 @@ public class Confirmacion {
 
 			}
 		});
-		btnAfirmar.setBounds(86, 139, 103, 83);
+		frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
+		
+				JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Confirmar eliminación");
+				lblNewJgoodiesLabel.setForeground(new Color(255, 255, 0));
+				lblNewJgoodiesLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+				frame.getContentPane().add(lblNewJgoodiesLabel);
+		
+		JLabel label = new JLabel("");
+		frame.getContentPane().add(label);
 		frame.getContentPane().add(btnAfirmar);
 
 		JButton Btnmal = new JButton("");
 
 		ImageIcon imtbtn = new ImageIcon(getClass().getResource("/Imagenes/mal.png"));
-		Image img1 = imtbtn.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
+		Image img1 = imtbtn.getImage().getScaledInstance(185, 190, Image.SCALE_SMOOTH);
 		Btnmal.setIcon(new ImageIcon(img1));
 
 		Btnmal.addActionListener(new ActionListener() {
@@ -75,14 +83,7 @@ public class Confirmacion {
 			}
 		});
 		Btnmal.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Btnmal.setBounds(249, 139, 97, 83);
 		frame.getContentPane().add(Btnmal);
-
-		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Confirmar eliminación");
-		lblNewJgoodiesLabel.setForeground(new Color(255, 255, 0));
-		lblNewJgoodiesLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 26));
-		lblNewJgoodiesLabel.setBounds(65, 49, 305, 31);
-		frame.getContentPane().add(lblNewJgoodiesLabel);
 	}
 
 	public Confirmacion(Controlador controlador, int numLinea) {

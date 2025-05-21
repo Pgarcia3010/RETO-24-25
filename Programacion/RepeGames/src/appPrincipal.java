@@ -1,9 +1,10 @@
 import java.sql.SQLException;
 
 import Controlador.Controlador;
-import Logs.CustomLogger;
+import Logs.Loggers;
 import Modelo.Modelo;
 import Vista.AdministrarPedidos;
+import Vista.AdministrarProductos;
 import Vista.Confirmacion;
 import Vista.CopiasSeguridad;
 import Vista.MenuEmpleados;
@@ -18,16 +19,16 @@ public class appPrincipal {
 
 		// LOGS
 
-		try (CustomLogger logger = new CustomLogger()) {
-			logger.logSession("Aplicación iniciada");
+		try (Loggers logger = new Loggers()) {
+			logger.logSesion("Aplicación iniciada");
 
 			// Ejemplo de operación
 			System.out.println("Realizando una operación...");
-			logger.logSession("Operación realizada con éxito");
+			logger.logSesion("Operación realizada con éxito");
 
 			// Ejemplo de captura de excepción
 
-			logger.logSession("Aplicación finalizada");
+			logger.logSesion("Aplicación finalizada");
 		}
 
 		// de aqui a la ventana y de alli al controlador
@@ -41,10 +42,12 @@ public class appPrincipal {
 		CopiasSeguridad copiasdeseguri = new CopiasSeguridad();
 		PedidosEmleados pedidosempleados = new PedidosEmleados();
 		Confirmacion confirmacion = new Confirmacion();
-		CustomLogger CustomLogger = new CustomLogger();
+		Loggers CustomLogger = new Loggers();
+		AdministrarProductos administrarProductos = new AdministrarProductos();
+		
 
 		Controlador controlador = new Controlador(modelo, registrar, login, menuEmp, menuCli, tablaadministrarproductos,
-				pedidosAdmin, copiasdeseguri, pedidosempleados, confirmacion);
+				pedidosAdmin, copiasdeseguri, pedidosempleados, confirmacion,administrarProductos);
 
 		VentanaLogin ventanaLogin = new VentanaLogin();
 		ventanaLogin.setControlador(controlador);
@@ -60,6 +63,8 @@ public class appPrincipal {
 		confirmacion.setControlador(controlador);
 		registrar.setControlador(controlador);
 		tablaadministrarproductos.setControlador(controlador);
+		administrarProductos.setControlador(controlador);
+		
 
 		try {
 			controlador.llenarTablaproductos();

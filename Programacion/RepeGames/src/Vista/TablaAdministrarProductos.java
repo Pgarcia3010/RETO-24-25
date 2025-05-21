@@ -2,11 +2,13 @@ package Vista;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -94,6 +96,7 @@ public class TablaAdministrarProductos {
 		btnFiltro2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		btnFiltro2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 			}
 		});
 		btnFiltro2.setBounds(401, 302, 111, 21);
@@ -123,19 +126,43 @@ public class TablaAdministrarProductos {
 		titulo.setBounds(148, 367, 101, 13);
 		frame.getContentPane().add(titulo);
 
-		JButton btnseleccionar = new JButton("Selecionado");
+		JButton btnseleccionar = new JButton("");
+
+		ImageIcon imtbtn = new ImageIcon(getClass().getResource("/Imagenes/editar.png"));
+		btnseleccionar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		Image img1 = imtbtn.getImage().getScaledInstance(110, 110, Image.SCALE_SMOOTH);
+		btnseleccionar.setIcon(new ImageIcon(img1));
+
 		btnseleccionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdministrarProductos ver = new AdministrarProductos();
-				ver.MostrarVentana();
+
+				String id = ResultadoId.getText();
+
+				if (id != null) {
+
+					Producto produElegido = new Producto();
+					produElegido.setIdProducto(id);
+
+					controlador.setProduelegido(produElegido);
+					controlador.getAdministrarProductos().MostrarVentana();
+
+				} else {
+
+				}
+
 			}
 		});
 		btnseleccionar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		btnseleccionar.setBounds(440, 361, 111, 83);
 		frame.getContentPane().add(btnseleccionar);
 
-		JButton btnEliminar = new JButton("Eliminar");
+		JButton btnEliminar = new JButton("");
 		btnEliminar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		ImageIcon iconoEliminar = new ImageIcon(getClass().getResource("/Imagenes/basura.jpg"));
+
+		Image img = iconoEliminar.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		btnEliminar.setIcon(new ImageIcon(img));
+
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -146,7 +173,7 @@ public class TablaAdministrarProductos {
 
 				try {
 					controlador.eliminarProdu(produ);
-					
+
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

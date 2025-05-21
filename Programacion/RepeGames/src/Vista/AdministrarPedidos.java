@@ -39,7 +39,7 @@ public class AdministrarPedidos {
 	/**
 	 * Esta clase sirve para administrar los Productos en el menu de empleado
 	 * 
-	 * @author Ismael 
+	 * @author Ismael
 	 */
 
 	private JFrame frame;
@@ -138,18 +138,21 @@ public class AdministrarPedidos {
 		frame.getContentPane().add(titulo);
 
 		JButton btnseleccionar = new JButton("Selecionado");
+		ImageIcon imtbtn = new ImageIcon(getClass().getResource("/Imagenes/editar.png"));
+		Image img1 = imtbtn.getImage().getScaledInstance(130, 110, Image.SCALE_SMOOTH);
+		btnseleccionar.setIcon(new ImageIcon(img1));
 		btnseleccionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				try {
 					controlador.llenarLineaPedido();
 					controlador.getPedidosempleados().mostrarVentana();
-					
+
 				} catch (SQLException e1) {
-					
+
 					e1.printStackTrace();
 				}
-				
+
 			}
 		});
 		btnseleccionar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
@@ -158,14 +161,19 @@ public class AdministrarPedidos {
 
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+
+		ImageIcon iconoEliminar = new ImageIcon(getClass().getResource("/Imagenes/basura.jpg"));
+
+		Image img = iconoEliminar.getImage().getScaledInstance(117, 90, Image.SCALE_SMOOTH);
+		btnEliminar.setIcon(new ImageIcon(img));
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				String id = ResultadoId.getText();
-				
+
 				cabeceraPedido cabe = new cabeceraPedido();
 				cabe.setId(id);
-				
+
 				try {
 					controlador.eliminarCabecera(cabe);
 					System.out.println("Eliminado con exito");
@@ -173,8 +181,7 @@ public class AdministrarPedidos {
 					// TODO Auto-generated catch block
 					System.out.println("Error al intentar eliminar un producto");
 				}
-				
-				
+
 			}
 		});
 		btnEliminar.setBounds(590, 361, 101, 83);
@@ -193,37 +200,37 @@ public class AdministrarPedidos {
 
 			model.addRow(new Object[] {
 
-					cabe.getNumPedido(),cabe.getId(),cabe.getPrecioTotal(),cabe.getFechaPedido()
+					cabe.getNumPedido(), cabe.getId(), cabe.getPrecioTotal(), cabe.getFechaPedido()
 
 			});
 
 		}
 
-/**
- * El metodo mostrar ventana sirve para que podamos ver la ventana luego desde el llamado de nuestro controlador
- * @author Ismael
- * 		
- */
+		/**
+		 * El metodo mostrar ventana sirve para que podamos ver la ventana luego desde
+		 * el llamado de nuestro controlador
+		 * 
+		 * @author Ismael
+		 * 
+		 */
 
 		tabla1.setModel(model);
-		
-	
-		
-/**
- * 
- * 
- * 
- */
-		
+
+		/**
+		 * 
+		 * 
+		 * 
+		 */
+
 		JTableHeader tablaDiseño = tabla1.getTableHeader();
 		tablaDiseño.setFont(new Font("Tahoma", Font.BOLD, 18));
 		tablaDiseño.setBackground(Color.black);
 		tablaDiseño.setForeground(new Color(128, 0, 255));
-/**
- * El get controlador lo necesitamos para pasar datos de clase a clase 
- * 
- * @author Ismael
- */
+		/**
+		 * El get controlador lo necesitamos para pasar datos de clase a clase
+		 * 
+		 * @author Ismael
+		 */
 	}
 
 	public void MostrarVentana() {
@@ -232,8 +239,6 @@ public class AdministrarPedidos {
 
 	}
 
-	
-	
 	public Controlador getControlador() {
 		return controlador;
 	}
