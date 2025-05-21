@@ -1,7 +1,5 @@
 package Controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -14,10 +12,8 @@ import Modelo.Producto;
 import Modelo.cabeceraPedido;
 import Modelo.lineaPedido;
 import Vista.AdministrarPedidos;
-import Vista.AdministrarProductos;
 import Vista.Confirmacion;
 import Vista.CopiasSeguridad;
-import Vista.ErrorBBDD;
 import Vista.MenuEmpleados;
 import Vista.PedidosEmleados;
 import Vista.TablaAdministrarProductos;
@@ -25,7 +21,7 @@ import Vista.TablaPedidos;
 import Vista.VentanaLogin;
 import Vista.VentanaRegistrar;
 
-public class Controlador implements ActionListener {
+public class Controlador {
 
 	private Modelo modelo;
 	private VentanaRegistrar Registrar;
@@ -34,39 +30,9 @@ public class Controlador implements ActionListener {
 	private TablaPedidos menuCli;
 	private TablaAdministrarProductos tablaProdu;
 	private AdministrarPedidos pedidosAdmin;
-	private AdministrarProductos productosAdmin;
 	private CopiasSeguridad copiasdeseguri;
 	private PedidosEmleados pedidosempleados;
-	private Confirmacion confirmacion;
-	private ErrorBBDD error;
-
-	public Controlador() {
-
-	}
-
-	public Controlador(Modelo modelo, AdministrarPedidos pedidosAdmin, AdministrarProductos productosAdmin,
-			Confirmacion confirmacion, CopiasSeguridad copiasdeseguri, ErrorBBDD error, MenuEmpleados menuEmp,
-			PedidosEmleados pedidosempleados, TablaAdministrarProductos tablaProdu, TablaPedidos menuCli,
-			VentanaLogin login, VentanaRegistrar registrar) {
-
-		this.modelo = modelo;
-		Registrar = registrar;
-		Login = login;
-		this.menuEmp = menuEmp;
-		this.menuCli = menuCli;
-		this.tablaProdu = tablaProdu;
-		this.pedidosAdmin = pedidosAdmin;
-		this.copiasdeseguri = copiasdeseguri;
-		this.pedidosempleados = pedidosempleados;
-		this.Registrar.btnCrear2.addActionListener(this);
-		this.Login.btnIniciar.addActionListener(this);
-		this.Login.btnCrear.addActionListener(this);
-		this.menuEmp.Btnproductos.addActionListener(this);
-		this.menuEmp.Btnpedidos.addActionListener(this);
-		this.menuEmp.BtncopiasSegu.addActionListener(this);
-		this.menuCli.comboNombre.addActionListener(this);
-		this.tablaProdu.filtroId.addActionListener(this);
-	}
+	private Confirmacion confirmar;
 
 	public void recibirClientes() {
 		ArrayList<Cliente> clientes = this.modelo.recibirClientes();
@@ -132,26 +98,45 @@ public class Controlador implements ActionListener {
 		}
 	}
 
-	public void eliminarPedido(cabeceraPedido cab) throws SQLException {
+	public void llenarCabecera() throws SQLException {
 
-		ArrayList<cabeceraPedido> cablis = modelo.recibirCabeceras();
-		boolean existe = false;
+		ArrayList<cabeceraPedido> cabeList = modelo.recibirCabeceras();
+		pedidosAdmin.SetTablaE1(cabeList);
 
-		for (int i = 0; i < cablis.size(); i++) {
-			if (cablis.get(i).getId().equalsIgnoreCase(cab.getId())) {
-				existe = true;
-				modelo.eliminarCabecera(cab);
+	}
 
-			}
+	public void llenarTablaproductos() throws SQLException {
 
-		}
+		ArrayList<Producto> produList = modelo.recibirProducto();
+		menuCli.setLlenartabla(produList);
 
-		if (!existe) {
-			System.out.println("Id no encontrado");
-		}
+	}
 
-		ArrayList<cabeceraPedido> actualiProduc = modelo.recibirCabeceras();
-		pedidosAdmin.SetTablaE1(actualiProduc);
+	public void tablaEmpleadoproduc() throws SQLException {
+
+		ArrayList<Producto> produList = modelo.recibirProducto();
+		tablaProdu.setTabla(produList);
+
+	}
+
+//	public void tablapediAdmin() throws SQLException {
+//
+//		ArrayList<Producto> produList = modelo.recibirProducto();
+//		pedidosAdmin.SetTablaE1(produList);
+//
+//	}
+
+	public void usuariosCopiasTabla() throws SQLException {
+
+		ArrayList<Copia> usuarioList = modelo.recibirCopia();
+		copiasdeseguri.tablaCS(usuarioList);
+
+	}
+
+	public void pedidosCargar() throws SQLException {
+
+		ArrayList<lineaPedido> linealist = modelo.recibirLinea();
+		pedidosempleados.tablaPedidos(linealist);
 
 	}
 
@@ -178,114 +163,102 @@ public class Controlador implements ActionListener {
 
 	}
 
-	public void llenarTablaproductos() throws SQLException {
+	public void eliminarCabecera(cabeceraPedido cabe) throws SQLException {
 
-		ArrayList<Producto> produList = modelo.recibirProducto();
-		menuCli.setLlenartabla(produList);
+		ArrayList<cabeceraPedido> produList = modelo.recibirCabeceras();
+		boolean existe = false;
+
+		for (int i = 0; i < produList.size(); i++) {
+			if (produList.get(i).getId().equalsIgnoreCase(cabe.getId())) {
+				existe = true;
+				modelo.eliminarCabecera(cabe);
+
+			}
+
+		}
+
+		if (!existe) {
+			System.out.println("Id no encontrado");
+		}
+
+		ArrayList<cabeceraPedido> cabeActu = modelo.recibirCabeceras();
+		pedidosAdmin.SetTablaE1(cabeActu);
 
 	}
 
-	public void tablaEmpleadoproduc() throws SQLException {
+	public void llenarLineaPedido() throws SQLException {
+
+		ArrayList<lineaPedido> lineaList = modelo.recibirLinea();
+		pedidosempleados.tablaPedidos(lineaList);
+
+	}
+
+	public void eliminarProdu(Producto produ) throws SQLException {
 
 		ArrayList<Producto> produList = modelo.recibirProducto();
-		tablaProdu.setTabla(produList);
+
+		boolean existe = false;
+
+		for (int i = 0; i < produList.size(); i++) {
+			if (produList.get(i).getIdProducto().equalsIgnoreCase(produ.getIdProducto())) {
+				existe = true;
+				modelo.eliminarProducto(produ);
+
+			}
+
+		}
+
+		ArrayList<Producto> produActu = modelo.recibirProducto();
+		tablaProdu.setTabla(produActu);
+
+	}
+	
+	public void modificarProduc () throws SQLException {
+		
+		
+		
 	}
 
 	public void nuevoCliente(String nombre, String telefono, String direccion, String usuario, String contrasenia) {
+
 		Cliente clienteNuevo = new Cliente();
+
 		int randomNum = (int) (Math.random() * 101);
+
 		String id = String.valueOf(randomNum);
+
 		clienteNuevo.setId(id);
+
 		clienteNuevo.setNombre(nombre);
+
 		clienteNuevo.setTelefono(telefono);
+
 		clienteNuevo.setDireccion(direccion);
+
 		clienteNuevo.setNickname(usuario);
+
 		clienteNuevo.setContrasenya(contrasenia);
+
 		System.out.println(clienteNuevo.toString());
-		this.modelo.insertCliente(clienteNuevo);
-	}
 
-	@SuppressWarnings("unchecked")
-	public void actionPerformed(ActionEvent e) {
-
-		ArrayList<Producto> produlist = modelo.recibirProducto();
-
-		if (e.getSource().equals(Login.btnIniciar)) {
-			System.out.println("paso boton iniciar");
-			comprobarLogin(Login.usuario.getText(), Login.contraseina.getText());
-		}
-		if (e.getSource().equals(Registrar.btnCrear2)) {
-			System.out.println("paso boton crear");
-			nuevoCliente(Registrar.Rnombre.getText(), Registrar.Rtelefono.getText(), Registrar.Rdireccion.getText(),
-					Registrar.Rusuario.getText(), Registrar.Rcontraseina.getText());
-			// COntrolador y static al otro lado
-		}
-		if (e.getSource().equals(Login.btnCrear)) {
-//				ver.MostrarVentana();
-			Registrar.MostrarVentana();
-		}
-		if (e.getSource().equals(menuEmp.Btnproductos)) {
-			try {
-				tablaEmpleadoproduc();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			tablaProdu.MostrarVentana();
-		}
-		if (e.getSource().equals(menuEmp.Btnpedidos)) {
-			try {
-				tablapediAdmin();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			pedidosAdmin.MostrarVentana();
-
-		}
-		if (e.getSource().equals(menuEmp.BtncopiasSegu)) {
-			try {
-				usuariosCopiasTabla();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			copiasdeseguri.MostrarVentana();
-
-		}
-
-		else if (e.getSource().equals(menuCli.comboNombre)) {
-//			 menuCli.comboNombre.removeAllItems();
-			for (Producto p : modelo.recibirProducto()) {
-				tablaProdu.filtroId.addItem(p.getNombreProducto());
-			}
-		} else if (e.getSource().equals(tablaProdu.filtroId)) {
-//			 tablaProdu.filtroId.removeAllItems();
-			for (Producto p : modelo.recibirProducto()) {
-				tablaProdu.filtroId.addItem(p.getNombreProducto());
-			}
-		}
-	}
-
-	public void tablapediAdmin() throws SQLException {
-
-		ArrayList<cabeceraPedido> cabec = modelo.recibirCabeceras();
-		pedidosAdmin.SetTablaE1(cabec);
+		modelo.insertCliente(clienteNuevo);
 
 	}
 
-	public void usuariosCopiasTabla() throws SQLException {
+	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
+			TablaPedidos menuCli, TablaAdministrarProductos tablaProdu, AdministrarPedidos pedidosAdmin,
+			CopiasSeguridad copiasdeseguri, PedidosEmleados pedidosempleados, Confirmacion confirmar) {
 
-		ArrayList<Copia> usuarioList = modelo.recibirCopia();
-		copiasdeseguri.tablaCS(usuarioList);
-
-	}
-
-	public void pedidosCargar() throws SQLException {
-
-		ArrayList<lineaPedido> linealist = modelo.recibirLinea();
-		pedidosempleados.tablaPedidos(linealist);
-
+		this.modelo = modelo;
+		Registrar = registrar;
+		Login = login;
+		this.menuEmp = menuEmp;
+		this.menuCli = menuCli;
+		this.tablaProdu = tablaProdu;
+		this.pedidosAdmin = pedidosAdmin;
+		this.copiasdeseguri = copiasdeseguri;
+		this.pedidosempleados = pedidosempleados;
+		this.confirmar = confirmar;
 	}
 
 	public Modelo getModelo() {
@@ -360,28 +333,12 @@ public class Controlador implements ActionListener {
 		this.pedidosempleados = pedidosempleados;
 	}
 
-	public AdministrarProductos getProductosAdmin() {
-		return productosAdmin;
+	public Confirmacion getConfirmar() {
+		return confirmar;
 	}
 
-	public void setProductosAdmin(AdministrarProductos productosAdmin) {
-		this.productosAdmin = productosAdmin;
-	}
-
-	public Confirmacion getConfirmacion() {
-		return confirmacion;
-	}
-
-	public void setConfirmacion(Confirmacion confirmacion) {
-		this.confirmacion = confirmacion;
-	}
-
-	public ErrorBBDD getError() {
-		return error;
-	}
-
-	public void setError(ErrorBBDD error) {
-		this.error = error;
+	public void setConfirmar(Confirmacion confirmar) {
+		this.confirmar = confirmar;
 	}
 
 }

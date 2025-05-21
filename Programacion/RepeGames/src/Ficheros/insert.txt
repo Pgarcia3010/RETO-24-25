@@ -1,1 +1,3 @@
 ID: 72,Nombre: Aitor,Direccion: Gernika,Telefono: Jauregui,Nickname: Ajau,Contraseña ajau,
+ID: 45,Nombre: Messi,Direccion: Donde,Telefono: Messi,Nickname: Messi,Contraseña 1234,
+ID: 61,Nombre: MMESSI,Direccion: Donde,Telefono: 2345678,Nickname: MMESSI,Contraseña 1234,

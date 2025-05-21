@@ -1,0 +1,3 @@
+[2025-05-20 09:25:54] INFO: === Nueva sesión iniciada: 20250520_092554 ===
+[2025-05-20 09:25:54] INFO: Inicio de sesión exitoso - Empleado: ISalazar
+[2025-05-20 09:25:54] INFO: === Sesión finalizada ===

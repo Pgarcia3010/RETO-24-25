@@ -1,10 +1,12 @@
 package Vista;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -14,13 +16,14 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
 import Modelo.lineaPedido;
+
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 public class PedidosEmleados {
 
@@ -130,6 +133,16 @@ public class PedidosEmleados {
 		JButton btnseleccionar = new JButton("Selecionado");
 		btnseleccionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					controlador.llenarLineaPedido();
+					controlador.getPedidosAdmin().MostrarVentana();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
 			}
 		});
 		btnseleccionar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));

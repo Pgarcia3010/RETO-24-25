@@ -4,10 +4,8 @@ import Controlador.Controlador;
 import Logs.CustomLogger;
 import Modelo.Modelo;
 import Vista.AdministrarPedidos;
-import Vista.AdministrarProductos;
 import Vista.Confirmacion;
 import Vista.CopiasSeguridad;
-import Vista.ErrorBBDD;
 import Vista.MenuEmpleados;
 import Vista.PedidosEmleados;
 import Vista.TablaAdministrarProductos;
@@ -17,9 +15,11 @@ import Vista.VentanaRegistrar;
 
 public class appPrincipal {
 	public static void main(String[] args) {
-		
+
+		// LOGS
+
 		try (CustomLogger logger = new CustomLogger()) {
-            logger.logSession("Aplicación iniciada");
+			logger.logSession("Aplicación iniciada");
 
             // Ejemplo de operación
             System.out.println("Realizando una ejecucion...");
@@ -32,35 +32,56 @@ public class appPrincipal {
                 CustomLogger.logError("Error en log", e);
             }
 
-            logger.logSession("Aplicación finalizada");
-        }
-		
+			// Ejemplo de operación
+			System.out.println("Realizando una operación...");
+			logger.logSession("Operación realizada con éxito");
+
+			// Ejemplo de captura de excepción
+
+			logger.logSession("Aplicación finalizada");
+		}
+
 		// de aqui a la ventana y de alli al controlador
-		Modelo modelo = new Modelo();
-		AdministrarPedidos pedidosAdmin = new AdministrarPedidos();
-		AdministrarProductos productosAdmin = new AdministrarProductos();
-		Confirmacion confirmacion = new Confirmacion();
-		CopiasSeguridad copiasdeseguri = new CopiasSeguridad();
-		ErrorBBDD error = new ErrorBBDD();
 		MenuEmpleados menuEmp = new MenuEmpleados();
-		PedidosEmleados pedidosempleados = new PedidosEmleados();
-		TablaAdministrarProductos tablaadministrarproductos = new TablaAdministrarProductos();
 		TablaPedidos menuCli = new TablaPedidos();
 		VentanaLogin login = new VentanaLogin();
+		Modelo modelo = new Modelo();
+		TablaAdministrarProductos tablaadministrarproductos = new TablaAdministrarProductos();
 		VentanaRegistrar registrar = new VentanaRegistrar();
+		AdministrarPedidos pedidosAdmin = new AdministrarPedidos();
+		CopiasSeguridad copiasdeseguri = new CopiasSeguridad();
+		PedidosEmleados pedidosempleados = new PedidosEmleados();
+		Confirmacion confirmacion = new Confirmacion();
+		CustomLogger CustomLogger = new CustomLogger();
 
-		Controlador controlador = new Controlador(modelo, pedidosAdmin, productosAdmin, confirmacion, copiasdeseguri,
-				error, menuEmp, pedidosempleados, tablaadministrarproductos,menuCli, login, registrar);
+		Controlador controlador = new Controlador(modelo, registrar, login, menuEmp, menuCli, tablaadministrarproductos,
+				pedidosAdmin, copiasdeseguri, pedidosempleados, confirmacion);
 
+		VentanaLogin ventanaLogin = new VentanaLogin();
+		ventanaLogin.setControlador(controlador);
+
+		controlador.setModelo(modelo);
+		controlador.setLogin(ventanaLogin);
 		controlador.recibirClientes();
 		controlador.recibirEmpleados();
+		menuEmp.setControlador(controlador);
+		pedidosAdmin.setControlador(controlador);
+		copiasdeseguri.setControlador(controlador);
+		pedidosempleados.setControlador(controlador);
+		confirmacion.setControlador(controlador);
+		registrar.setControlador(controlador);
+		tablaadministrarproductos.setControlador(controlador);
+
 		try {
 			controlador.llenarTablaproductos();
 
 		} catch (SQLException e) {
 			System.err.println("ERROR");
 		}
-		login.mostrarVentana();
+
+//	ventanaLogin.setVisible(true);
+
+		ventanaLogin.mostrarVentana();
 
 	}
 }
