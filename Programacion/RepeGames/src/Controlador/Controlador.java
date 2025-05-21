@@ -3,7 +3,7 @@ package Controlador;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Logs.CustomLogger;
+import Logs.Loggers;
 import Modelo.Cliente;
 import Modelo.Copia;
 import Modelo.Empleados;
@@ -12,6 +12,7 @@ import Modelo.Producto;
 import Modelo.cabeceraPedido;
 import Modelo.lineaPedido;
 import Vista.AdministrarPedidos;
+import Vista.AdministrarProductos;
 import Vista.Confirmacion;
 import Vista.CopiasSeguridad;
 import Vista.MenuEmpleados;
@@ -33,6 +34,8 @@ public class Controlador {
 	private CopiasSeguridad copiasdeseguri;
 	private PedidosEmleados pedidosempleados;
 	private Confirmacion confirmar;
+	private AdministrarProductos administrarProductos;
+	private Producto produelegido;
 
 	public void recibirClientes() {
 		ArrayList<Cliente> clientes = this.modelo.recibirClientes();
@@ -53,14 +56,14 @@ public class Controlador {
 		ArrayList<Empleados> empleList = this.modelo.recibirEmpleados();
 		boolean existe = false;
 
-		try (CustomLogger logger = new CustomLogger()) {
+		try (Loggers logger = new Loggers()) {
 			// Buscar en clientes
 			for (Cliente cliente : clienteList) {
 				if (cliente.getNickname().equals(usuario) && cliente.getContrasenya().equals(contraseina)) {
 					existe = true;
 					System.out.println("Usuario existe");
 					System.out.println("Usuario es Cliente");
-					logger.logSession("Inicio de sesión exitoso - Cliente: " + usuario);
+					logger.logSesion("Inicio de sesión exitoso - Cliente: " + usuario);
 					if (menuCli != null) {
 						menuCli.mostrarVentana();
 					} else {
@@ -76,7 +79,7 @@ public class Controlador {
 					existe = true;
 					System.out.println("Usuario existe");
 					System.out.println("Usuario es Empleado");
-					logger.logSession("Inicio de sesión exitoso - Empleado: " + usuario);
+					logger.logSesion("Inicio de sesión exitoso - Empleado: " + usuario);
 					if (menuEmp != null) {
 						menuEmp.mostrarVentana();
 					} else {
@@ -90,7 +93,7 @@ public class Controlador {
 			if (!existe) {
 				System.out.println("Usuario no existe");
 				String mensajeError = "Intento de inicio de sesión fallido - Usuario: " + usuario;
-				CustomLogger.logError(mensajeError, new Exception("Usuario o contraseña incorrectos"));
+				Loggers.logError(mensajeError, new Exception("Usuario o contraseña incorrectos"));
 			}
 
 		} catch (Exception e) {
@@ -212,12 +215,6 @@ public class Controlador {
 		tablaProdu.setTabla(produActu);
 
 	}
-	
-	public void modificarProduc () throws SQLException {
-		
-		
-		
-	}
 
 	public void nuevoCliente(String nombre, String telefono, String direccion, String usuario, String contrasenia) {
 
@@ -245,9 +242,36 @@ public class Controlador {
 
 	}
 
+	public void comprobarModificacion(Producto produNuevo, Producto produViejo) throws SQLException {
+
+		ArrayList<Producto> produList = modelo.recibirProducto();
+
+		boolean existe = false;
+
+		for (int i = 0; i < produList.size(); i++) {
+
+			if (produList.get(i).getIdProducto().equalsIgnoreCase(produViejo.getIdProducto())) {
+				existe = true;
+
+				modelo.updateProductos(produNuevo, produViejo);
+
+			}
+
+		}
+		
+		ArrayList<Producto>produActual = modelo.recibirProducto();
+		tablaProdu.setTabla(produActual);
+
+		if (existe==false) {
+			System.out.println("Producto no encontrado");
+		}
+
+	}
+
 	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
 			TablaPedidos menuCli, TablaAdministrarProductos tablaProdu, AdministrarPedidos pedidosAdmin,
-			CopiasSeguridad copiasdeseguri, PedidosEmleados pedidosempleados, Confirmacion confirmar) {
+			CopiasSeguridad copiasdeseguri, PedidosEmleados pedidosempleados, Confirmacion confirmar,
+			AdministrarProductos administrarProductos) {
 
 		this.modelo = modelo;
 		Registrar = registrar;
@@ -259,6 +283,8 @@ public class Controlador {
 		this.copiasdeseguri = copiasdeseguri;
 		this.pedidosempleados = pedidosempleados;
 		this.confirmar = confirmar;
+		this.administrarProductos = administrarProductos;
+
 	}
 
 	public Modelo getModelo() {
@@ -339,6 +365,26 @@ public class Controlador {
 
 	public void setConfirmar(Confirmacion confirmar) {
 		this.confirmar = confirmar;
+	}
+
+	public AdministrarProductos getAdministrarProductos() {
+		return administrarProductos;
+	}
+
+	public void setAdministrarProductos(AdministrarProductos administrarProductos) {
+		this.administrarProductos = administrarProductos;
+	}
+
+	public Controlador(Producto produelegido) {
+
+	}
+
+	public Producto getProduelegido() {
+		return produelegido;
+	}
+
+	public void setProduelegido(Producto produelegido) {
+		this.produelegido = produelegido;
 	}
 
 }

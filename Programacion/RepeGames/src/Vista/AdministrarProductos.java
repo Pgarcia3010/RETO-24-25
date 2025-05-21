@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,6 +17,7 @@ import javax.swing.JTextField;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
+import Controlador.Controlador;
 import Modelo.Producto;
 
 public class AdministrarProductos {
@@ -25,6 +27,7 @@ public class AdministrarProductos {
 	private JTextField RNombre;
 	private JTextField Rprecio;
 	private JTextField Rstock;
+	private Controlador controlador;
 
 	public AdministrarProductos() {
 		initialize();
@@ -111,9 +114,13 @@ public class AdministrarProductos {
 		layeredPane.add(BtnVolver, JLayeredPane.PALETTE_LAYER);
 
 		JButton btnCrear = new JButton("Crear");
+		ImageIcon imtbtn = new ImageIcon(getClass().getResource("/Imagenes/editar.png"));
+		Image img1 = imtbtn.getImage().getScaledInstance(120, 110, Image.SCALE_SMOOTH);
+		btnCrear.setIcon(new ImageIcon(img1));
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				Producto produViejo = controlador.getProduelegido();
 				String id = Rid.getText();
 				String nombre = RNombre.getText();
 				int precio =Integer.parseInt( Rprecio.getText());
@@ -126,7 +133,12 @@ public class AdministrarProductos {
 				produ.setStock(stock);
 				
 				
-				
+				try {
+					controlador.comprobarModificacion(produ,produViejo);
+					frame.dispose();
+				} catch (SQLException e1) {
+					System.err.println("ERROR,al intentar modificar un producto");
+				}
 				
 				
 				
@@ -144,4 +156,14 @@ public class AdministrarProductos {
 	public void MostrarVentana() {
 		frame.setVisible(true);
 	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+	public void setControlador(Controlador controlador) {
+		this.controlador = controlador;
+	}
+	
+	
 }

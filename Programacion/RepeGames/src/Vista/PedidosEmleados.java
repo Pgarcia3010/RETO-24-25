@@ -131,6 +131,9 @@ public class PedidosEmleados {
 		frame.getContentPane().add(titulo);
 
 		JButton btnseleccionar = new JButton("Selecionado");
+		ImageIcon imtbtn = new ImageIcon(getClass().getResource("/Imagenes/editar.png"));
+ 		Image img1 = imtbtn.getImage().getScaledInstance(110, 110, Image.SCALE_SMOOTH);
+		btnseleccionar.setIcon(new ImageIcon(img1));
 		btnseleccionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -153,7 +156,7 @@ public class PedidosEmleados {
 		btnEliminar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		ImageIcon iconoEliminar = new ImageIcon(getClass().getResource("/Imagenes/basura.jpg"));
 
-		Image img = iconoEliminar.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		Image img = iconoEliminar.getImage().getScaledInstance(105, 110, Image.SCALE_SMOOTH);
 		btnEliminar.setIcon(new ImageIcon(img));
 
 		btnEliminar.addActionListener(new ActionListener() {
