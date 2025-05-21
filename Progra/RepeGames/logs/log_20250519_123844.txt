@@ -1,6 +1,0 @@
-[2025-05-19 12:38:44] INFO: === Nueva sesión iniciada: 20250519_123844 ===
-[2025-05-19 12:38:44] INFO: Aplicación iniciada
-[2025-05-19 12:38:44] INFO: Operación realizada con éxito
-[2025-05-19 12:38:44] INFO: Aplicación finalizada
-[2025-05-19 12:38:44] INFO: === Sesión finalizada ===
-[2025-05-19 12:38:44] INFO: === Nueva sesión iniciada: 20250519_123844 ===

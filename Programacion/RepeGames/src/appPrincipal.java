@@ -22,14 +22,14 @@ public class appPrincipal {
             logger.logSession("Aplicación iniciada");
 
             // Ejemplo de operación
-            System.out.println("Realizando una operación...");
-            logger.logSession("Operación realizada con éxito");
+            System.out.println("Realizando una ejecucion...");
+            logger.logSession("Ejecucion realizada con éxito");
 
             // Ejemplo de captura de excepción
             try {
                 int resultado = 10 / 0;
             } catch (ArithmeticException e) {
-                CustomLogger.logError("Error de división por cero", e);
+                CustomLogger.logError("Error en log", e);
             }
 
             logger.logSession("Aplicación finalizada");

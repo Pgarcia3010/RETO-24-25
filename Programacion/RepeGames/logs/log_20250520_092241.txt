@@ -1,0 +1,5 @@
+[2025-05-20 09:22:41] INFO: === Nueva sesión iniciada: 20250520_092241 ===
+[2025-05-20 09:22:41] INFO: Aplicación iniciada
+[2025-05-20 09:22:41] INFO: Operación realizada con éxito
+[2025-05-20 09:22:41] INFO: Aplicación finalizada
+[2025-05-20 09:22:41] INFO: === Sesión finalizada ===
