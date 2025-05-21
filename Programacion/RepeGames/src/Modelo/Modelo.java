@@ -429,7 +429,7 @@ public class Modelo extends Conector {
 			ps.setDouble(3, productoCambiado.getPrecio());
 			ps.setInt(4, productoCambiado.getStock());
 			ps.setString(5, productoViejo.getIdProducto());
-			ps.execute();
+			ps.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("Error en updateProductos");
