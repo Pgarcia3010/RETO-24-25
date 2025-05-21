@@ -130,13 +130,6 @@ public class VentanaRegistrar {
 				String tele = Rtelefono.getText();
 				String dire = Rdire.getText();
 
-//				Cliente cliente = new Cliente();
-//				cliente.setNombre(nombre);
-//				cliente.setNickname(usuario);
-//				cliente.setContrasenya(contra);
-//				cliente.setTelefono(tele);
-//				cliente.setDireccion(dire);
-
 				controlador.nuevoCliente(nombre, tele, dire, usuario, contra);
 
 				frame.dispose();

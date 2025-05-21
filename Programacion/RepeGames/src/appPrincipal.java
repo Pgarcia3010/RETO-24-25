@@ -68,6 +68,7 @@ public class appPrincipal {
 		controlador.setLogin(ventanaLogin);
 		controlador.recibirClientes();
 		controlador.recibirEmpleados();
+		
 		menuEmp.setControlador(controlador);
 		pedidosAdmin.setControlador(controlador);
 		copiasdeseguri.setControlador(controlador);

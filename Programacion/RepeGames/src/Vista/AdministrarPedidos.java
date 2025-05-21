@@ -48,6 +48,8 @@ public class AdministrarPedidos {
 
 	/**
 	 * Initialize the contents of the frame.
+	 * 
+	 * @author Ismael
 	 */
 	private void initialize() {
 		frame = new JFrame();

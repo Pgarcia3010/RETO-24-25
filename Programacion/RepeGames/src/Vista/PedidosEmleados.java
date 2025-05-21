@@ -1,7 +1,6 @@
 package Vista;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -16,14 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
 import Modelo.lineaPedido;
-
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 
 public class PedidosEmleados {
 
@@ -65,26 +63,6 @@ public class PedidosEmleados {
 		tablaPedi.setBackground(new Color(128, 0, 255));
 		tablaPedi.setForeground(new Color(255, 255, 0));
 		tablaPedi.setModel(new DefaultTableModel(
-//			new Object[][] {
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//			},
-//			new String[] {
-//				"Numero Pedido", "Numero Linea", "Id Producto", "Cantidad"
-//			}
 		));
 		scrollPane.setViewportView(tablaPedi);
 
@@ -160,6 +138,7 @@ public class PedidosEmleados {
 		btnEliminar.setIcon(new ImageIcon(img));
 
 		btnEliminar.addActionListener(new ActionListener() {
+			@SuppressWarnings("unused")
 			public void actionPerformed(ActionEvent e) {
 
 				int Nlineapedi = Integer.parseInt(RnumeroLinea.getText());
@@ -175,17 +154,6 @@ public class PedidosEmleados {
 				}else {
 					System.err.println("Campo vacio");
 				}
-
-//				try {
-//
-//					controlador.eliminarLineaPedido(linea);
-//
-//					System.out.println("Linea eliminada con exito");
-//				} catch (SQLException e1) {
-//
-//					System.out.println("Error al intentar eliminar");
-//				}
-//
 			}
 		});
 		btnEliminar.setBounds(640, 401, 101, 83);
