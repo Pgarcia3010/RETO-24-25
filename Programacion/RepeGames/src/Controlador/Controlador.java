@@ -196,6 +196,7 @@ public class Controlador {
 
 	}
 
+	@SuppressWarnings("unused")
 	public void eliminarProdu(Producto produ) throws SQLException {
 
 		ArrayList<Producto> produList = modelo.recibirProducto();

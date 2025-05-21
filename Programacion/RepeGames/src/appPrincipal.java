@@ -15,6 +15,7 @@ import Vista.VentanaLogin;
 import Vista.VentanaRegistrar;
 
 public class appPrincipal {
+	@SuppressWarnings({ "unused", "resource"})
 	public static void main(String[] args) {
 
 		// LOGS
@@ -24,13 +25,13 @@ public class appPrincipal {
 
             // Ejemplo de operación
             System.out.println("Realizando una ejecucion...");
-            logger.logSession("Ejecucion realizada con éxito");
+            logger.logSesion("Ejecucion realizada con éxito");
 
             // Ejemplo de captura de excepción
             try {
                 int resultado = 10 / 0;
             } catch (ArithmeticException e) {
-                CustomLogger.logError("Error en log", e);
+                Loggers.logError("Error en log", e);
             }
 
 			// Ejemplo de operación
@@ -83,9 +84,7 @@ public class appPrincipal {
 		} catch (SQLException e) {
 			System.err.println("ERROR");
 		}
-
-//	ventanaLogin.setVisible(true);
-
+		
 		ventanaLogin.mostrarVentana();
 
 	}

@@ -1,7 +1,6 @@
 package Vista;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -13,20 +12,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
-import Modelo.Producto;
 import Modelo.cabeceraPedido;
-
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import javax.xml.transform.ErrorListener;
 
 /**
  * Se crea un objeto AdminstrasPedidos.

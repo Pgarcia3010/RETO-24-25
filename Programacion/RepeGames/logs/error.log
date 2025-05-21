@@ -161,3 +161,9 @@ java.lang.Exception: Usuario o contraseña incorrectos
 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+[2025-05-21 12:46:40] ERROR: Error en log
+java.lang.ArithmeticException: / by zero
+	at appPrincipal.main(appPrincipal.java:31)
+[2025-05-21 12:49:28] ERROR: Error en log
+java.lang.ArithmeticException: / by zero
+	at appPrincipal.main(appPrincipal.java:31)

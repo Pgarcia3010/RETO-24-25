@@ -1,26 +1,16 @@
 package Vista;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
-import javax.swing.JTable;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import java.awt.FlowLayout;
-import javax.swing.SwingConstants;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 import Controlador.Controlador;
-
-import javax.swing.JPanel;
-import javax.swing.JToggleButton;
-import java.awt.Font;
-import java.awt.Color;
 
 public class MenuEmpleados {
 
