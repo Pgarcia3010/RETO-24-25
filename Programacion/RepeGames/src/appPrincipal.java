@@ -36,12 +36,6 @@ public class appPrincipal {
             System.out.println("Realizando una ejecucion...");
             logger.logSesion("Ejecucion realizada con éxito");
 
-            // Ejemplo de captura de excepción
-            try {
-                int resultado = 10 / 0;
-            } catch (ArithmeticException e) {
-                Loggers.logError("Error en log", e);
-            }
 
 			// Ejemplo de operación
 			System.out.println("Realizando una operación...");

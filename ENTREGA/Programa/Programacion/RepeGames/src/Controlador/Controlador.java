@@ -22,6 +22,11 @@ import Vista.TablaPedidos;
 import Vista.VentanaLogin;
 import Vista.VentanaRegistrar;
 
+/**
+ * Es la clase que une el paquete Modelo y Vista
+ * 
+ * @author Paul e Ismael
+ */
 public class Controlador {
 
 	private Modelo modelo;
@@ -37,6 +42,9 @@ public class Controlador {
 	private AdministrarProductos administrarProductos;
 	private Producto produelegido;
 
+	/**
+	 * permite recibir los clientes de la base de datos
+	 */
 	public void recibirClientes() {
 		ArrayList<Cliente> clientes = this.modelo.recibirClientes();
 		for (int i = 0; i < clientes.size(); i++) {
@@ -44,6 +52,9 @@ public class Controlador {
 		}
 	}
 
+	/**
+	 * permite recibir los empleados de la base de datos
+	 */
 	public void recibirEmpleados() {
 		ArrayList<Empleados> empleados = this.modelo.recibirEmpleados();
 		for (int i = 0; i < empleados.size(); i++) {
@@ -51,6 +62,14 @@ public class Controlador {
 		}
 	}
 
+	/**
+	 * Se comprueba que el usuario introducido exista
+	 * 
+	 * @param usuario     El usuario es un String que indica el nickname del
+	 *                    cliente.
+	 * @param contraseina La contraseña es un String que indica la contraseña del
+	 *                    cliente.
+	 */
 	public void comprobarLogin(String usuario, String contraseina) {
 		ArrayList<Cliente> clienteList = this.modelo.recibirClientes();
 		ArrayList<Empleados> empleList = this.modelo.recibirEmpleados();
@@ -101,6 +120,11 @@ public class Controlador {
 		}
 	}
 
+	/**
+	 * Se llena el contenido de la tabla Cabecera
+	 * 
+	 * @throws SQLException se usa SQL
+	 */
 	public void llenarCabecera() throws SQLException {
 
 		ArrayList<cabeceraPedido> cabeList = modelo.recibirCabeceras();
@@ -108,6 +132,11 @@ public class Controlador {
 
 	}
 
+	/**
+	 * se llena el contenido de la tabla Productos
+	 * 
+	 * @throws SQLException se usa SQL
+	 */
 	public void llenarTablaproductos() throws SQLException {
 
 		ArrayList<Producto> produList = modelo.recibirProducto();
@@ -115,6 +144,11 @@ public class Controlador {
 
 	}
 
+	/**
+	 * se llena la tabla de productos para empleados
+	 * 
+	 * @throws SQLException se usa SQL
+	 */
 	public void tablaEmpleadoproduc() throws SQLException {
 
 		ArrayList<Producto> produList = modelo.recibirProducto();
@@ -128,7 +162,11 @@ public class Controlador {
 //		pedidosAdmin.SetTablaE1(produList);
 //
 //	}
-
+	/**
+	 * Se llena el contenido de la tabla de copias de seguridad
+	 * 
+	 * @throws SQLException se usa SQL
+	 */
 	public void usuariosCopiasTabla() throws SQLException {
 
 		ArrayList<Copia> usuarioList = modelo.recibirCopia();
@@ -136,6 +174,11 @@ public class Controlador {
 
 	}
 
+	/**
+	 * Se llena el contenido de linea de pedido
+	 * 
+	 * @throws SQLException se usa SQL
+	 */
 	public void pedidosCargar() throws SQLException {
 
 		ArrayList<lineaPedido> linealist = modelo.recibirLinea();
@@ -143,6 +186,12 @@ public class Controlador {
 
 	}
 
+	/**
+	 * S
+	 * 
+	 * @param linea Objeto de tipo lineaPedido
+	 * @throws SQLException se usa SQL
+	 */
 	public void eliminarLineaPedido(lineaPedido linea) throws SQLException {
 
 		ArrayList<lineaPedido> lineaList = modelo.recibirLinea();
@@ -166,6 +215,12 @@ public class Controlador {
 
 	}
 
+	/**
+	 * Se elimina una cabecera de pedido
+	 * 
+	 * @param cabe Objeto de tipo cabeceraPedido
+	 * @throws SQLException se usa SQL
+	 */
 	public void eliminarCabecera(cabeceraPedido cabe) throws SQLException {
 
 		ArrayList<cabeceraPedido> produList = modelo.recibirCabeceras();
@@ -189,6 +244,11 @@ public class Controlador {
 
 	}
 
+	/**
+	 * se llena el contenido de la tabla lineaPedido
+	 * 
+	 * @throws SQLException se usa SQL
+	 */
 	public void llenarLineaPedido() throws SQLException {
 
 		ArrayList<lineaPedido> lineaList = modelo.recibirLinea();
@@ -196,7 +256,12 @@ public class Controlador {
 
 	}
 
-	@SuppressWarnings("unused")
+	/**
+	 * se elimina un producto
+	 * 
+	 * @param produ Objeto de tipo Producto
+	 * @throws SQLException se usa SQL
+	 */
 	public void eliminarProdu(Producto produ) throws SQLException {
 
 		ArrayList<Producto> produList = modelo.recibirProducto();
@@ -217,6 +282,18 @@ public class Controlador {
 
 	}
 
+	/**
+	 * Se crea un nuevoClientes
+	 * 
+	 * @param nombre      El nombre es un String que indica el nombre del cliente.
+	 * @param telefono    El telefono es un int que indica el telefono del cliente.
+	 * @param direccion   La direccion es un String que indica la direccion del
+	 *                    cliente.
+	 * @param usuario     El nickname es un String que indica el nickname del
+	 *                    cliente.
+	 * @param contrasenia La contraseña es un String que indica la contraseña del
+	 *                    cliente.
+	 */
 	public void nuevoCliente(String nombre, String telefono, String direccion, String usuario, String contrasenia) {
 
 		Cliente clienteNuevo = new Cliente();
@@ -243,6 +320,13 @@ public class Controlador {
 
 	}
 
+	/**
+	 * Se comprueba que se pueda cambiar una modificacion
+	 * 
+	 * @param produNuevo Objeto de tipo producto que indica el nuevo producto
+	 * @param produViejo Objeto de tipo producto que indica el producto antiguo
+	 * @throws SQLException se usa SQL
+	 */
 	public void comprobarModificacion(Producto produNuevo, Producto produViejo) throws SQLException {
 
 		ArrayList<Producto> produList = modelo.recibirProducto();
@@ -259,16 +343,31 @@ public class Controlador {
 			}
 
 		}
-		
-		ArrayList<Producto>produActual = modelo.recibirProducto();
+
+		ArrayList<Producto> produActual = modelo.recibirProducto();
 		tablaProdu.setTabla(produActual);
 
-		if (existe==false) {
+		if (existe == false) {
 			System.out.println("Producto no encontrado");
 		}
 
 	}
 
+	/**
+	 * Constructor del Controlador donde se llama a todas las clases
+	 * 
+	 * @param modelo               Objeto de tipo modelo
+	 * @param registrar            Objeto de tipo ventanaRegistrar
+	 * @param login                Objeto de tipo ventanaLogin
+	 * @param menuEmp              Objeto de tipo menuEmpleados
+	 * @param menuCli              Objeto de tipo tablaPedidos
+	 * @param tablaProdu           Objeto de tipo tablaAdministrarProductos
+	 * @param pedidosAdmin         Objeto de tipo administrarPedidos
+	 * @param copiasdeseguri       Objeto de tipo copiasSeguridad
+	 * @param pedidosempleados     Objeto de tipo pedidosEmpleados
+	 * @param confirmar            Objeto de tipo confirmacion
+	 * @param administrarProductos Objeto de tipo administrarProductos
+	 */
 	public Controlador(Modelo modelo, VentanaRegistrar registrar, VentanaLogin login, MenuEmpleados menuEmp,
 			TablaPedidos menuCli, TablaAdministrarProductos tablaProdu, AdministrarPedidos pedidosAdmin,
 			CopiasSeguridad copiasdeseguri, PedidosEmleados pedidosempleados, Confirmacion confirmar,
@@ -288,102 +387,227 @@ public class Controlador {
 
 	}
 
+	/**
+	 * recibe Modelo
+	 * 
+	 * @return modelo Clase que une las ventanas con el modelo
+	 */
 	public Modelo getModelo() {
 		return modelo;
 	}
 
+	/**
+	 * modifia Modelo
+	 * 
+	 * @param modelo Clase que une las ventanas con el modelo
+	 */
 	public void setModelo(Modelo modelo) {
 		this.modelo = modelo;
 	}
 
+	/**
+	 * recibe ventanaRegistrar
+	 * 
+	 * @return registrar Objeto de tipo ventanaregistrar
+	 */
 	public VentanaRegistrar getRegistrar() {
 		return Registrar;
 	}
 
+	/**
+	 * modifica ventanaRegistrar
+	 * 
+	 * @param registrar Objeto de tipo ventanaregistrar
+	 */
 	public void setRegistrar(VentanaRegistrar registrar) {
 		Registrar = registrar;
 	}
 
+	/**
+	 * recibe ventanaLogin
+	 * 
+	 * @return login  Objeto de tipo ventanalogin
+	 */
 	public VentanaLogin getLogin() {
 		return Login;
 	}
 
+	/**
+	 * modifica ventanaLogin
+	 * 
+	 * @param login  Objeto de tipo ventanlogin
+	 */
 	public void setLogin(VentanaLogin login) {
 		Login = login;
 	}
 
+	/**
+	 * recibe menuEmpleados
+	 * 
+	 * @return menuEmp  Objeto de tipo menuEmpleados
+	 */
 	public MenuEmpleados getMenuEmp() {
 		return menuEmp;
 	}
 
+	/**
+	 * modifica menuEmpleados
+	 * 
+	 * @param menuEmp  Objeto de tipo menuEmpleados
+	 */
 	public void setMenuEmp(MenuEmpleados menuEmp) {
 		this.menuEmp = menuEmp;
 	}
 
+	/**
+	 * recibe menuCliente
+	 * 
+	 * @return menuCli  Objeto de tipo menuCliente
+	 */
 	public TablaPedidos getMenuCli() {
 		return menuCli;
 	}
 
+	/**
+	 * modifica menuCliente
+	 * 
+	 * @param menuCli  Objeto de tipo menuCliente
+	 */
 	public void setMenuCli(TablaPedidos menuCli) {
 		this.menuCli = menuCli;
 	}
 
+	/**
+	 * recibe tablaAdministrarProductos
+	 * 
+	 * @return tablaProdu  Objeto de tipo tablaadministrarProductos
+	 */
 	public TablaAdministrarProductos getTablaProdu() {
 		return tablaProdu;
 	}
 
+	/**
+	 * modifica tblaAdministrarProductos
+	 * 
+	 * @param tablaProdu  Objeto de tipo tablaadministrarProductos
+	 */
 	public void setTablaProdu(TablaAdministrarProductos tablaProdu) {
 		this.tablaProdu = tablaProdu;
 	}
 
+	/**
+	 * recibe AdministrarPedidos
+	 * 
+	 * @return pedidosAdmin  Objeto de tipo pedidosAdmin
+	 */
 	public AdministrarPedidos getPedidosAdmin() {
 		return pedidosAdmin;
 	}
 
+	/**
+	 * modifica administrarPedidos
+	 * 
+	 * @param pedidosAdmin  Objeto de tipo pedidosAdmin
+	 */
 	public void setPedidosAdmin(AdministrarPedidos pedidosAdmin) {
 		this.pedidosAdmin = pedidosAdmin;
 	}
 
+	/**
+	 * recibe CopiasSeguridad
+	 * 
+	 * @return copasdeseguri  Objeto de tipo CopiasSeguridad
+	 */
 	public CopiasSeguridad getCopiasdeseguri() {
 		return copiasdeseguri;
 	}
 
+	/**
+	 * modifica CopiassSeguridad
+	 * 
+	 * @param copiasdeseguri  Objeto de tipo CopiasSeguridad
+	 */
 	public void setCopiasdeseguri(CopiasSeguridad copiasdeseguri) {
 		this.copiasdeseguri = copiasdeseguri;
 	}
 
+	/**
+	 * recibe PedidosEmleados
+	 * 
+	 * @return pedidosempleados  Objeto de tipo pedidosEmleados
+	 */
 	public PedidosEmleados getPedidosempleados() {
 		return pedidosempleados;
 	}
 
+	/**
+	 * modifica pedidosEmleados
+	 * 
+	 * @param pedidosempleados  Objeto de tipo pedidosEmleados
+	 */
 	public void setPedidosempleados(PedidosEmleados pedidosempleados) {
 		this.pedidosempleados = pedidosempleados;
 	}
 
+	/**
+	 * recibe Confirmar
+	 * 
+	 * @return confirmar  Objeto de tipo Confirmar
+	 */
 	public Confirmacion getConfirmar() {
 		return confirmar;
 	}
 
+	/**
+	 * Modifica Confirmar
+	 * 
+	 * @param confirmar  Objeto de tipo Confirmar
+	 */
 	public void setConfirmar(Confirmacion confirmar) {
 		this.confirmar = confirmar;
 	}
 
+	/**
+	 * recibe AdministrarProductos
+	 * 
+	 * @return administrarProductos  Objeto de tipo administrarProductos
+	 */
 	public AdministrarProductos getAdministrarProductos() {
 		return administrarProductos;
 	}
 
+	/**
+	 * modifica AdministrarProductos
+	 * 
+	 * @param administrarProductos  Objeto de tipo administrarProductos
+	 */
 	public void setAdministrarProductos(AdministrarProductos administrarProductos) {
 		this.administrarProductos = administrarProductos;
 	}
 
+	/**
+	 * recibe controlador
+	 * 
+	 * @param produelegido  Objeto de tipo Producto
+	 */
 	public Controlador(Producto produelegido) {
 
 	}
 
+	/**
+	 * modifica controlador
+	 * 
+	 * @return produelegido  Objeto de tipo Producto
+	 */
 	public Producto getProduelegido() {
 		return produelegido;
 	}
 
+	/**
+	 * modifica Produelegido
+	 * 
+	 * @param produelegido  Objeto de tipo Producto
+	 */
 	public void setProduelegido(Producto produelegido) {
 		this.produelegido = produelegido;
 	}

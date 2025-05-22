@@ -4,3 +4,4 @@ ID: 61,Nombre: MMESSI,Direccion: Donde,Telefono: 2345678,Nickname: MMESSI,Contra
 ID: 75,Nombre: CR7,Direccion: NOSE,Telefono: 45678,Nickname: CR7,Contraseña 123,
 ID: 59,Nombre: SNWIUBDIU,Direccion: nose,Telefono: 345678,Nickname: www,Contraseña 12,
 ID: 99,Nombre: Aimar,Direccion: Durango,Telefono: 666666666,Nickname: Arua,Contraseña rua,
+ID: 51,Nombre: Prueba,Direccion: aqui,Telefono: 123456789,Nickname: prueba1,Contraseña prueba1,

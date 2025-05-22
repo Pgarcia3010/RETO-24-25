@@ -1,7 +1,6 @@
 package Vista;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -16,15 +15,17 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
 import Modelo.lineaPedido;
 
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-
+/**
+ * Ventana de gestiones de pedidos
+ */
 public class PedidosEmleados {
 
 	private JFrame frame;
@@ -36,6 +37,9 @@ public class PedidosEmleados {
 	private Controlador controlador;
 	private Confirmacion confirmacion;
 
+	/**
+	 * Se activa la inicializacion del programa
+	 */
 	public PedidosEmleados() {
 		initialize();
 	}
@@ -64,28 +68,7 @@ public class PedidosEmleados {
 		tablaPedi.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		tablaPedi.setBackground(new Color(128, 0, 255));
 		tablaPedi.setForeground(new Color(255, 255, 0));
-		tablaPedi.setModel(new DefaultTableModel(
-//			new Object[][] {
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//				{null, null, null, null},
-//			},
-//			new String[] {
-//				"Numero Pedido", "Numero Linea", "Id Producto", "Cantidad"
-//			}
-		));
+		tablaPedi.setModel(new DefaultTableModel());
 		scrollPane.setViewportView(tablaPedi);
 
 		JButton btnFiltro = new JButton("Filtro ID");
@@ -132,11 +115,11 @@ public class PedidosEmleados {
 
 		JButton btnseleccionar = new JButton("Selecionado");
 		ImageIcon imtbtn = new ImageIcon(getClass().getResource("/Imagenes/editar.png"));
- 		Image img1 = imtbtn.getImage().getScaledInstance(110, 110, Image.SCALE_SMOOTH);
+		Image img1 = imtbtn.getImage().getScaledInstance(110, 110, Image.SCALE_SMOOTH);
 		btnseleccionar.setIcon(new ImageIcon(img1));
 		btnseleccionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				try {
 					controlador.llenarLineaPedido();
 					controlador.getPedidosAdmin().MostrarVentana();
@@ -144,8 +127,7 @@ public class PedidosEmleados {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				
+
 			}
 		});
 		btnseleccionar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
@@ -160,32 +142,22 @@ public class PedidosEmleados {
 		btnEliminar.setIcon(new ImageIcon(img));
 
 		btnEliminar.addActionListener(new ActionListener() {
+			@SuppressWarnings("unused")
 			public void actionPerformed(ActionEvent e) {
 
 				int Nlineapedi = Integer.parseInt(RnumeroLinea.getText());
 
 				lineaPedido linea = new lineaPedido();
 				linea.setNumLinea(Nlineapedi);
-				
-				if(linea!=null) {
-					
+
+				if (linea != null) {
+
 					confirmacion = new Confirmacion(controlador, Nlineapedi);
 					confirmacion.MostrarVentana();
-					
-				}else {
+
+				} else {
 					System.err.println("Campo vacio");
 				}
-
-//				try {
-//
-//					controlador.eliminarLineaPedido(linea);
-//
-//					System.out.println("Linea eliminada con exito");
-//				} catch (SQLException e1) {
-//
-//					System.out.println("Error al intentar eliminar");
-//				}
-//
 			}
 		});
 		btnEliminar.setBounds(640, 401, 101, 83);
@@ -225,6 +197,11 @@ public class PedidosEmleados {
 		frame.getContentPane().add(lblNewJgoodiesLabel_2);
 	}
 
+	/**
+	 * se rellena la tabla de la ventana
+	 * 
+	 * @param lineaList Array de tipo lineaPedido
+	 */
 	public void tablaPedidos(ArrayList<lineaPedido> lineaList) {
 
 		DefaultTableModel model = new DefaultTableModel(new String[] {
@@ -254,14 +231,27 @@ public class PedidosEmleados {
 
 	}
 
+	/**
+	 * Se visualiza la ventana
+	 */
 	public void mostrarVentana() {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * se recibe el controlador
+	 * 
+	 * @return controlador Clase que une las ventanas con el modelo
+	 */
 	public Controlador getControlador() {
 		return controlador;
 	}
 
+	/**
+	 * se modifica el controlador
+	 * 
+	 * @param controlador Clase que une las ventanas con el modelo
+	 */
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}

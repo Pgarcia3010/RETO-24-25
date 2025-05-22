@@ -42,12 +42,17 @@ public class AdministrarPedidos {
 	private JTextField ResultadoId;
 	private Controlador controlador;
 
+	/**
+	* Se inicializa la ventana AdministrarPedidos
+	*/
 	public AdministrarPedidos() {
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
+	 * 
+	 * @author Ismael
 	 */
 	private void initialize() {
 		frame = new JFrame();
@@ -182,7 +187,11 @@ public class AdministrarPedidos {
 		btnEliminar.setBounds(590, 361, 101, 83);
 		frame.getContentPane().add(btnEliminar);
 	}
-
+/**
+ * Se rellena la tabla
+ * 
+ * @param cabeList ArrayList de tipo cabeceraPedido
+ */
 	public void SetTablaE1(ArrayList<cabeceraPedido> cabeList) {
 
 		DefaultTableModel model = new DefaultTableModel(new String[] {
@@ -228,16 +237,27 @@ public class AdministrarPedidos {
 		 */
 	}
 
+	/**
+	 * Se hace que la ventana sea visible
+	 */
 	public void MostrarVentana() {
 
 		frame.setVisible(true);
 
 	}
-
+/**
+ * recibe controlador
+ * 
+ * @return controlador Clase que une las ventanas con el modelo
+ */
 	public Controlador getControlador() {
 		return controlador;
 	}
-
+/**
+ * modifica controlador
+ * 
+ * @param controlador Clase que une las ventanas con el modelo
+ */
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}

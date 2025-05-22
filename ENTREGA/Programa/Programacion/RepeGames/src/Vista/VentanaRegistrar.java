@@ -19,6 +19,11 @@ import com.jgoodies.forms.factories.DefaultComponentFactory;
 import Controlador.Controlador;
 import Modelo.Cliente;
 
+/**
+ * Ventana para registrar usuarios
+ * 
+ * @author Ismael y Paul
+ */
 public class VentanaRegistrar {
 
 	private JFrame frame;
@@ -29,10 +34,16 @@ public class VentanaRegistrar {
 	private JTextField Rdire;
 	private Controlador controlador;
 
+	/**
+	 * Se activa la inicializacion de la ventana
+	 */
 	public VentanaRegistrar() {
 		initialize();
 	}
 
+	/**
+	 * Se crea un formulario para rellenarlo con los datos solicitados
+	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 570, 550);
@@ -130,13 +141,6 @@ public class VentanaRegistrar {
 				String tele = Rtelefono.getText();
 				String dire = Rdire.getText();
 
-//				Cliente cliente = new Cliente();
-//				cliente.setNombre(nombre);
-//				cliente.setNickname(usuario);
-//				cliente.setContrasenya(contra);
-//				cliente.setTelefono(tele);
-//				cliente.setDireccion(dire);
-
 				controlador.nuevoCliente(nombre, tele, dire, usuario, contra);
 
 				frame.dispose();
@@ -150,14 +154,27 @@ public class VentanaRegistrar {
 		layeredPane.add(btnCrear, JLayeredPane.PALETTE_LAYER);
 	}
 
+	/**
+	 * Se hace visible la ventana
+	 */
 	public void MostrarVentana() {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * se recibe el controlador
+	 * 
+	 * @return controlador Clase que une las ventanas con el modelo
+	 */
 	public Controlador getControlador() {
 		return controlador;
 	}
 
+	/**
+	 * se modifica el controlador
+	 * 
+	 * @param controlador Clase que une las ventanas con el modelo
+	 */
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}

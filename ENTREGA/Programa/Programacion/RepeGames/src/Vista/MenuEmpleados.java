@@ -12,14 +12,22 @@ import javax.swing.JFrame;
 
 import Controlador.Controlador;
 
+/**
+ * Ventana de opciones para empleados
+ * 
+ * @author Ismael
+ */
 public class MenuEmpleados {
 
 	private JFrame frame;
-	public JButton BtncopiasSegu;
-	public JButton Btnpedidos;
-	public JButton Btnproductos;
+	private JButton BtncopiasSegu;
+	private JButton Btnpedidos;
+	private JButton Btnproductos;
 	private Controlador controlador;
 
+	/**
+	 * Se inicializa la ventana
+	 */
 	public MenuEmpleados() {
 		initialize();
 	}
@@ -103,18 +111,29 @@ public class MenuEmpleados {
 		frame.getContentPane().add(Btnvolver);
 	}
 
+	/**
+	 * se hace la ventana visible
+	 */
 	public void mostrarVentana() {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * recibe controlador
+	 * 
+	 * @return controlador Clase que une las ventanas con el modelo
+	 */
 	public Controlador getControlador() {
 		return controlador;
 	}
 
+	/**
+	 * modifica controlador
+	 * 
+	 * @param controlador Clase que une las ventanas con el modelo
+	 */
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}
 
 }
-
-

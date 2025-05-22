@@ -19,6 +19,11 @@ import com.jgoodies.forms.factories.DefaultComponentFactory;
 import Controlador.Controlador;
 import Modelo.Producto;
 
+/**
+ * Ventana de gestion de productos
+ * 
+ * @author Ismael
+ */
 public class AdministrarProductos {
 
 	private JFrame frame;
@@ -27,13 +32,15 @@ public class AdministrarProductos {
 	private JTextField Rprecio;
 	private JTextField Rstock;
 	private Controlador controlador;
-
+/**
+ * Se activa la inicializacion de la ventana
+ */
 	public AdministrarProductos() {
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Inicializa el contenido del frame
 	 */
 	private void initialize() {
 		frame = new JFrame();
@@ -151,15 +158,25 @@ public class AdministrarProductos {
 		btnCrear.setBounds(178, 366, 99, 93);
 		layeredPane.add(btnCrear, JLayeredPane.PALETTE_LAYER);
 	}
-
+/**
+ * Se hace visible la ventana de mostrarVentana
+ */
 	public void MostrarVentana() {
 		frame.setVisible(true);
 	}
-
+/**
+ * recibe controlador
+ * 
+ * @return controlador Clase que une las ventanas con el modelo
+ */
 	public Controlador getControlador() {
 		return controlador;
 	}
-
+/**
+ * modifica controlador
+ * 
+ * @param controlador Clase que une las ventanas con el modelo
+ */
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}

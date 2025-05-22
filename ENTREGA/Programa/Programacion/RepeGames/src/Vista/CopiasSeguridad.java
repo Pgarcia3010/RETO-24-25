@@ -1,36 +1,38 @@
 package Vista;
 
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import java.awt.FlowLayout;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
 import Modelo.Copia;
-import Modelo.Usuarios;
 
-import java.awt.Font;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-
-import java.awt.Color;
-import javax.swing.JTree;
-
+/**
+ * Ventana donde se gestionan las copias de seguridad
+ * 
+ * @author Ismael
+ */
 public class CopiasSeguridad {
 
 	private JFrame frame;
 	private JTable tablaCopiasSegu;
 	private Controlador controlador;
 
+	/**
+	 * Se empieza la inicializacion
+	 */
 	public CopiasSeguridad() {
 		initialize();
 	}
@@ -109,6 +111,11 @@ public class CopiasSeguridad {
 		scrollPane.setViewportView(tablaCopiasSegu);
 	}
 
+	/**
+	 * Se rellena la tabla con usuarios
+	 * 
+	 * @param usuarioList Objeto de tipo Usuario
+	 */
 	public void tablaCS(ArrayList<Copia> usuarioList) {
 
 		DefaultTableModel model = new DefaultTableModel(new String[] {
@@ -137,15 +144,28 @@ public class CopiasSeguridad {
 		tablaCDS.setForeground(new Color(128, 0, 255));
 	}
 
+	/**
+	 * Se visualiza la ventana
+	 */
 	public void MostrarVentana() {
 
 		frame.setVisible(true);
 	}
 
+	/**
+	 * recibe controlador
+	 * 
+	 * @return controlador Clase que une las ventanas con el modelo
+	 */
 	public Controlador getControlador() {
 		return controlador;
 	}
 
+	/**
+	 * modifica controlador
+	 * 
+	 * @param controlador Clase que une las ventanas con el modelo
+	 */
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}

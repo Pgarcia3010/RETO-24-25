@@ -18,6 +18,11 @@ import Controlador.Controlador;
 import Modelo.lineaPedido;
 import java.awt.GridLayout;
 
+/**
+ * Ventana de confirmacion de acciones
+ * 
+ * @author Ismael
+ */
 public class Confirmacion {
 
 	private JFrame frame;
@@ -25,12 +30,17 @@ public class Confirmacion {
 	private int numLinea;
 
 	/**
-	 * @wbp.parser.constructor
+	 * Se inicializa la ventana
+	 * 
 	 */
 	public Confirmacion() {
+//		  @wbp.parser.constructor
 		initialize();
 	}
 
+	/**
+	 * Se ejecuta la ventana
+	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(0, 0, 0));
@@ -61,12 +71,12 @@ public class Confirmacion {
 			}
 		});
 		frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
-		
-				JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Confirmar eliminación");
-				lblNewJgoodiesLabel.setForeground(new Color(255, 255, 0));
-				lblNewJgoodiesLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-				frame.getContentPane().add(lblNewJgoodiesLabel);
-		
+
+		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Confirmar eliminación");
+		lblNewJgoodiesLabel.setForeground(new Color(255, 255, 0));
+		lblNewJgoodiesLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		frame.getContentPane().add(lblNewJgoodiesLabel);
+
 		JLabel label = new JLabel("");
 		frame.getContentPane().add(label);
 		frame.getContentPane().add(btnAfirmar);
@@ -86,6 +96,12 @@ public class Confirmacion {
 		frame.getContentPane().add(Btnmal);
 	}
 
+	/**
+	 * Se llama al controlador
+	 * 
+	 * @param controlador Clase que une las ventanas con el modelo
+	 * @param numLinea    Indica la linea especifica del producto
+	 */
 	public Confirmacion(Controlador controlador, int numLinea) {
 
 		this.controlador = controlador;
@@ -94,22 +110,45 @@ public class Confirmacion {
 
 	}
 
+	/**
+	 * Recibe numLinea
+	 * 
+	 * @return numLinea Indica la linea especifica del producto
+	 */
 	public int getNumLinea() {
 		return numLinea;
 	}
 
+	/**
+	 * Modifica numLinea
+	 * 
+	 * @param numLinea Indica la linea especifica del producto
+	 */
 	public void setNumLinea(int numLinea) {
 		this.numLinea = numLinea;
 	}
 
+	/**
+	 * recibe controlador
+	 * 
+	 * @return controlador Clase que une las ventanas con el modelo
+	 */
 	public Controlador getControlador() {
 		return controlador;
 	}
 
+	/**
+	 * modifica controlador
+	 * 
+	 * @param controlador Clase que une las ventanas con el modelo
+	 */
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}
 
+	/**
+	 * se hace visible la venntana
+	 */
 	public void MostrarVentana() {
 		frame.setVisible(true);
 	}

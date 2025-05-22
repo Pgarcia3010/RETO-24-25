@@ -1,0 +1,2 @@
+[2025-05-22 12:38:08] INFO: === Nueva sesión iniciada: 20250522_123808 ===
+[2025-05-22 12:38:08] INFO: === Sesión finalizada ===
