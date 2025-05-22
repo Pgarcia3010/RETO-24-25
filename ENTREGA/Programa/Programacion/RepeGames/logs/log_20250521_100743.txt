@@ -1,3 +1,0 @@
-[2025-05-21 10:07:43] INFO: === Nueva sesión iniciada: 20250521_100743 ===
-[2025-05-21 10:07:43] INFO: Inicio de sesión exitoso - Cliente: www
-[2025-05-21 10:07:43] INFO: === Sesión finalizada ===

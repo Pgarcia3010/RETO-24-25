@@ -1,4 +1,0 @@
-[2025-05-21 10:50:34] INFO: === Nueva sesión iniciada: 20250521_105034 ===
-[2025-05-21 10:50:34] INFO: === Sesión finalizada ===
-[2025-05-21 10:50:34] INFO: === Nueva sesión iniciada: 20250521_105034 ===
-[2025-05-21 10:50:34] INFO: === Sesión finalizada ===

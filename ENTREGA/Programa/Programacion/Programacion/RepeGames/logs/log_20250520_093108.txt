@@ -1,0 +1,3 @@
+[2025-05-20 09:31:08] INFO: === Nueva sesión iniciada: 20250520_093108 ===
+[2025-05-20 09:31:08] INFO: Inicio de sesión exitoso - Cliente: Messi
+[2025-05-20 09:31:08] INFO: === Sesión finalizada ===

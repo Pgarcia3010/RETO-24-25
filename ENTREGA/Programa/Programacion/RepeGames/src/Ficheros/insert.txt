@@ -1,6 +1,0 @@
-ID: 72,Nombre: Aitor,Direccion: Gernika,Telefono: Jauregui,Nickname: Ajau,Contraseña ajau,
-ID: 45,Nombre: Messi,Direccion: Donde,Telefono: Messi,Nickname: Messi,Contraseña 1234,
-ID: 61,Nombre: MMESSI,Direccion: Donde,Telefono: 2345678,Nickname: MMESSI,Contraseña 1234,
-ID: 75,Nombre: CR7,Direccion: NOSE,Telefono: 45678,Nickname: CR7,Contraseña 123,
-ID: 59,Nombre: SNWIUBDIU,Direccion: nose,Telefono: 345678,Nickname: www,Contraseña 12,
-ID: 99,Nombre: Aimar,Direccion: Durango,Telefono: 666666666,Nickname: Arua,Contraseña rua,
