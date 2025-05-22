@@ -14,19 +14,39 @@ import javax.swing.JTextField;
 
 import Controlador.Controlador;
 
+/**
+ * Ventana donde se inicia la sesion
+ * 
+ * @author Ismael y Paul
+ */
 public class VentanaLogin {
 	private JFrame frame;
 	private JTextField usuario;
 	private JTextField contraseina;
+	/**
+	 * Boton para iniciar
+	 */
 	public JButton btnIniciar;
+	/**
+	 * Label de la contrasenya
+	 */
 	public JLabel lblContrasena;
+	/**
+	 * label del nombre de usuario
+	 */
 	public JLabel lblUsuario;
 	private Controlador controlador;
 
+	/*
+	 * Se activa la inicializacion de la ventana
+	 */
 	public VentanaLogin() {
 		initialize();
 	}
 
+	/**
+	 * Se crea un formulario donde se rellena con los datos solicitados
+	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 645, 443);
@@ -38,7 +58,7 @@ public class VentanaLogin {
 		frame.setContentPane(layeredPane);
 		layeredPane.setLayout(null);
 
-		//GIF en capa inferior
+		// GIF en capa inferior
 		ImageIcon gifIcon = new ImageIcon(getClass().getResource("/Imagenes/pacman.gif"));
 		JLabel backgroundLabel = new JLabel(gifIcon);
 		backgroundLabel.setBounds(0, 0, 645, 443);
@@ -102,14 +122,27 @@ public class VentanaLogin {
 		layeredPane.add(btnCrear, JLayeredPane.PALETTE_LAYER);
 	}
 
+	/**
+	 * Se modifica el controlador
+	 * 
+	 * @param controlador Clase que une las ventanas con el modelo
+	 */
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}
 
+	/**
+	 * Se recibe el controlador
+	 * 
+	 * @return controlador Clase que une las ventanas con el modelo
+	 */
 	public Controlador getControlador() {
 		return controlador;
 	}
 
+	/**
+	 * Se hace visible la ventana
+	 */
 	public void mostrarVentana() {
 		frame.setVisible(true);
 	}

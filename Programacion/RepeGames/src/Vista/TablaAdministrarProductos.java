@@ -23,6 +23,9 @@ import com.jgoodies.forms.factories.DefaultComponentFactory;
 import Controlador.Controlador;
 import Modelo.Producto;
 
+/**
+ * Ventana para la administracion de productos
+ */
 public class TablaAdministrarProductos {
 
 	private JFrame frame;
@@ -30,6 +33,9 @@ public class TablaAdministrarProductos {
 	private JTextField ResultadoId;
 	private Controlador controlador;
 
+	/**
+	 * Se activa la inicializacion
+	 */
 	public TablaAdministrarProductos() {
 		initialize();
 	}
@@ -185,6 +191,11 @@ public class TablaAdministrarProductos {
 		frame.getContentPane().add(btnEliminar);
 	}
 
+	/**
+	 * se rellena la tabla de la ventan
+	 * 
+	 * @param producList array de tipo Producto
+	 */
 	public void setTabla(ArrayList<Producto> producList) {
 
 		DefaultTableModel model = new DefaultTableModel(
@@ -213,16 +224,29 @@ public class TablaAdministrarProductos {
 
 	}
 
+	/**
+	 * Se hace visible la ventana
+	 */
 	public void MostrarVentana() {
 
 		frame.setVisible(true);
 
 	}
 
+	/**
+	 * recibe controlador
+	 * 
+	 * @return controlador Clase que une las ventanas con el modelo
+	 */
 	public Controlador getControlador() {
 		return controlador;
 	}
 
+	/**
+	 * modifica controlador
+	 * 
+	 * @param controlador Clase que une las ventanas con el modelo
+	 */
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}

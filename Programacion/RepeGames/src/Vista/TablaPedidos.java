@@ -19,12 +19,18 @@ import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import Controlador.Controlador;
 import Modelo.Producto;
-
+/**
+ * Ventana de visualizacion de pedidos
+ * 
+ * @author Ismael
+ */
 public class TablaPedidos {
 	private JFrame frame;
 	private JTable tablaClien;
 	private Controlador controlador;
-
+/**
+ * Se activa la inicializacion de la ventana
+ */
 	public TablaPedidos() {
 		initialize();
 	}
@@ -156,7 +162,11 @@ public class TablaPedidos {
 		lblNewJgoodiesLabel_7.setBounds(679, 242, 88, 44);
 		frame.getContentPane().add(lblNewJgoodiesLabel_7);
 	}
-
+/**
+ * se rellena el contenido de la tabla
+ * 
+ * @param produList array de tipo Producto
+ */
 	public void setLlenartabla(ArrayList<Producto> produList) {
 
 		DefaultTableModel model = new DefaultTableModel(
@@ -185,15 +195,25 @@ public class TablaPedidos {
 		tabla.setForeground(new Color(128, 0, 255));
 
 	}
-
+/**
+ * Se have visible la ventana
+ */
 	public void mostrarVentana() {
 		frame.setVisible(true);
 	}
-
+/**
+ * recibe controlador
+ * 
+ * @return controlador Clase que une las ventanas con el modelo
+ */
 	public Controlador getControlador() {
 		return controlador;
 	}
-
+/**
+ * modifica controlador
+ * 
+ * @param controlador Clase que une las ventanas con el modelo
+ */
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}

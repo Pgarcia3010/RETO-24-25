@@ -7,13 +7,17 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
-
+/**
+ * Ventana donde salen los avisos en caso de fallo en BBDD
+ */
 public class ErrorBBDD {
 
 	private JFrame frame;
 
 	/**
 	 * Launch the application.
+	 * 
+	 * @param args args de clase main
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

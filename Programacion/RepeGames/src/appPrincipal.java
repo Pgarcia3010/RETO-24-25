@@ -13,9 +13,18 @@ import Vista.TablaAdministrarProductos;
 import Vista.TablaPedidos;
 import Vista.VentanaLogin;
 import Vista.VentanaRegistrar;
-
+/**
+ * Inicio de la aplicacion donde se ejecuta todo
+ * 
+ * @author Paul y Ismael
+ */
 public class appPrincipal {
-	@SuppressWarnings({ "unused", "resource"})
+//	@SuppressWarnings({ "unused", "resource"})
+	/**
+	 * Inicio de la aplicacion
+	 * 
+	 * @param args args del programa
+	 */
 	public static void main(String[] args) {
 
 		// LOGS
