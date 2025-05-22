@@ -6,9 +6,17 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="C:/Users/1AW3-7/Desktop/RETO 24-25/RETO-24-25/Programacion/com.jgoodies.common_1.8.1.v20240327-0800.jar"/>
 	<classpathentry kind="lib" path="C:/Users/1AW3-7/Desktop/RETO 24-25/RETO-24-25/Programacion/com.jgoodies.forms_1.9.0.v20240327-0800.jar"/>
 	<classpathentry kind="lib" path="C:/Users/1AW3-7/Desktop/RETO 24-25/RETO-24-25/Programacion/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47-bin.jar"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/1AW3-4/eclipse-workspace/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+>>>>>>> 5dd9c3ab4fc507188c7c62c5bc85b28042c414b3
 	<classpathentry kind="output" path="bin"/>
 </classpath>
